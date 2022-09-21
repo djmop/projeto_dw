@@ -1,14 +1,10 @@
----
-title: "Geração de DW - Projeto BI (PUC)"
-author: "Daniel T. Nunes"
-date: "2022-09-11 03:00"
-output: github_document
----
+# Geração de DW - Projeto BI (PUC)
+
+Daniel T. Nunes 2022-09-11 03:00
 
 ## Pacotes
 
-```{r pacotes, message=FALSE}
-
+``` r
 library(magrittr)
 
 library(dplyr)
@@ -19,15 +15,13 @@ library(purrr)
 library(lubridate)
 
 library(here)
-
 ```
 
 <br />
 
 ## Funções auxiliares
 
-```{r funcoes.auxiliares}
-
+``` r
 sample.values <- function(x, .max = 30) {
   vals <- map(x, ~unique(.))
   res <- map(vals, function(y) {
@@ -42,29 +36,25 @@ sample.values <- function(x, .max = 30) {
 search.elems <- function(x, pattern) {
   x[stringr::str_detect(names(x), pattern = pattern)]
 }
-
 ```
 
 <br />
 
 ## Carregamento
 
-```{r carregamento, message=FALSE}
-
+``` r
 filenames <- fs::dir_ls(path = here('data'), type = 'file')
 
 datasets <- purrr::map(filenames, read_csv)
 names(datasets) <- stringr::str_remove(basename(filenames), r'(\.csv)')
 rm(filenames)
-
 ```
 
 <br />
 
 ## Filtra registros incompletos
 
-```{r detecta.registros.completos}
-
+``` r
 boletins <- map(
   datasets,
   ~select(., any_of('num_boletim'))
@@ -100,33 +90,27 @@ boletins %<>% rowwise() %>%
   ungroup()
 
 boletins %<>% select(-c(logr, ocor, pess, veic))
-
 ```
 
-```{r filtra.registros.completos}
-
+``` r
 datasets %<>% map(., function(x){
   x %>% filter(num_boletim %in% boletins$num_boletim)
 })
 
 rm(boletins)
-
 ```
 
 <br />
 
 ## Gerando dimensões
 
-```{r declara.dimensoes}
-
+``` r
 output <- list()
-
 ```
 
 ### [Data]{.smallcaps}
 
-```{r dim.data}
-
+``` r
 loc <- 'pt_BR.utf8'
 
 dim.data <- tibble(
@@ -176,15 +160,13 @@ dim.data %<>% relocate(data_sk)
 output[['dim.data']] <- dim.data
 
 rm(dim.data, loc)
-
 ```
 
 <br />
 
 ### [Ocorrências]{.smallcaps}
 
-```{r ocorrencias}
-
+``` r
 ocorrencias <- datasets$ocorrencias
 
 
@@ -345,16 +327,13 @@ ocorrencias %<>% select(-c(
 output[['dim.ocorrencias']] <- ocorrencias
 
 rm(ocorrencias)
-
-
 ```
 
 <br />
 
 ### [Logradouros]{.smallcaps}
 
-```{r logradouros}
-
+``` r
 logradouros <- datasets$logradouros
 
 logradouros %<>% select(-data_hora_boletim)
@@ -427,15 +406,13 @@ output[['fato.logradouros_envolvidos']] <- logradouros
 ##  SALVA FATO
 ##  ----------
 rm(logradouros)
-
 ```
 
 <br />
 
 ### [Veículos envolvidos]{.smallcaps}
 
-```{r veiculos}
-
+``` r
 veiculos <- datasets$veiculos_envolvidos
 veiculos %<>% select(-data_hora_boletim)
 
@@ -517,15 +494,13 @@ veiculos %<>%
 output[['fato.veiculos_envolvidos']] <- veiculos
 
 rm(veiculos)
-
 ```
 
 <br />
 
 ### [Pessoas envolvidas]{.smallcaps}
 
-```{r pessoas}
-
+``` r
 pessoas <- datasets$pessoas_envolvidas
 pessoas %<>% select(-data_hora_boletim)
 
@@ -641,18 +616,13 @@ pessoas %<>%
 output[['fato.pessoas_envolvidas']] <- pessoas
 
 rm(pessoas)
-
-
-
-
 ```
 
 <br />
 
 ## Salva DW
 
-```{r salvamento.dw}
-
+``` r
 if (!dir.exists(here('dw'))) {
   dir.create(here('dw'))
 }
@@ -662,13 +632,11 @@ for (i in seq_along(output)) {
   nm <- stringr::str_replace(names(output)[i], r'{\.}', '-')
   readr::write_csv(dt, here('dw', glue::glue('{nm}.csv')))
 }
-
 ```
 
 ## Libera memória
 
-```{r libera.memoria.finalizacao, message=FALSE}
-
+``` r
 rm(list = ls())
 
 purrr::walk(
@@ -682,5 +650,4 @@ purrr::walk(
 )
 
 rstudioapi::restartSession()
-
 ```

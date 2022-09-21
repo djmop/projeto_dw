@@ -1,38 +1,30 @@
----
-title: "Extrator CSVs - Projeto BI (PUC)"
-author: "Daniel T. Nunes"
-date: "2022-09-10 23:30"
-output: github_document
----
+# Extrator CSVs - Projeto BI (PUC)
+
+Daniel T. Nunes 2022-09-10 23:30
 
 ## Pacotes
 
-```{r importa.pacotes, message=FALSE}
-
+``` r
 library(RSelenium)
-library(tidyverse)
-library(magrittr)
-library(here)
-
 library(doParallel)
 library(foreach)
 
+library(tidyverse)
+library(magrittr)
+library(here)
 ```
 
 ## Carrega URLs
 
-```{r carrega.urls, message=FALSE}
-
+``` r
 bhtrans <- read_csv(here('config/bhtrans_urls.csv'))
 urls <- bhtrans[['url']]
 names(urls) <- bhtrans[['name']]
-
 ```
 
 ## Cria Servidor
 
-```{r cria.servidor}
-
+``` r
 rD <- rsDriver(
   browser = 'firefox',
   verbose = FALSE,
@@ -40,21 +32,17 @@ rD <- rsDriver(
 )
 
 remDr <- rD[["client"]]
-
 ```
 
 ## Abre Cliente
 
-```{r abre.cliente, message=FALSE}
-
+``` r
 remDr$open()
-
 ```
 
 ## Coleta URLs dos CSVs
 
-```{r coleta.csv.urls}
-
+``` r
 csvs <- list()
 
 for(i in seq_along(urls)) {
@@ -78,21 +66,17 @@ for(i in seq_along(urls)) {
   
   csvs[[names(urls[i])]] <- csv.urls
 }
-
 ```
 
 ## Finaliza Servidor
 
-```{r finaliza.servidor}
-
+``` r
 rD$server$process$finalize()
-
 ```
 
 ## Cria diretórios
 
-```{r cria.diretorios, message=FALSE}
-
+``` r
 create_dir <- function(dir.name) {
   dir.path <- here('raw_data', dir.name)
   if (!dir.exists(dir.path))
@@ -104,13 +88,11 @@ success <- map(names(urls), ~create_dir(.)) %>% unlist()
 if (!all(success)) {
   cli::cli_abort("Falha na criação de diretórios")
 }
-
 ```
 
 ## Baixa CSVs
 
-```{r baixa.csvs}
-
+``` r
 myCluster <- makeCluster(
   detectCores() - 1,
   type = 'PSOCK',
@@ -140,13 +122,11 @@ for (i in seq_along(csvs)) {
 }
 
 stopCluster(myCluster)
-
 ```
 
 ## Libera memória
 
-```{r libera.memoria.finalizacao, message=FALSE}
-
+``` r
 rm(list = ls())
 
 purrr::walk(

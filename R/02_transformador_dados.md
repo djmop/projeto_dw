@@ -1,14 +1,10 @@
----
-title: "Transformação de dados - Projeto BI (PUC)"
-author: "Daniel T. Nunes"
-date: "2022-09-11 03:00"
-output: github_document
----
+# Transformação de dados - Projeto BI (PUC)
+
+Daniel T. Nunes 2022-09-11 03:00
 
 ## Pacotes
 
-```{r importa.pacotes, message=FALSE}
-
+``` r
 library(stringr)
 library(tibble)
 library(dplyr)
@@ -22,13 +18,11 @@ library(glue)
 
 library(magrittr)
 library(here)
-
 ```
 
 ## Carregamento
 
-```{r funcoes.carregamento}
-
+``` r
 load.csvs <- function(dir.paths) {
   csvs <- list()
   
@@ -80,24 +74,22 @@ load.csvs <- function(dir.paths) {
   
   return(list(log = logs, data = csvs))
 }
-
 ```
 
-```{r carrega.csvs, message=FALSE}
-
+``` r
 dir.paths <- fs::dir_ls(here('raw_data'), type = 'directory')
 csvs <- load.csvs(dir.paths)
 
 detach("package:readr", unload=TRUE)
-
 ```
+
+<br />
 
 ## Transformação
 
 ### [Organizando variações estruturais]{.smallcaps}
 
-```{r funcoes.de.agrupamento}
-
+``` r
 #' Create sets of data.frames with identical column names.
 #' 
 #' @description Data.frames comprising identical column names and
@@ -129,105 +121,26 @@ group_by_cols <- function(x) {
   }
   return(df.sets)
 }
-
 ```
 
-```{r funcoes.de.analise, include=FALSE}
-
-#' Create sets of unique column names.
-#' @param x List of data.frames.
-#' @return List of unique column sets.
-#' 
-unique_col_sets <- function(x) {
-  assertthat::assert_that(every(x, is.data.frame))
-  colnms <- map(x, colnames)
-  col.sets <- list()
-  i = 0
-  for (cn in colnms) {
-    set.exists <- some(col.sets, ~ identical(., cn))
-    if (set.exists) { next }
-    i = i + 1
-    col.sets[[glue("S{i}")]] <- cn
-  }
-  
-  return(col.sets)
-}
-
-#' Compute the assymetric difference among columns of dataframes.
-#' @description Calculates the number of differences found in
-#'   column names with `setdiff`.
-#' @param x List of data.frames.
-#' @return Matrix of assymetric differences.
-#' 
-compare_cols <- function(x) {
-  col.sets <- unique_col_sets(x)
-  len <- length(col.sets)
-  nms <- names(col.sets)
-
-  comp.df <- tibble(
-    A      = character(),
-    B      = character(),
-    union  = integer(),
-    intsc  = integer(),
-    diffs  = list(list(AB = character(), BA = character()))
-  )
-
-  comparisons <- list()
-
-  for (i in 1:len) {
-    for (j in 1:len) {
-      skip <- i == j | some(comparisons, ~setequal(., c(i, j)))
-      if (skip) { next }
-      comparisons %<>%
-        append(list(c(i,j)))
-      
-      a <- col.sets[[i]]
-      b <- col.sets[[j]]
-      
-      comp.df %<>% add_row(
-        A     = nms[i],
-        B     = nms[j],
-        union = length(union(a, b)),
-        intsc = length(intersect(a, b)),
-        diffs = list(list(AB = setdiff(a, b), BA = setdiff(b, a)))
-      )
-    }
-  }
-  return(comp.df)
-}
-
-col.sets <- map(csvs$data, unique_col_sets)
-
-```
-
-```{r agrupa.por.atributos, message=FALSE}
-
+``` r
 ##  Concatena datasets comuns
 ##  -------------------------
 df.sets <- map(csvs$data, group_by_cols)
 df.sets <- map(df.sets, ~map(., bind_rows, .id = "arquivo_original"))
-
 ```
 
-```{r libera.memoria, include=FALSE}
-
-##  Libera memória
-##  --------------
-rm(csvs)
-gc()
-
-```
-
-```{r declara.output}
-
-output <- list()
-
-```
+<br />
 
 ### [Transformação estrutural por dataset]{.smallcaps}
 
-```{r transf.est.logradouros}
+``` r
+output <- list()
+```
 
+#### *Logradouros*
+
+``` r
 dataset <- df.sets$logradouros
 
 ##  Dicionários
@@ -243,7 +156,38 @@ dataset['S1'] <- NULL
 ##  Conversão de nomes de campos
 ##  ----------------------------
 kpitoolkit::compare_colnames(dataset, sort = TRUE)
+```
 
+    ## # A tibble: 25 × 4
+    ##    colnames                    S2    S3    S4
+    ##    <chr>                    <dbl> <dbl> <dbl>
+    ##  1 arquivo_original             1     1     1
+    ##  2 data_boletim                 1     1     1
+    ##  3 descricao_tipo_bairro        1     1     1
+    ##  4 no_bairro                   NA     1     1
+    ##  5 no_boletim                  NA     1     1
+    ##  6 no_imovel                   NA     1     1
+    ##  7 no_imovel_proximo           NA     1     1
+    ##  8 no_logradouro               NA     1     1
+    ##  9 no_municipio                NA     1     1
+    ## 10 nome_bairro                  1     1     1
+    ## 11 nome_logradoro_anterior      1     1    NA
+    ## 12 nome_logradouro              1     1     1
+    ## 13 nome_logradouro_anterior    NA    NA     1
+    ## 14 nome_municipio               1     1     1
+    ## 15 numero_bairro                1    NA    NA
+    ## 16 numero_boletim               1    NA    NA
+    ## 17 numero_imovel                1    NA    NA
+    ## 18 numero_imovel_proximo        1    NA    NA
+    ## 19 numero_logradouro            1    NA    NA
+    ## 20 numero_municipio             1    NA    NA
+    ## 21 seq_logradouros             NA     1     1
+    ## 22 sequencia_logradouros        1    NA    NA
+    ## 23 tipo_bairro                  1     1     1
+    ## 24 tipo_logradouro              1     1     1
+    ## 25 tipo_logradouro_anterior     1     1     1
+
+``` r
 conversions <- c(
   data_hora_boletim        = 'data_boletim',
   num_bairro               = 'no_bairro',
@@ -265,19 +209,42 @@ conversions <- c(
 dataset <- map(dataset, ~ rename(., any_of(conversions)))
 
 kpitoolkit::compare_colnames(dataset, sort = TRUE)
+```
 
+    ## # A tibble: 17 × 4
+    ##    colnames                    S2    S3    S4
+    ##    <chr>                    <dbl> <dbl> <dbl>
+    ##  1 arquivo_original             1     1     1
+    ##  2 data_hora_boletim            1     1     1
+    ##  3 descricao_tipo_bairro        1     1     1
+    ##  4 nome_bairro                  1     1     1
+    ##  5 nome_logradouro              1     1     1
+    ##  6 nome_logradouro_anterior     1     1     1
+    ##  7 nome_municipio               1     1     1
+    ##  8 num_bairro                   1     1     1
+    ##  9 num_boletim                  1     1     1
+    ## 10 num_imovel                   1     1     1
+    ## 11 num_imovel_proximo           1     1     1
+    ## 12 num_logradouro               1     1     1
+    ## 13 num_municipio                1     1     1
+    ## 14 sequencia_logradouros        1     1     1
+    ## 15 tipo_bairro                  1     1     1
+    ## 16 tipo_logradouro              1     1     1
+    ## 17 tipo_logradouro_anterior     1     1     1
 
-
+``` r
 ##  Fusão de tabelas
 ##  ----------------
 dataset %<>% bind_rows()
 
 output[['logradouros']][['data']] <- dataset
-
 ```
 
-```{r transf.est.ocorrencias}
+<br />
 
+#### *Ocorrências*
+
+``` r
 dataset <- df.sets$ocorrencias
 
 ##  Dicionários
@@ -297,11 +264,13 @@ dataset[['S2']] %<>% rename(any_of(conversions))
 
 output[['ocorrencias']][['dict']] <- dataset$S1
 output[['ocorrencias']][['data']] <- dataset$S2
-
 ```
 
-```{r transf.est.pessoas}
+<br />
 
+#### *Pessoas envolvidas*
+
+``` r
 dataset <- df.sets$pessoas_envolvidas
 
 ##  Dicionários
@@ -317,7 +286,38 @@ dataset['S1'] <- NULL
 ##  Conversão de nomes de campos
 ##  ----------------------------
 kpitoolkit::compare_colnames(dataset, sort = TRUE)
+```
 
+    ## # A tibble: 25 × 5
+    ##    colnames                  S2    S3    S4    S5
+    ##    <chr>                  <dbl> <dbl> <dbl> <dbl>
+    ##  1 arquivo_original           1     1     1     1
+    ##  2 categoria_habilitacao      1     1     1     1
+    ##  3 cinto_seguranca            1     1     1     1
+    ##  4 cod_severidade            NA    NA     1     1
+    ##  5 cod_severidade_antiga      1     1     1     1
+    ##  6 codigo_severidade          1     1    NA    NA
+    ##  7 condutor                   1     1     1     1
+    ##  8 data_hora_boletim          1     1     1     1
+    ##  9 declaracao_obito           1     1     1     1
+    ## 10 desc_severidade            1     1     1     1
+    ## 11 descricao_habilitacao      1     1     1     1
+    ## 12 embreagues                 1     1     1     1
+    ## 13 especie_veiculo            1     1     1     1
+    ## 14 idade                      1     1     1     1
+    ## 15 indicador_passageiro      NA     1    NA    NA
+    ## 16 indicador_pedestre        NA     1    NA    NA
+    ## 17 indicador_usa_capacete    NA     1    NA    NA
+    ## 18 nascimento                 1     1     1     1
+    ## 19 no_boletim                NA    NA    NA     1
+    ## 20 no_envolvido              NA    NA     1     1
+    ## 21 num_boletim                1     1     1    NA
+    ## 22 numero_envolvido           1     1    NA    NA
+    ## 23 passageiro                NA    NA     1     1
+    ## 24 pedestre                  NA    NA     1     1
+    ## 25 sexo                       1     1     1     1
+
+``` r
 conversions <- c(
   num_envolvido    = 'no_envolvido',
   num_envolvido    = 'numero_envolvido',
@@ -334,18 +334,45 @@ conversions <- c(
 dataset <- map(dataset, ~ rename(., any_of(conversions)))
 
 kpitoolkit::compare_colnames(dataset, sort = TRUE)
+```
 
+    ## # A tibble: 20 × 5
+    ##    colnames                 S2    S3    S4    S5
+    ##    <chr>                 <dbl> <dbl> <dbl> <dbl>
+    ##  1 arquivo_original          1     1     1     1
+    ##  2 categoria_habilitacao     1     1     1     1
+    ##  3 cinto_seguranca           1     1     1     1
+    ##  4 cod_severidade            1     1     1     1
+    ##  5 cod_severidade_antiga     1     1     1     1
+    ##  6 condutor                  1     1     1     1
+    ##  7 data_hora_boletim         1     1     1     1
+    ##  8 declaracao_obito          1     1     1     1
+    ##  9 desc_habilitacao          1     1     1     1
+    ## 10 desc_severidade           1     1     1     1
+    ## 11 embreagues                1     1     1     1
+    ## 12 especie_veiculo           1     1     1     1
+    ## 13 idade                     1     1     1     1
+    ## 14 nascimento                1     1     1     1
+    ## 15 num_boletim               1     1     1     1
+    ## 16 num_envolvido             1     1     1     1
+    ## 17 passageiro               NA     1     1     1
+    ## 18 pedestre                 NA     1     1     1
+    ## 19 sexo                      1     1     1     1
+    ## 20 usa_capacete             NA     1    NA    NA
 
+``` r
 ##  Fusão de tabelas
 ##  ----------------
 dataset %<>% bind_rows()
 
 output[['pessoas_envolvidas']][['data']] <- dataset
-
 ```
 
-```{r transf.est.veiculos}
+<br />
 
+#### *Veículos envolvidos*
+
+``` r
 dataset <- df.sets$veiculos_envolvidos
 
 ##  Dicionários
@@ -361,7 +388,32 @@ dataset['S1'] <- NULL
 ##  Conversão de nomes de campos
 ##  ----------------------------
 kpitoolkit::compare_colnames(dataset, sort = TRUE)
+```
 
+    ## # A tibble: 19 × 3
+    ##    colnames                  S2    S3
+    ##    <chr>                  <dbl> <dbl>
+    ##  1 arquivo_original           1     1
+    ##  2 cod_categ                 NA     1
+    ##  3 cod_especie               NA     1
+    ##  4 cod_situacao              NA     1
+    ##  5 codigo_categoria           1    NA
+    ##  6 codigo_especie             1    NA
+    ##  7 codigo_situacao            1    NA
+    ##  8 data_hora_boletim          1     1
+    ##  9 desc_situacao             NA     1
+    ## 10 desc_tipo_socorro         NA     1
+    ## 11 descricao_categoria        1     1
+    ## 12 descricao_especie          1     1
+    ## 13 descricao_situacao         1    NA
+    ## 14 descricao_tipo_socorro     1    NA
+    ## 15 no_boletim                NA     1
+    ## 16 numero_boletim             1    NA
+    ## 17 seq_veic                  NA     1
+    ## 18 sequencial_veiculo         1    NA
+    ## 19 tipo_socorro               1     1
+
+``` r
 conversions <- c(
   num_boletim        = 'no_boletim',
   num_boletim        = 'numero_boletim',
@@ -382,29 +434,38 @@ conversions <- c(
 dataset <- map(dataset, ~ rename(., any_of(conversions)))
 
 kpitoolkit::compare_colnames(dataset, sort = TRUE)
+```
 
+    ## # A tibble: 12 × 3
+    ##    colnames              S2    S3
+    ##    <chr>              <dbl> <dbl>
+    ##  1 arquivo_original       1     1
+    ##  2 cod_categoria          1     1
+    ##  3 cod_especie            1     1
+    ##  4 cod_situacao           1     1
+    ##  5 data_hora_boletim      1     1
+    ##  6 desc_categoria         1     1
+    ##  7 desc_especie           1     1
+    ##  8 desc_situacao          1     1
+    ##  9 desc_tipo_socorro      1     1
+    ## 10 num_boletim            1     1
+    ## 11 sequencial_veiculo     1     1
+    ## 12 tipo_socorro           1     1
 
+``` r
 ##  Fusão de tabelas
 ##  ----------------
 dataset %<>% bind_rows()
 
 output[['veiculos_envolvidos']][['data']] <- dataset
-
 ```
 
-```{r limpa.est.ambiente, include=FALSE}
-
-rm(df.sets, dataset, load.csvs, group_by_cols, unique_col_sets, compare_cols)
-rm(conversions, dir.paths, col.sets)
-
-```
+<br /><br />
 
 ### [Transformação de valores]{.smallcaps}
 
-```{r transf.valores}
-
+``` r
 output <- map(output, ~map(., mutate, across(.fns = str_squish)))
-
 ```
 
 <br />
@@ -413,16 +474,34 @@ output <- map(output, ~map(., mutate, across(.fns = str_squish)))
 
 1.  **Validação de tipos**
 
-```{r logr}
-
+``` r
 dct <- output$logradouros$dict
 aux <- readr::type_convert(output$logradouros$data)
-
-# x <- map(aux, ~sort(unique(.)))
-# y <- map(x, ~ if (length(.) > 30) {sample(., 30)} else {.})
-# rm(x, y)
-
 ```
+
+    ## 
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## cols(
+    ##   arquivo_original         = col_character(),
+    ##   num_boletim              = col_character(),
+    ##   data_hora_boletim        = col_character(),
+    ##   num_municipio            = col_double(),
+    ##   nome_municipio           = col_character(),
+    ##   sequencia_logradouros    = col_double(),
+    ##   num_logradouro           = col_double(),
+    ##   tipo_logradouro          = col_character(),
+    ##   nome_logradouro          = col_character(),
+    ##   tipo_logradouro_anterior = col_character(),
+    ##   nome_logradouro_anterior = col_character(),
+    ##   num_bairro               = col_double(),
+    ##   nome_bairro              = col_character(),
+    ##   tipo_bairro              = col_character(),
+    ##   descricao_tipo_bairro    = col_character(),
+    ##   num_imovel               = col_character(),
+    ##   num_imovel_proximo       = col_double()
+    ## )
+
+<br />
 
 2.  **Resultados**
 
@@ -448,10 +527,11 @@ aux <- readr::type_convert(output$logradouros$data)
 |                                                       | `["0", "0 ,", "0,"]`                                                    |                                      |           |
 +-------------------------------------------------------+-------------------------------------------------------------------------+--------------------------------------+-----------+
 
+<br />
+
 3.  **Fix**
 
-```{r fix.fatores.logr}
-
+``` r
 aux %<>% mutate(data_hora_boletim = parse_date_time(
   data_hora_boletim, '%d/%m/%Y %H:%M'
 ))
@@ -523,7 +603,6 @@ aux %<>% distinct()
 ##  SALVANDO ALTERAÇÕES
 ##  -------------------
 output$logradouros$data <- aux
-
 ```
 
 <br />
@@ -532,16 +611,25 @@ output$logradouros$data <- aux
 
 1.  **Validação de tipos**
 
-```{r ocor}
-
+``` r
 dct <- output$ocorrencias$dict
 aux <- readr::type_convert(output$ocorrencias$data)
-
-# x <- map(aux, ~sort(unique(.)))
-# y <- map(x, ~ if (length(.) > 30) {sample(., 30)} else {.})
-# rm(x, y)
-
 ```
+
+    ## 
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## cols(
+    ##   .default             = col_character(),
+    ##   cod_tempo            = col_double(),
+    ##   cod_pavimento        = col_double(),
+    ##   cod_regional         = col_double(),
+    ##   velocidade_permitida = col_double(),
+    ##   valor_ups            = col_double(),
+    ##   valor_ups_antiga     = col_double()
+    ## )
+    ## ℹ Use `spec()` for the full column specifications.
+
+<br />
 
 2.  **Resultados**
 
@@ -556,10 +644,11 @@ aux <- readr::type_convert(output$ocorrencias$data)
 | `coordenada_x`, `coordenada_y`                                    | Leading zero: `["0061011635.00", …,  "0060770301.00"]`      | won't fix       | won't fix |
 | `desc_regional`                                                   | Apresenta `3473` missing data                               | won't fix       | won't fix |
 
+<br />
+
 3.  **Fix**
 
-```{r fix.fatores.ocor}
-
+``` r
 aux %<>% mutate(across(
   c(data_hora_boletim, data_inclusao),
   ~ parse_date_time(., '%d/%m/%Y %H:%M')
@@ -622,7 +711,6 @@ aux %<>% distinct()
 ##  SALVANDO ALTERAÇÕES
 ##  -------------------
 output$ocorrencias$data <- aux
-
 ```
 
 <br />
@@ -631,16 +719,25 @@ output$ocorrencias$data <- aux
 
 1.  **Validação de tipos**
 
-```{r pess}
-
+``` r
 dct <- output$pessoas_envolvidas$dict
 aux <- readr::type_convert(output$pessoas_envolvidas$data)
-
-# x <- map(aux, ~sort(unique(.)))
-# y <- map(x, ~ if (length(.) > 30) {sample(., 30)} else {.})
-# rm(x, y)
-
 ```
+
+    ## 
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## cols(
+    ##   .default              = col_character(),
+    ##   num_envolvido         = col_double(),
+    ##   cod_severidade        = col_double(),
+    ##   idade                 = col_double(),
+    ##   declaracao_obito      = col_double(),
+    ##   cod_severidade_antiga = col_double(),
+    ##   x                     = col_logical()
+    ## )
+    ## ℹ Use `spec()` for the full column specifications.
+
+<br />
 
 2.  **Resultados**
 
@@ -668,10 +765,11 @@ aux <- readr::type_convert(output$pessoas_envolvidas$data)
 | `idade` , `nascimento`                                                | Valores incompatíveis ou inconsistentes                                  | Alterar para NA                       | x     |
 +-----------------------------------------------------------------------+--------------------------------------------------------------------------+---------------------------------------+-------+
 
+<br />
+
 3.  **Fix**
 
-```{r fix.fatores.pess}
-
+``` r
 ##  REMOÇÃO DE CAMPOS SEM DADOS
 ##  ---------------------------
 aux %<>% select(-c(
@@ -803,7 +901,6 @@ aux %<>% distinct()
 ##  SALVANDO ALTERAÇÕES
 ##  -------------------
 output$pessoas_envolvidas$data <- aux
-
 ```
 
 <br />
@@ -812,16 +909,29 @@ output$pessoas_envolvidas$data <- aux
 
 1.  **Validação de tipos**
 
-```{r veic}
-
+``` r
 dct <- output$veiculos_envolvidos$dict
 aux <- readr::type_convert(output$veiculos_envolvidos$data)
-
-# x <- map(aux, ~sort(unique(.)))
-# y <- map(x, ~ if (length(.) > 30) {sample(., 30)} else {.})
-# rm(x, y)
-
 ```
+
+    ## 
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## cols(
+    ##   arquivo_original = col_character(),
+    ##   num_boletim = col_character(),
+    ##   data_hora_boletim = col_character(),
+    ##   sequencial_veiculo = col_double(),
+    ##   cod_categoria = col_double(),
+    ##   desc_categoria = col_character(),
+    ##   cod_especie = col_double(),
+    ##   desc_especie = col_character(),
+    ##   cod_situacao = col_double(),
+    ##   desc_situacao = col_character(),
+    ##   tipo_socorro = col_double(),
+    ##   desc_tipo_socorro = col_character()
+    ## )
+
+<br />
 
 2.  **Resultados**
 
@@ -831,10 +941,11 @@ aux <- readr::type_convert(output$veiculos_envolvidos$data)
 |------------------------------------------------------------------------|------------------------|-----------------|:-----:|
 | `desc_categoria`, `desc_especie`, `desc_situacao`, `desc_tipo_socorro` | Presença de acentuação | Remover acentos |   x   |
 
+<br />
+
 3.  **Fix**
 
-```{r fix.fatores.veic}
-
+``` r
 ##  REMOÇÃO DE ACENTOS
 ##  ------------------
 aux %<>% mutate(across(
@@ -865,13 +976,11 @@ aux %<>% distinct()
 ##  SALVANDO ALTERAÇÕES
 ##  -------------------
 output$veiculos_envolvidos$data <- aux
-
 ```
 
 ### [Salvando transformação]{.smallcaps}
 
-```{r salvamento}
-
+``` r
 if (!dir.exists(here('data'))) {
   dir.create(here('data'))
 }
@@ -881,14 +990,11 @@ for (i in seq_along(output)) {
   nm <- names(output)[i]
   readr::write_csv(dt, here('data', glue('{nm}.csv')))
 }
-
-
 ```
 
 ### [Liberando memória]{.smallcaps}
 
-```{r libera.memoria.finalizacao, message=FALSE}
-
+``` r
 rm(list = ls())
 
 purrr::walk(
@@ -902,5 +1008,4 @@ purrr::walk(
 )
 
 rstudioapi::restartSession()
-
 ```
