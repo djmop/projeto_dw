@@ -1,0 +1,142 @@
+---
+title: "Extrator CSVs - Projeto BI (PUC)"
+author: "Daniel T. Nunes"
+date: "2022-09-10 23:30"
+output:
+  rmdformats::downcute:
+    embed_fonts: yes
+    use_bookdown: yes
+    default_style: dark
+    downcute_theme: chaos
+  html_document:
+    df_print: paged
+  pdf_document: default
+editor_options:
+  chunk_output_type: console
+---
+
+# Extrator CSVs - Projeto BI (PUC)
+
+```{r importa.pacotes, include=FALSE}
+
+library(RSelenium)
+library(tidyverse)
+library(magrittr)
+library(here)
+
+library(doParallel)
+library(foreach)
+
+```
+
+```{r carrega.urls, include=FALSE}
+
+bhtrans <- read_csv(here('config/bhtrans_urls.csv'))
+urls <- bhtrans[['url']]
+names(urls) <- bhtrans[['name']]
+
+```
+
+```{r cria.servidor}
+
+rD <- rsDriver(
+  browser = 'firefox',
+  verbose = FALSE,
+  port    = 4813L
+)
+
+remDr <- rD[["client"]]
+
+```
+
+```{r abre.cliente, include=FALSE}
+
+remDr$open()
+
+```
+
+```{r coleta.csv.urls}
+
+csvs <- list()
+
+for(i in seq_along(urls)) {
+  remDr$navigate(urls[i])
+  
+  search.elems <- remDr$findElements(
+    using = 'class',
+    value = 'resource-url-analytics'
+  )
+  
+  csv.urls <- c()
+  
+  for (csv.elem in search.elems) {
+    csv.url  <- csv.elem$getElementAttribute('href') %>% unlist()
+    csv.name <- basename(csv.url) %>%
+      str_remove(r'{\.csv}') %>%
+      str_replace_all('-', '_')
+    
+    csv.urls[csv.name] <- csv.url
+  }
+  
+  csvs[[names(urls[i])]] <- csv.urls
+}
+
+```
+
+```{r finaliza.servidor}
+
+rD$server$process$finalize()
+
+```
+
+```{r cria.diretorios, include=FALSE}
+
+create_dir <- function(dir.name) {
+  dir.path <- here('raw_data', dir.name)
+  if (!dir.exists(dir.path))
+    dir.create(path = dir.path, recursive = TRUE)
+}
+
+success <- map(names(urls), ~create_dir(.)) %>% unlist()
+
+if (!all(success)) {
+  cli::cli_abort("Falha na criação de diretórios")
+}
+
+```
+
+```{r baixa.csvs}
+
+myCluster <- makeCluster(
+  detectCores() - 1,
+  type = 'PSOCK',
+  outfile = here('log/download.log')
+)
+
+registerDoParallel(myCluster)
+
+for (i in seq_along(csvs)) {
+  folder.name <- names(csvs)[i]
+  folder.csvs <- csvs[[i]]
+  
+  foreach(j = seq_along(folder.csvs)) %dopar% {
+    library(glue)
+    library(here)
+    library(httr)
+    
+    down.url <- folder.csvs[j]
+    csv.name <- glue::glue("{names(down.url)}.csv")
+    csv.path <- here::here('raw_data', folder.name, csv.name)
+    
+    httr::GET(
+      url = down.url,
+      httr::write_disk(path = csv.path, overwrite = TRUE)
+    )
+  }
+}
+
+stopCluster(myCluster)
+
+```
+
+# FIM
