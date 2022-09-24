@@ -6,6 +6,9 @@ raw_data/
 data/
 dw/
 
+### FILES ###
+*.log
+
 ### R ###
 # History files
 .Rhistory
