@@ -58,7 +58,7 @@ get_csv_urls <- function(verbose = F, port = 4813L) {
 #' Carrega urls da BHTRANS
 #' 
 load_root_urls <- function() {
-  box::use(g = ./globals, readr[read_csv, cols, col_character], here[here])
+  box::use(g = ./zzz_globals, readr[read_csv, cols, col_character], here[here])
   bhtrans <- read_csv(
     here(g$files$bhtrans_urls),
     col_type = cols(.default = col_character())
@@ -90,7 +90,7 @@ extract_csv_urls <- function(url, browser) {
 simplify_csv_name <- function(x) {
   box::use(
     stringr[str_remove_all, str_replace, str_replace_all, str_detect],
-    g = ./globals
+    g = ./zzz_globals
   )
   is.dict <- str_detect(x, 'dicionario')
   x <- str_replace_all(x, '-', '_')

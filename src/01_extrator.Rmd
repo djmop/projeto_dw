@@ -43,14 +43,6 @@ remDr <- rD[["client"]]
 
 ```
 
-## Abre Cliente
-
-```{r abre.cliente, message=FALSE}
-
-remDr$open()
-
-```
-
 ## Coleta URLs dos CSVs
 
 ```{r coleta.csv.urls}

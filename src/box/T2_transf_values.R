@@ -9,9 +9,9 @@ val_transform <- function(datasets) {
     names(datasets),
     function(.x, .y) {
       cli_process_start(glue('Transformação de valores: `{.y}`'))
-      str_transform <- val_func_mapper(.y)
+      val_transformation <- val_func_mapper(.y)
       cli_process_done()
-      return(str_transform(.x))
+      return(val_transformation(.x))
     }
   )
   
@@ -40,7 +40,7 @@ val_transf_logradouros <- function(dataset) {
     dplyr[mutate, across, case_when, select, relocate],
     stringr[str_detect], stringi[stri_trans_general],
     lubridate[parse_date_time], magrittr[`%<>%`],
-    g = ./globals
+    g = ./zzz_globals
   )
   
   dataset.df <- dataset$data
@@ -59,7 +59,7 @@ val_transf_logradouros <- function(dataset) {
   ##  AJUSTE DATAS
   ##  ------------
   dataset.df %<>% mutate(data_hora_boletim = parse_date_time(
-    data_hora_boletim, '%d/%m/%Y %H:%M', tz = g$constants$timezone
+    data_hora_boletim, '%d/%m/%Y %H:%M', tz = g$constants$TIMEZONE
   ))
   
   ##  PADRONIZAÇÃO
@@ -118,7 +118,7 @@ val_transf_logradouros <- function(dataset) {
       logradouro_nome,
       bairro_nome
     ),
-    .fns = ~ stri_trans_general(str = ., id = g$constants$str_translit)
+    .fns = ~ stri_trans_general(str = ., id = g$constants$STR_TRANSLIT)
   ))
   
   
@@ -133,7 +133,7 @@ val_transf_ocorrencias <- function(dataset) {
   box::use(
     dplyr[mutate, across, case_when, select, na_if],
     lubridate[parse_date_time], magrittr[`%<>%`],
-    stringi[stri_trans_general], g = ./globals
+    stringi[stri_trans_general], g = ./zzz_globals
   )
   
   dataset.df <- dataset$data
@@ -151,7 +151,7 @@ val_transf_ocorrencias <- function(dataset) {
   ##  -----------  
   dataset.df %<>% mutate(across(
     c(data_hora_boletim, data_hora_inclusao),
-    ~ parse_date_time(., '%d/%m/%Y %H:%M', tz = g$constants$timezone)
+    ~ parse_date_time(., '%d/%m/%Y %H:%M', tz = g$constants$TIMEZONE)
   ))
   
   
@@ -170,7 +170,7 @@ val_transf_ocorrencias <- function(dataset) {
       hora_informada,
       ups_desc
     ),
-    .fns = ~ stri_trans_general(str = ., id = g$constants$str_translit)
+    .fns = ~ stri_trans_general(str = ., id = g$constants$STR_TRANSLIT)
   ))
   
   
@@ -218,7 +218,7 @@ val_transf_pessoas <- function(dataset) {
   box::use(
     dplyr[mutate, across, case_when, select, na_if, rename, relocate],
     lubridate[parse_date_time, dmy, date, as.duration, interval, dyears, NA_Date_],
-    magrittr[`%<>%`, `%>%`], stringi[stri_trans_general], g = ./globals
+    magrittr[`%<>%`, `%>%`], stringi[stri_trans_general], g = ./zzz_globals
   )
   
   dataset.df <- dataset$data
@@ -246,7 +246,7 @@ val_transf_pessoas <- function(dataset) {
       pedestre,
       passageiro
     ),
-    .fns = ~ stri_trans_general(str = ., id = g$constants$str_translit)
+    .fns = ~ stri_trans_general(str = ., id = g$constants$STR_TRANSLIT)
   ))
   
   ##  PADRONIZAÇÃO
@@ -308,7 +308,7 @@ val_transf_pessoas <- function(dataset) {
   ##  ------------
   dataset.df %<>% mutate(across(
     data_hora_boletim,
-    ~parse_date_time(., '%d/%m/%Y %H:%M', tz = g$constants$timezone)
+    ~parse_date_time(., '%d/%m/%Y %H:%M', tz = g$constants$TIMEZONE)
   ))
   
   dataset.df$data_nascimento %<>% na_if(., '00/00/0000')
@@ -371,7 +371,7 @@ val_transf_veiculos <- function(dataset) {
   box::use(
     dplyr[mutate, across, case_when], lubridate[parse_date_time],
     magrittr[`%<>%`], stringi[stri_trans_general],
-    g = ./globals
+    g = ./zzz_globals
   )
   
   dataset.df <- dataset$data
@@ -385,7 +385,7 @@ val_transf_veiculos <- function(dataset) {
       situacao_desc,
       tipo_socorro_desc
     ),
-    .fns = ~ stri_trans_general(str = ., id = g$constants$str_translit)
+    .fns = ~ stri_trans_general(str = ., id = g$constants$STR_TRANSLIT)
   ))
   
   
@@ -411,7 +411,7 @@ val_transf_veiculos <- function(dataset) {
   ##  -------------------
   dataset.df %<>% mutate(across(
     data_hora_boletim,
-    ~ parse_date_time(., '%d/%m/%Y %H:%M', tz = g$constants$timezone)
+    ~ parse_date_time(., '%d/%m/%Y %H:%M', tz = g$constants$TIMEZONE)
   ))
   
   ##  SALVANDO ALTERAÇÕES

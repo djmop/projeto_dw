@@ -5,7 +5,8 @@ download_raw_data <- function(verbose = F, port = 4813L) {
   box::use(
     cli[cli_progress_bar, cli_progress_update, cli_progress_done],
     here[here], foreach[foreach, `%dopar%`],
-    g = ./globals, urls = ./raw_data_urls, dwn = ./download_csv
+    urls = ./E0_raw_data_urls, csvs = ./E0_raw_data_csvs,
+    g = ./zzz_globals
   )
   
   csv.urls <- urls$get_csv_urls(verbose = verbose, port = port)
@@ -28,7 +29,7 @@ download_raw_data <- function(verbose = F, port = 4813L) {
       
       doParallel::registerDoParallel(myCluster)
       
-      download_csv <- dwn$download_csv
+      download_csv <- csvs$download_csv
       
       for (i in seq_along(csv.urls)) {
         cur.subject <- names(csv.urls)[i]

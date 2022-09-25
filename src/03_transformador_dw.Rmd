@@ -27,7 +27,7 @@ library(here)
 ## Funções auxiliares
 
 ```{r funcoes.auxiliares}
-
+box::use(purrr[map])
 sample.values <- function(x, .max = 30) {
   vals <- map(x, ~unique(.))
   res <- map(vals, function(y) {
@@ -61,7 +61,7 @@ rm(filenames)
 
 <br />
 
-## Filtra registros incompletos
+## Remove registros incompletos e inconsistentes
 
 ```{r detecta.registros.completos}
 

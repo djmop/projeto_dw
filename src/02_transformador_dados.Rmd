@@ -233,7 +233,7 @@ dataset <- df.sets$logradouros
 ##  Dicionários
 ##  -----------
 dataset$S1 %<>% rowwise() %>%
-  mutate(nome_do_arquivo = make_clean_names(nome_do_arquivo)) %>%
+  mutate(nome_do_campo = make_clean_names(nome_do_campo)) %>%
   ungroup()
 
 output[['logradouros']][['dict']] <- dataset$S1
@@ -283,7 +283,7 @@ dataset <- df.sets$ocorrencias
 ##  Dicionários
 ##  -----------
 dataset$S1 %<>% rowwise() %>%
-  mutate(nome_do_arquivo = make_clean_names(nome_do_arquivo)) %>%
+  mutate(nome_do_campo = make_clean_names(nome_do_campo)) %>%
   ungroup()
 
 ##  Conversão de nomes de campos
@@ -307,7 +307,7 @@ dataset <- df.sets$pessoas_envolvidas
 ##  Dicionários
 ##  -----------
 dataset$S1 %<>% rowwise() %>%
-  mutate(nome_do_arquivo = make_clean_names(nome_do_arquivo)) %>%
+  mutate(nome_do_campo = make_clean_names(nome_do_campo)) %>%
   ungroup()
 
 output[['pessoas_envolvidas']][['dict']] <- dataset$S1
@@ -351,7 +351,7 @@ dataset <- df.sets$veiculos_envolvidos
 ##  Dicionários
 ##  -----------
 dataset$S1 %<>% rowwise() %>%
-  mutate(nome_do_arquivo = make_clean_names(nome_do_arquivo)) %>%
+  mutate(nome_do_campo = make_clean_names(nome_do_campo)) %>%
   ungroup()
 
 output[['veiculos_envolvidos']][['dict']] <- dataset$S1
@@ -797,7 +797,6 @@ aux %<>% rename(idade = idade_new)
 ##  REMOVENDO DUPLICATAS
 ##  --------------------
 aux %<>% distinct()
-
 
 
 ##  SALVANDO ALTERAÇÕES
