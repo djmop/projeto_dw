@@ -1,1 +1,0 @@
-ECHO %JAVA_PATH%

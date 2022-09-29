@@ -14,7 +14,7 @@ tryCatch(
     clock$tic()
     
     #  EXTRAÇÃO  ===============================================================
-    raw.data <- EXT$extract(download = FALSE)
+    raw.data <- EXT$extract()
     
     #  TRANSFORMAÇÃO  ==========================================================
     data.sets      <- TRD$transform_raw_data(raw.data)
