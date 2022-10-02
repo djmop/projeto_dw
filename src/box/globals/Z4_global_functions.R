@@ -20,3 +20,8 @@ type_convert <- function(df) {
   
   return(converted.df)
 }
+
+
+has_color_console <- function() {
+  rstudioapi::hasColorConsole()
+}
