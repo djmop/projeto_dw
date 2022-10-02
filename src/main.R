@@ -1,19 +1,31 @@
-
 setwd(base::file.path(project_root, 'src'))
 
 
 run_etl <- function(proj_root, download = TRUE, log = TRUE) {
+  box::use(fs[dir_ls])
   box::use(
-    G.LOG = ./box/globals/Z2_global_logging,
-    EXT   = ./box/S1_extract,
-    TRD   = ./box/S2_transform_raw_data,
-    TDW   = ./box/S3_transform_dw
+    G.PATH = ./box/globals/Z1_global_paths,
+    G.LOG  = ./box/globals/Z2_global_logging,
+    EXT    = ./box/S1_extract,
+    TRD    = ./box/S2_transform_raw_data,
+    TDW    = ./box/S3_transform_dw
   )
   
   tryCatch(
     expr = {
       logger <- G.LOG$Logger$new(output = log)
       logger$start('PROCESSO ETL')
+      
+      rawdir_path <- G.PATH$dirs$raw_data
+      has_rawdata <- FALSE
+      
+      if (dir.exists(rawdir_path)) {
+        rawfiles <- dir_ls(rawdir_path, recurse = T, glob = '*.csv')
+        has_rawdata <- length(rawfiles) > 0
+      }
+      
+      if (!has_rawdata)
+        download <- TRUE
       
     # EXTRAÇÃO  ================================================================
       logger$add_title('Extração')

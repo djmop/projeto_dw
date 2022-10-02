@@ -48,7 +48,7 @@ download_raw_data <- function(verbose = F, port = 4813L) {
         cur.urls    <- csv.urls[[i]]
         
         dirpath <- here(G.PATH$dirs$raw_data, cur.subject)
-        if (!dir.exists(dirpath)) { dir.create(dirpath) }
+        if (!dir.exists(dirpath)) { dir.create(dirpath, recursive = T) }
         
         foreach(j = seq_along(cur.urls)) %dopar% {
           box::use(here[here], glue[glue])
