@@ -3,18 +3,28 @@ title: "Projeto Data Warehouse (BI) - projeto_dw"
 authors: Daniel Nunes, João Dias, Maycon Felipe, Octávio Martins, Pedro Damasceno
 updated-at: "2022-09-29"
 output:
-  # github_document
-  rmdformats::downcute:
-  embed_fonts: true
-  use_bookdown: true
-  default_style: dark
-  downcute_theme: chaos
-  css: style.css
+  github_document
+  # rmdformats::downcute:
+  # embed_fonts: true
+  # use_bookdown: true
+  # default_style: dark
+  # downcute_theme: chaos
+  # css: style.css
 ---
 
 **`PUC Minas`** `[Disciplina: Business Intelligence]`
 
 Este projeto visa o desenvolvimento de pipelines de extração, transformação e carga em Data Warehouse e o desenvolvimento de dashboards. O tema escolhido foi **Mobilidade Urbana** de Belo Horizonte, com enfoque em dados sobre **Acidentes de Trânsito** ocorridos nos perímetros da cidade.
+
+-   [github.com/djmop/projeto_dw](https://github.com/djmop/projeto_dw)
+
+## Contribuidores
+
+1.  Daniel Nunes
+2.  João Dias
+3.  Maycon Felipe
+4.  Octávio Martins
+5.  Pedro Damasceno
 
 ## Conjuntos de dados
 

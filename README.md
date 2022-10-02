@@ -9,6 +9,16 @@ dashboards. O tema escolhido foi **Mobilidade Urbana** de Belo
 Horizonte, com enfoque em dados sobre **Acidentes de Trânsito**
 ocorridos nos perímetros da cidade.
 
+-   [github.com/djmop/projeto_dw](https://github.com/djmop/projeto_dw)
+
+## Contribuidores
+
+1.  Daniel Nunes
+2.  João Dias
+3.  Maycon Felipe
+4.  Octávio Martins
+5.  Pedro Damasceno
+
 ## Conjuntos de dados
 
 Para o desenvolvimento do Data Warehouse, foram utilizados quatro (4)
