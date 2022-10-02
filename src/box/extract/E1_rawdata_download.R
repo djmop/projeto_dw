@@ -12,7 +12,6 @@ box::use(G.PATH = ../globals/Z1_global_paths)
 box::use(G.LOG  = ../globals/Z2_global_logging)
 
 
-
 #' Realiza o download dos CSVs
 #' @export
 #' 
@@ -28,17 +27,15 @@ download_raw_data <- function(verbose = F, port = 4813L) {
     outfile = G.PATH$files$download_log
   )
   
-  log.i <- G.LOG$log_info
-  log.e <- G.LOG$log_error
+  proc.msg <- 'Download de CSVs'
   
-  tryCatch(
+  G.LOG$oversee(
+    proc_msg = proc.msg,
+    
     expr = {
-      prc.msg <- 'Download de CSVs'
-      cli_progress_bar(
-        name = log.i(glue('{prc.msg}... em progresso')),
-        format_done = log.i(glue('{prc.msg}... concluído')),
-        format_failed = log.e(glue('{prc.msg}... falhou')),
-        total = length(csv.urls), type = "tasks", clear = FALSE
+      pb <- cli_progress_bar(
+        name = 'Baixando CSVs',
+        total = length(csv.urls), type = "tasks"
       )
       
       doParallel::registerDoParallel(myCluster)
@@ -59,9 +56,9 @@ download_raw_data <- function(verbose = F, port = 4813L) {
           filepath <- here(dirpath, glue('{names(cur.urls[j])}.csv'))
           download.csv(csv.url, filepath)
         }
-        cli_progress_update()
+        cli_progress_update(id = pb)
       }
-      cli_progress_done()
+      cli_progress_done(id = pb)
     },
     
     finally = {

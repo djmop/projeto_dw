@@ -18,7 +18,7 @@ box::use(G.CONST = ../globals/Z3_global_constants)
 #' @export
 #' 
 validate_loaded_data <- function(raw_data) {
-  G.LOG$log_dw(
+  G.LOG$oversee(
     proc_msg = 'Validando dados',
     expr = {
       if (length(raw_data$err) > 0) {
@@ -32,6 +32,7 @@ validate_loaded_data <- function(raw_data) {
     }
   )
 }
+
 
 
 #' Carrega CSVs de dados brutos
@@ -48,7 +49,7 @@ load_raw_data <- function() {
     csv.files <- dir_ls(dir.path, type = 'file', glob = '*.csv')
     csv.names <- basename(str_remove(csv.files, r'{\.csv}'))
     
-    G.LOG$log_dw(
+    G.LOG$oversee(
       proc_msg = glue('Lendo CSVs: {dir.name}'),
       
       expr = {

@@ -7,7 +7,7 @@ box::use(G.LOG  = ../../../globals/Z2_global_logging)
 #' @export
 #' 
 dim_categ_habilitacao <- function(dataset_pess) {
-  G.LOG$log_dw(
+  G.LOG$oversee(
     proc_msg = 'DIM: categ_habilitacao',
     expr = {
       dims <- distinct(

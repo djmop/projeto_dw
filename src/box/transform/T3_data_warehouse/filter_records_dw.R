@@ -12,7 +12,7 @@ box::use(G.LOG = ../../globals/Z2_global_logging)
 #' @export
 #' 
 complete_records <- function(data_sets) {
-  G.LOG$log_dw(
+  G.LOG$oversee(
     proc_msg = 'Eliminando inconsistências',
     
     expr = {

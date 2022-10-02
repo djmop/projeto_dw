@@ -20,55 +20,53 @@ get_csv_urls <- function(verbose = F, port = 4813L) {
   log.i <- G.LOG$log_info
   log.e <- G.LOG$log_error
   
-  cli_process_start(
-    msg = log.i('Extração de links para download'),
-    msg_done = log.i('Links para download extraídos'),
-    msg_failed = log.e('Falha na extração de links'),
-    .auto_close = FALSE
-  )
   
-  while (TRUE) {
-    tryCatch(
-      exp = {
-        r.server <- rsDriver(
-          browser = 'firefox',
-          verbose = verbose,
-          port = port,
-          extraCapabilities = list(
-            "moz:firefoxOptions" = list(args = list('--headless'))
-          )
-        )
-        break
-      },
-      error = function(e) {
-        cat('\n\n')
-        warning(e)
-        cat('\n\n')
-        port = port + 1L
-      },
-      finally = { invisible(gc()) }
-    )
-  }
-  
-  root.urls <- load_root_urls()
-  r.browser <- r.server$client
-  
-  tryCatch(
+  G.LOG$oversee(
+    proc_msg = 'Extração de URLs',
     expr = {
-      csv.urls <- map(root.urls, extract_csv_urls, browser = r.browser)
-    },
-    error = function(e) {
-      cli_process_failed()
-      print(e)
-    },
-    finally = {
-      r.browser$close()
-      r.server$server$process$finalize()
+      while (TRUE) {
+        tryCatch(
+          exp = {
+            r.server <- rsDriver(
+              browser = 'firefox',
+              verbose = verbose,
+              port = port,
+              extraCapabilities = list(
+                "moz:firefoxOptions" = list(args = list('--headless'))
+              )
+            )
+            break
+          },
+          error = function(e) {
+            cat('\n\n')
+            warning(e)
+            cat('\n\n')
+            port = port + 1L
+          },
+          finally = { invisible(gc()) }
+        )
+      }
+      
+      root.urls <- load_root_urls()
+      r.browser <- r.server$client
+      
+      tryCatch(
+        expr = {
+          csv.urls <- map(root.urls, extract_csv_urls, browser = r.browser)
+          csv.urls
+        },
+        error = function(e) {
+          print(e)
+          stop(e)
+        },
+        finally = {
+          r.browser$close()
+          r.server$server$process$finalize()
+        }
+      )
+      
     }
   )
-  
-  cli_process_done()
-  return(csv.urls)
 }
 
 
@@ -77,7 +75,8 @@ get_csv_urls <- function(verbose = F, port = 4813L) {
 load_root_urls <- function() {
   bhtrans <- read_csv(
     here(G.PATH$files$bhtrans_urls),
-    col_type = cols(.default = col_character())
+    col_type = cols(.default = col_character()),
+    progress = FALSE
   )
   urls        <- bhtrans[['url']]
   names(urls) <- bhtrans[['name']]

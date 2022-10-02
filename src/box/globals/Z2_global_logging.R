@@ -1,8 +1,15 @@
+box::use(
+  checkmate[assert_flag, assert_function, assert_posixct, assert_true],
+  checkmate[assert_string, test_posixct, test_null],
+  cli[cli_text, cat_bullet, cat_line, cli_div, cli_rule, cli_end],
+  lubridate[interval], hms[hms], prettyunits[pretty_sec],
+  stringr[str_extract, str_pad], glue[glue]
+)
+box::use(G.PATH = ./Z1_global_paths)
+
+
 #  .............................................................................
 #  FUNÇÕES DE LOG                                                           ####
-
-box::use(glue[glue], stringr[str_pad])
-
 
 ## func: Mensagem de log ( - ) -------------------------------------------------
 #' @title Mensagem informação para log
@@ -35,17 +42,14 @@ log_error <- function(msg) {
   return(glue('[ERROR] {process_msg(msg)}'))
 }
 
-
 cat_success <- function(msg, time) {
   success <- glue('[INFO ] {process_msg(msg)} done [{time}]')
   cat(success, fill = T)
 }
 
-cat_error <- function(msg, caller) {
+cat_error <- function(msg) {
   error  <- glue('[ERROR] {process_msg(msg)} failed')
-  caller <- glue('[ERROR] Caller: {process_msg(caller, 42)} failed')
   cat(error, fill = T)
-  cat(caller, fill = T)
 }
 
 
@@ -53,55 +57,140 @@ cat_error <- function(msg, caller) {
 #' @title Mensagem de processos do data warehouse para log
 #' @export
 #' 
-log_dw <- function(proc_msg, expr, error) {
-  box::use(cli[cli_progress_step])
-  box::use(assertthat[assert_that])
-  
-  .env <- as.environment(list(
-    msg = proc_msg,
-    caller = sys.call(sys.parent())
-  ))
-  
-  .clock <- Clock$new()
+oversee <- function(proc_msg, expr, error, finally) {
+  .env   <- as.environment(list(msg = proc_msg))
   
   if (missing(error))
-    throw_error <- function(e) { cat_error(.env$msg, .env$caller); stop(e) }
+    throw_error <- function(e) { cat_error(.env$msg); stop(e) }
   else {
-    assert_that(is.function(error))
-    throw_error <- function(e) { cat_error(.env$msg, .env$caller); error(e) }
+    assert_function(error)
+    throw_error <- function(e) { cat_error(.env$msg); error(e) }
   }
+  
+  if (missing(finally))
+    finally <- {}
   
   tryCatch(
     expr = {
+      .clock <- Clock$new()
+      
       .clock$tic()
       x <- eval(expr)
-      cat_success(.env$msg, .clock$toc())
+      .clock$toc()
+      
+      cat_success(.env$msg, .clock$duration_pretty())
+      
       return(x)
     },
-    error = throw_error
+    error = throw_error,
+    finally = {
+      invisible(eval(finally))
+    }
   )
 }
 
 
-## func: Inicia log global ( + ) -----------------------------------------------
+## func: Controla log global ( + ) ---------------------------------------------
 #' @export
-start_log <- function() {
-  box::use(G.PATH = ./Z1_global_paths)
-  logfile <- file(G.PATH$files$global_log, open = 'wt')
-  sink(logfile)
-  sink(logfile, type = "message")
-  return(logfile)
-}
-
-
-## func: Finaliza log global ( + ) ---------------------------------------------
-#' @export
-close_log <- function(logfile) {
-  sink(type = "message")
-  sink()
-  close(logfile)
-}
-
+Logger <- R6::R6Class(
+  classname = 'Logger',
+  
+  private   = list(
+    sink_path = G.PATH$files$global_log,
+    sink_file = NULL,
+    do_sink   = NULL,
+    clock     = NULL,
+    
+    start_sink = function() {
+      private$sink_file <- file(private$sink_path, open = 'wt')
+      sink(private$sink_file)
+      sink(private$sink_file, type = "message")
+    },
+    close_sink = function() {
+      sink(type = "message")
+      sink()
+      close(private$sink_file)
+    },
+    
+    alert_msg = function(msg, type = c('info', 'warn', 'error')) {
+      type <- match.arg(type)
+      type <- str_pad(toupper(type), 5, side = 'right')
+      msg  <- glue('[{type}] PID: {Sys.getpid()} | {msg}', .trim = F)
+      cli_text(msg)
+    },
+    alert_start = function() {
+      private$alert_msg(glue('Processo iniciado em: {private$clock$started_at()}'))
+    },
+    alert_end   = function() {
+      private$alert_msg(glue('Processo finalizado em: {private$clock$ended_at()}'))
+      dur <- private$clock$duration_hms()
+      private$alert_msg(glue('Tempo total decorrido:  {dur}', .trim = F))
+    },
+    alert_error = function(caller, problem) {
+      msg <- glue('Processo ABORTADO em: {private$clock$ended_at()}', .trim = F)
+      private$alert_msg(msg, type = 'error')
+      private$alert_msg("MENSAGEM:", type = 'error')
+      cat_bullet(bullet = 'cross', c(
+        glue('Caller:  {paste(caller, collapse = " <- ")}', .trim = F),
+        glue('Problem: {as.character(problem)}', .trim = F)
+      ))
+      cat_line()
+    },
+    
+    add_rule = function(left = '', right = '',
+                        type = c('single', 'double')) {
+      type <- match.arg(type)
+      cli_div(id = 'rl', theme = list(rule = list(`line-type` = type)))
+      cli_rule(id = 'rl', left = left, right = right)
+      cli_end(id = 'rl')
+    },
+    start_rule = function(left = '') {
+      private$add_rule(left = left, right = 'LOG_START', type = 'double')
+      cat_line()
+    },
+    end_rule = function() {
+      cat_line()
+      private$add_rule(right = 'LOG_END', type = 'double')
+      cat_line()
+    }
+  ),
+  
+  public = list(
+    initialize = function(output = TRUE) {
+      assert_flag(output)
+      private$do_sink <- output
+      private$clock   <- Clock$new()
+    },
+    
+    start = function(title = '') {
+      if (private$do_sink) { private$start_sink() }
+      private$clock$tic()
+      private$start_rule(left = title)
+      private$alert_start()
+    },
+    
+    close = function() {
+      private$clock$toc()
+      private$alert_end()
+      private$end_rule()
+      if (private$do_sink) { private$close_sink() }
+    },
+    
+    dump = function(caller, problem) {
+      cat_line()
+      private$clock$toc()
+      private$add_rule('ERROS', type = 'double')
+      private$alert_error(caller, problem)
+      private$end_rule()
+      if (private$do_sink) { private$close_sink() }
+    },
+    
+    add_title = function(title, right = '') {
+      cat_line()
+      private$add_rule(left = title, type = 'single')
+    }
+  )
+)
 
 ## func: Timer ( + ) -----------------------------------------------------------
 #' @export
@@ -110,23 +199,30 @@ Clock <- R6::R6Class(
   private = list(
     start = NULL,
     end   = NULL,
-    pretty_time = function() {
-      box::use(prettyunits[pretty_dt], stringr[str_extract, str_pad])
-      
-      diff <- private$end - private$start
-      diff <- pretty_dt(diff)
-      num  <- str_extract(diff, r'{\d+(\.\d+)?}')
-      txt  <- str_extract(diff, r'{[a-z]+}')
-      diff <- str_pad(paste(num, txt), 6)
-      return(diff)
+    dsec  = function() {
+      assert_posixct(private$start); assert_posixct(private$end)
+      secs <- as.numeric(interval(private$start, private$end))
+      return(secs)
     }
   ),
-  public = list(
+  public  = list(
     tic = function() { private$start <- Sys.time() },
-    toc = function() {
-      private$end <- Sys.time()
-      private$pretty_time()
+    toc = function() { private$end   <- Sys.time() },
+    started_at = function() { return(private$start) },
+    ended_at   = function() {
+      if(test_posixct(private$end))
+        return(private$end)
+      return(lubridate::NA_POSIXct_)
+    },
+    duration_pretty = function(npad = 5) {
+      secs <- pretty_sec(private$dsec())
+      dur  <- str_pad(secs, npad)
+      return(dur)
+    },
+    duration_hms = function(digits = 1) {
+      secs <- round(private$dsec(), digits = digits)
+      dur  <- hms(seconds = secs)
+      return(dur)
     }
   )
 )
-

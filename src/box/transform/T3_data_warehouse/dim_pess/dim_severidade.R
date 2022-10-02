@@ -7,7 +7,7 @@ box::use(G.LOG  = ../../../globals/Z2_global_logging)
 #' @export
 #' 
 dim_severidade <- function(dataset_pess) {
-  G.LOG$log_dw(
+  G.LOG$oversee(
     proc_msg = 'DIM: severidade',
     expr = {
       dims <- distinct(.data = dataset_pess, severidade_sk, severidade_desc)

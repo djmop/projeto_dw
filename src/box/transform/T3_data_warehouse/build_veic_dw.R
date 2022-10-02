@@ -37,7 +37,7 @@ build_dims <- function(dataset_veic) {
 #' 
 build_fact <- function(dataset_veic, dim_ocor) {
   
-  G.LOG$log_dw(
+  G.LOG$oversee(
     proc_msg = 'FACT: veiculos_envolvidos',
     expr = {
     # Converte tipos de dados  ----

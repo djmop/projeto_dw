@@ -5,7 +5,9 @@ box::use(
   stringr[str_squish, str_detect],
   stringi[stri_trans_general],
   purrr[map],
-  glue[glue]
+  glue[glue],
+  checkmate[check_data_frame, check_true, assert_string],
+  checkmate[makeAssertCollection, reportAssertions]
 )
 
 box::use(LOGR = ./val_logr_transf)
@@ -13,6 +15,7 @@ box::use(OCOR = ./val_ocor_transf)
 box::use(PESS = ./val_pess_transf)
 box::use(VEIC = ./val_veic_transf)
 
+box::use(ASRT    = ../../globals/Z5_global_assertions)
 box::use(G.LOG   = ../../globals/Z2_global_logging)
 box::use(G.CONST = ../../globals/Z3_global_constants)
 
@@ -23,17 +26,23 @@ box::use(G.CONST = ../../globals/Z3_global_constants)
 #' @export
 #' 
 val_transform <- function(data_set, set_name) {
-  data_set <- G.LOG$log_dw(
+  assert_string(set_name, min.chars = 3)
+  ASRT$assert_depth(data_set, 1, check_data_frame)
+  ASRT$assert_depth(data_set, 1, function(x) {
+    check_true(nrow(x) > 0 & ncol(x) > 0)
+  })
+  
+  data_set <- G.LOG$oversee(
     proc_msg = glue('Removendo whitespaces: {set_name}'),
     expr = { map(data_set, ~ mutate(., across(.fns = str_squish))) }
   )
   
-  data_set$data <- G.LOG$log_dw(
+  data_set$data <- G.LOG$oversee(
     proc_msg = glue('Removendo duplicatas:  {set_name}', .trim = F),
     expr = { distinct(data_set$data) }
   )
   
-  data_set$data <- G.LOG$log_dw(
+  data_set$data <- G.LOG$oversee(
     proc_msg = glue('Modificando valores:   {set_name}', .trim = F),
     expr = {
       val_transformation <- val_func_mapper(set_name)
