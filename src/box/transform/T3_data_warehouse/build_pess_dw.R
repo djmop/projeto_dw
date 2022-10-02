@@ -39,7 +39,7 @@ build_dims <- function(dataset_pess) {
 #' 
 build_fact <- function(dataset_pess, dim_ocor, dim_sexo, dim_categ_hab,
                        dim_especie_veic) {
-  G.LOG$log_dw(
+  G.LOG$oversee(
     proc_msg = 'FACT: pessoas_envolvidas',
     
     expr = {

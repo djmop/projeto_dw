@@ -8,7 +8,7 @@ box::use(G.LOG  = ../../../globals/Z2_global_logging)
 #' @export
 #' 
 dim_especie_veiculo <- function(dataset_veic) {
-  G.LOG$log_dw(
+  G.LOG$oversee(
     proc_msg = 'DIM: especie_veiculo',
     expr = {
       dims <- distinct(dataset_veic, especie_sk, especie_desc)

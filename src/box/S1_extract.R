@@ -8,27 +8,14 @@ box::use(loader    = ./extract/E2_rawdata_load)
 #' @export
 #' 
 extract <- function(download = TRUE) {
-  cat('\n\n')
-  
-  cli_alert('Carregando dados')
-  
-  
-  ##  BAIXA CSVs
-  ##  ----------
+  # BAIXA CSVs ----
   if (download) extractor$download_raw_data()
   
-  
-  ##  CARREGA DADOS
-  ##  -------------
+  # CARREGA DADOS ----
   raw.data <- loader$load_raw_data()
   
-  
-  ##  CHECAGEM DE ERROS
-  ##  -----------------
+  # CHECAGEM DE ERROS ----
   loader$validate_loaded_data(raw.data)
-  
-  
-  cli_alert('Dados carregados')
   
   return(raw.data$data)
 }

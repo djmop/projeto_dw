@@ -6,7 +6,7 @@
 directories <- list(
   config     = here::here('config'),
   raw_data   = here::here('data', '1_raw'),
-  stage_area = here::here('data', '2_stage'),
+  stage_area = here::here('data', '2_cleaned'),
   dw         = here::here('data', '3_dw'),
   log        = here::here('log')
 )

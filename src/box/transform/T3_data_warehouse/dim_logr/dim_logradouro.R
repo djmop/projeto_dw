@@ -7,7 +7,7 @@ box::use(G.LOG  = ../../../globals/Z2_global_logging)
 #' @export
 #' 
 dim_logradouro <- function(dataset_logr) {
-  G.LOG$log_dw(
+  G.LOG$oversee(
     proc_msg = 'DIM: logradouro',
     expr = {
       

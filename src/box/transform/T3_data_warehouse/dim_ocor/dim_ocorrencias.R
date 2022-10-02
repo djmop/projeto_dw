@@ -13,7 +13,7 @@ box::use(G.LOG  = ../../../globals/Z2_global_logging)
 #' 
 dim_ocorrencias <- function(dataset_ocor, dim_tipo_acidente,
                             dim_origem_boletim) {
-  G.LOG$log_dw(
+  G.LOG$oversee(
     proc_msg = 'DIM: ocorrencias',
     
     expr = {

@@ -5,7 +5,7 @@ box::use(G.LOG  = ../../../globals/Z2_global_logging)
 #' @export
 #' 
 dim_regional <- function(dataset_ocor) {
-  G.LOG$log_dw(
+  G.LOG$oversee(
     proc_msg = 'DIM: regional',
     expr = {
       dataset_ocor <- distinct(dataset_ocor, regional_sk, regional_desc)

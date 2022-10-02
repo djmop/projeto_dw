@@ -19,7 +19,7 @@ box::use(G.CONST = ../../globals/Z3_global_constants)
 #' @export
 #' 
 build_dims <- function(datasets) {
-  G.LOG$log_dw(
+  G.LOG$oversee(
     proc_msg = 'DIM: data',
     
     expr = {

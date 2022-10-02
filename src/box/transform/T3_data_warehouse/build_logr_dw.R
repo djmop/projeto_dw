@@ -32,7 +32,7 @@ build_dims <- function(dataset_logr) {
 #' @export
 #' 
 build_fact <- function(dataset_logr, dim_ocor) {
-  G.LOG$log_dw(
+  G.LOG$oversee(
     proc_msg = 'FACT: logradouros_envolvidos',
     expr = {
     # Converte tipos de dados  ----
