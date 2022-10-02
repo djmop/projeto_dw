@@ -89,6 +89,8 @@ install.packages('renv')
 renv::restore()
 ```
 
+<br /><br />
+
 ### Carregando dados no Power BI
 
 1.  Instale o [**Microsoft Power
@@ -103,6 +105,8 @@ alt="Selecione R script na importação de dados do Power BI" />
 <figcaption aria-hidden="true"><em>Selecione <strong>R script</strong>
 na importação de dados do <strong>Power BI</strong></em></figcaption>
 </figure>
+
+<br /><br />
 
 3.  Insira o seguinte script no modal R script, alterando
     `<PATH_TO_PROJECT>` com o caminho do projeto em sua máquina. Clique
