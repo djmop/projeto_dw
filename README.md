@@ -25,7 +25,7 @@ Para o desenvolvimento do Data Warehouse, foram utilizados quatro (4) conjuntos 
 
 ## Data Warehouse
 
-Os scripts de R contidos neste repositório realizam o download, extração e transformação dos dados. Na transformação, os dados são organizados em um *star-schema*, contemplado pelas seguintes tabelas fato:
+Os scripts de R contidos neste repositório realizam o download, extração e transformação dos dados. Na transformação, os dados são organizados em um esquema do tipo *snowflake*, contemplado pelas seguintes tabelas principais:
 
 1.  **Fato: Logradouros Envolvidos**
 2.  **Fato: Veículos Envolvidos**
@@ -97,6 +97,8 @@ source(rscript, encoding = 'UTF-8')
 # Run
 run_etl(project_root, download = TRUE, log = TRUE)
 ```
+
+<br />
 
 #### Exemplo:
 
