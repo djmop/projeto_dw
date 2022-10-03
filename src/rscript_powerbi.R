@@ -1,5 +1,5 @@
 # Parameters
-project_root = 'E:/My drive/PUC Minas/6o_semestre/BUSINESS_INTEL/BI - Acidentes de Trânsito em BH (Mobilidade Urbana)/projeto_dw/'
+project_root = '<PATH_TO_PROJECT>/projeto_dw/'
 
 # Load main script
 rscript = base::file.path(project_root, 'src/main.R')
