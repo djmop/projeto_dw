@@ -2,14 +2,7 @@
 title: "Projeto Data Warehouse (BI) - projeto_dw"
 authors: Daniel Nunes, João Dias, Maycon Felipe, Octávio Martins, Pedro Damasceno
 updated-at: "2022-09-29"
-output:
-  github_document
-  # rmdformats::downcute:
-  # embed_fonts: true
-  # use_bookdown: true
-  # default_style: dark
-  # downcute_theme: chaos
-  # css: style.css
+output: github_document
 ---
 
 **`PUC Minas`** `[Disciplina: Business Intelligence]`
@@ -37,7 +30,7 @@ Para o desenvolvimento do Data Warehouse, foram utilizados quatro (4) conjuntos 
 
 ## Data Warehouse
 
-Os scripts de R contidos neste repositório realizam o download, extração e transformação dos dados. Na transformação, os dados são organizados em um *star-schema*, contemplado pelas seguintes tabelas fato:
+Os scripts de R contidos neste repositório realizam o download, extração e transformação dos dados. Na transformação, os dados são organizados em um esquema do tipo *snowflake*, contemplado pelas seguintes tabelas principais:
 
 1.  **Fato: Logradouros Envolvidos**
 2.  **Fato: Veículos Envolvidos**
@@ -74,6 +67,8 @@ install.packages('renv')
 renv::restore()
 ```
 
+<br /><br />
+
 ### Carregando dados no Power BI
 
 1.  Instale o [**Microsoft Power BI**](https://powerbi.microsoft.com/pt-br/desktop/).
@@ -81,6 +76,8 @@ renv::restore()
 2.  Abra o **Power BI** e conecte a importação de dados via **R Script**.
 
 ![*Selecione **R script** na importação de dados do **Power BI***](info/images/conexao_rscript.png){width="500"}
+
+<br /><br />
 
 3.  Insira o seguinte script no modal R script, alterando `<PATH_TO_PROJECT>` com o caminho do projeto em sua máquina. Clique em `OK` e aguarde o processamento. O log de processamento pode ser acompanhado a partir do arquivo situado em `log/global.log`.
 
@@ -96,6 +93,8 @@ source(rscript, encoding = 'UTF-8')
 run_etl(project_root, download = TRUE, log = TRUE)
 
 ```
+
+<br />
 
 #### Exemplo:
 
