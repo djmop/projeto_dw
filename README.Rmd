@@ -37,7 +37,7 @@ Os scripts de R contidos neste repositório realizam o download, extração e tr
 3.  **Fato: Pessoas Envolvidas**
 4.  **Fato/Dimensão: Ocorrências**
 
-### Diagrama Entidade Relacionamento (DER)
+### Modelo dimensional (*snowflake*)
 
 ![](info/images/projeto_der.png)
 
