@@ -1,4 +1,4 @@
-setwd(base::file.path(project_root, 'src'))
+# setwd(base::file.path(project_root, 'src'))
 
 
 run_etl <- function(proj_root, download = TRUE, log = TRUE) {
