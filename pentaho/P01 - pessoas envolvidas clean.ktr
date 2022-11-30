@@ -464,17 +464,7 @@
     </hop>
     <hop>
       <from>If field value is null</from>
-      <to>JavaScript replace</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort unique</from>
-      <to>Remove unused</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Remove unused</from>
-      <to>If field value is null</to>
+      <to>String REPLACE</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -483,12 +473,47 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>JavaScript replace</from>
-      <to>JavaScript replace 2</to>
+      <from>String REPLACE</from>
+      <to>String REPLACE 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>JavaScript replace 2</from>
+      <from>String REPLACE 2</from>
+      <to>Victims GROUP</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Victims GROUP</from>
+      <to>Parse TYPES</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Parse TYPES</from>
+      <to>Calculate Age in Days</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculate Age in Days</from>
+      <to>Calculate Age in Years</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort unique</from>
+      <to>If field value is null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculate Age in Years</from>
+      <to>Calculate Age Group</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculate Age Group</from>
+      <to>Remove unused</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remove unused</from>
       <to>Text file output</to>
       <enabled>Y</enabled>
     </hop>
@@ -539,8 +564,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>305</xloc>
-      <yloc>160</yloc>
+      <xloc>304</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -870,7 +895,7 @@
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
-      <yloc>160</yloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -920,7 +945,7 @@
     </remotesteps>
     <GUI>
       <xloc>464</xloc>
-      <yloc>160</yloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1280,7 +1305,7 @@
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
-      <yloc>352</yloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1329,8 +1354,107 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>352</yloc>
+      <xloc>304</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculate Age in Days</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>Y</failIfNoFile>
+    <calculation>
+      <field_name>age</field_name>
+      <calc_type>DATE_DIFF</calc_type>
+      <field_a>boletim_datahora</field_a>
+      <field_b>nascimento_data</field_b>
+      <field_c/>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>960</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculate Age in Years</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>0</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+function getIdade() {
+	if (idade != null)
+		return idade;
+
+	if (age != null) {
+		var x = age / 365;
+		if (x >= 0 &amp;&amp; x &lt; 150)
+			return x;
+	}
+	return null;
+}
+
+var idade = getIdade();</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>idade</name>
+        <rename>idade</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>960</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1423,13 +1547,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
-      <yloc>256</yloc>
+      <xloc>592</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>JavaScript replace</name>
+    <name>String REPLACE</name>
     <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
@@ -1602,13 +1726,13 @@ if (isValid(habilitacao_desc)) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1184</xloc>
-      <yloc>256</yloc>
+      <xloc>720</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>JavaScript replace 2</name>
+    <name>String REPLACE 2</name>
     <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
@@ -1710,8 +1834,8 @@ if (isValid(passageiro)) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1328</xloc>
-      <yloc>256</yloc>
+      <xloc>720</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1751,13 +1875,13 @@ if (isValid(passageiro)) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
-      <yloc>256</yloc>
+      <xloc>464</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Remove unused</name>
+    <name>Parse TYPES</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -1770,217 +1894,92 @@ if (isValid(passageiro)) {
     <fields>
       <field>
         <name>boletim_fk</name>
+        <rename/>
       </field>
       <field>
         <name>boletim_datahora</name>
+        <rename/>
       </field>
       <field>
         <name>env_sequencia</name>
+        <rename/>
       </field>
       <field>
         <name>condutor</name>
+        <rename/>
       </field>
       <field>
         <name>severidade_cod</name>
+        <rename/>
       </field>
       <field>
         <name>severidade_desc</name>
+        <rename/>
       </field>
       <field>
         <name>sexo</name>
+        <rename/>
       </field>
       <field>
         <name>cinto_seguranca</name>
+        <rename/>
       </field>
       <field>
         <name>embreagues</name>
+        <rename/>
       </field>
       <field>
         <name>idade</name>
+        <rename/>
       </field>
       <field>
         <name>nascimento_data</name>
+        <rename/>
       </field>
       <field>
         <name>habilitacao_cod</name>
+        <rename/>
       </field>
       <field>
         <name>habilitacao_desc</name>
+        <rename/>
       </field>
       <field>
         <name>obito_declaracao</name>
+        <rename/>
       </field>
       <field>
         <name>severidade_antiga_cod</name>
+        <rename/>
       </field>
       <field>
         <name>veiculo_especie</name>
+        <rename/>
       </field>
       <field>
         <name>pedestre</name>
+        <rename/>
       </field>
       <field>
         <name>passageiro</name>
+        <rename/>
       </field>
       <field>
         <name>flagfield</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tipo</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>severidade_antiga_cod</name>
-      </remove>
-      <remove>
-        <name>obito_declaracao</name>
-      </remove>
-      <remove>
-        <name>flagfield</name>
-      </remove>
-      <remove>
+      <meta>
         <name>boletim_datahora</name>
-      </remove>
-      <meta>
-        <name>boletim_fk</name>
-        <rename>boletim_fk</rename>
-        <type>None</type>
+        <rename>boletim_datahora</rename>
+        <type>Timestamp</type>
         <length>-2</length>
         <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>env_sequencia</name>
-        <rename>env_sequencia</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>condutor</name>
-        <rename>condutor</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>severidade_cod</name>
-        <rename>severidade_cod</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>severidade_desc</name>
-        <rename>severidade_desc</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>sexo</name>
-        <rename>sexo</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>cinto_seguranca</name>
-        <rename>cinto_seguranca</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>embreagues</name>
-        <rename>embreagues</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>idade</name>
-        <rename>idade</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
+        <conversion_mask>dd/MM/yyyy HH:mm</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
         <date_format_timezone/>
@@ -1994,10 +1993,10 @@ if (isValid(passageiro)) {
       <meta>
         <name>nascimento_data</name>
         <rename>nascimento_data</rename>
-        <type>None</type>
+        <type>Date</type>
         <length>-2</length>
         <precision>-2</precision>
-        <conversion_mask/>
+        <conversion_mask>dd/MM/yyyy</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
         <date_format_timezone/>
@@ -2009,77 +2008,9 @@ if (isValid(passageiro)) {
         <storage_type/>
       </meta>
       <meta>
-        <name>habilitacao_cod</name>
-        <rename>habilitacao_cod</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>habilitacao_desc</name>
-        <rename>habilitacao_desc</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>veiculo_especie</name>
-        <rename>veiculo_especie</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>pedestre</name>
-        <rename>pedestre</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>passageiro</name>
-        <rename>passageiro</rename>
-        <type>None</type>
+        <name>idade</name>
+        <rename>idade</rename>
+        <type>Integer</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -2103,8 +2034,84 @@ if (isValid(passageiro)) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>896</xloc>
-      <yloc>256</yloc>
+      <xloc>832</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remove unused</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>boletim_fk</name>
+        <rename/>
+      </field>
+      <field>
+        <name>env_sequencia</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tipo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>sexo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>grupo_idade</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cinto_seguranca</name>
+        <rename/>
+      </field>
+      <field>
+        <name>embreagues</name>
+        <rename/>
+      </field>
+      <field>
+        <name>severidade_cod</name>
+        <rename/>
+      </field>
+      <field>
+        <name>severidade_desc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>habilitacao_cod</name>
+        <rename/>
+      </field>
+      <field>
+        <name>habilitacao_desc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>veiculo_especie</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2153,8 +2160,8 @@ if (isValid(passageiro)) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>752</xloc>
-      <yloc>256</yloc>
+      <xloc>592</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2177,7 +2184,7 @@ if (isValid(passageiro)) {
     <footer>N</footer>
     <format>DOS</format>
     <compression>None</compression>
-    <encoding/>
+    <encoding>windows-1252</encoding>
     <endedLine/>
     <fileNameInField>N</fileNameInField>
     <fileNameField/>
@@ -2210,8 +2217,132 @@ if (isValid(passageiro)) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1472</xloc>
-      <yloc>256</yloc>
+      <xloc>1232</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Victims GROUP</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+if (condutor == "Sim") {
+	var tipo = "Condutor";
+} else if (passageiro == "Sim") {
+	var tipo = "Passageiro";
+} else if (pedestre == "Sim") {
+	var tipo = "Pedestre";
+} else {
+	var tipo = "Não informado";
+}
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>tipo</name>
+        <rename>tipo</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculate Age Group</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>0</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+function getGrupoIdade() {
+	if (idade == null)
+		return null;
+
+	if (idade >= 0 &amp;&amp; idade &lt;= 11)
+		return "0-11 anos";
+
+	if (idade >= 12 &amp;&amp; idade &lt;= 17)
+		return "12-17 anos";
+
+	if (idade >= 18 &amp;&amp; idade &lt;= 24)
+		return "18-24 anos";
+
+	if (idade >= 25 &amp;&amp; idade &lt;= 34)
+		return "25-34 anos";
+
+	if (idade >= 35 &amp;&amp; idade &lt;= 64)
+		return "35-64 anos";
+
+	if (idade >= 65)
+		return "65+ anos";
+}
+
+var grupo_idade = getGrupoIdade();</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>grupo_idade</name>
+        <rename>grupo_idade</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

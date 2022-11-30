@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>P02 - comparacao e selecao</name>
+    <name>Curatorship</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -438,32 +438,32 @@
   </notepads>
   <order>
     <hop>
-      <from>CSV file input (Boletins)</from>
-      <to>Boletins PK</to>
+      <from>CSV file input (BOL)</from>
+      <to>Boletins PK (BOL)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>CSV file input (Pessoas)</from>
-      <to>Boletins FK (Pessoas)</to>
+      <from>CSV file input (ENV)</from>
+      <to>Boletins FK (ENV)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Boletins PK</from>
-      <to>Unique (Boletins)</to>
+      <from>Boletins PK (BOL)</from>
+      <to>Unique (BOL)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Boletins FK (Pessoas)</from>
-      <to>Unique (Pessoas)</to>
+      <from>Boletins FK (ENV)</from>
+      <to>Unique (ENV)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Unique (Pessoas)</from>
+      <from>Unique (ENV)</from>
       <to>Compare</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Unique (Boletins)</from>
+      <from>Unique (BOL)</from>
       <to>Compare</to>
       <enabled>Y</enabled>
     </hop>
@@ -478,8 +478,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>CSV file input (Veículos)</from>
-      <to>Boletins FK (Veículos)</to>
+      <from>CSV file input (VEIC)</from>
+      <to>Boletins FK (VEIC)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -488,8 +488,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Boletins FK (Veículos)</from>
-      <to>Unique (Veículos)</to>
+      <from>Boletins FK (VEIC)</from>
+      <to>Unique (VEIC)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -508,18 +508,18 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Unique (Veículos)</from>
+      <from>Unique (VEIC)</from>
       <to>Compare 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Boletins FK (Lograds.)</from>
-      <to>Unique (Lograds.)</to>
+      <from>Boletins FK (LOGR)</from>
+      <to>Unique (LOGR)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>CSV file input (Lograds.)</from>
-      <to>Boletins FK (Lograds.)</to>
+      <from>CSV file input (LOGR)</from>
+      <to>Boletins FK (LOGR)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -533,17 +533,17 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Identical 3</from>
+      <from>Identical PKs</from>
       <to>Unique (Final)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>SwitchCase 3</from>
-      <to>Identical 3</to>
+      <to>Identical PKs</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Unique (Lograds.)</from>
+      <from>Unique (LOGR)</from>
       <to>Compare 3</to>
       <enabled>Y</enabled>
     </hop>
@@ -634,7 +634,7 @@
     </hop>
   </order>
   <step>
-    <name>Boletins FK (Lograds.)</name>
+    <name>Boletins FK (ENV)</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -647,211 +647,9 @@
     <fields>
       <field>
         <name>boletim_fk</name>
-      </field>
-      <field>
-        <name>veiculo_seq</name>
-      </field>
-      <field>
-        <name>categoria_cod</name>
-      </field>
-      <field>
-        <name>categoria_desc</name>
-      </field>
-      <field>
-        <name>especie_cod</name>
-      </field>
-      <field>
-        <name>especie_desc</name>
-      </field>
-      <field>
-        <name>situacao_cod</name>
-      </field>
-      <field>
-        <name>situacao_desc</name>
-      </field>
-      <field>
-        <name>socorro_tipo</name>
-      </field>
-      <field>
-        <name>socorro_tipo_desc</name>
+        <rename>boletim_pk</rename>
       </field>
       <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>veiculo_seq</name>
-      </remove>
-      <remove>
-        <name>categoria_cod</name>
-      </remove>
-      <remove>
-        <name>categoria_desc</name>
-      </remove>
-      <remove>
-        <name>especie_cod</name>
-      </remove>
-      <remove>
-        <name>especie_desc</name>
-      </remove>
-      <remove>
-        <name>situacao_cod</name>
-      </remove>
-      <remove>
-        <name>situacao_desc</name>
-      </remove>
-      <remove>
-        <name>socorro_tipo</name>
-      </remove>
-      <remove>
-        <name>socorro_tipo_desc</name>
-      </remove>
-      <meta>
-        <name>boletim_fk</name>
-        <rename>boletim_pk</rename>
-        <type>None</type>
-        <length>18</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>672</xloc>
-      <yloc>160</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Boletins FK (Pessoas)</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>boletim_fk</name>
-      </field>
-      <field>
-        <name>env_sequencia</name>
-      </field>
-      <field>
-        <name>condutor</name>
-      </field>
-      <field>
-        <name>severidade_cod</name>
-      </field>
-      <field>
-        <name>severidade_desc</name>
-      </field>
-      <field>
-        <name>sexo</name>
-      </field>
-      <field>
-        <name>cinto_seguranca</name>
-      </field>
-      <field>
-        <name>embreagues</name>
-      </field>
-      <field>
-        <name>idade</name>
-      </field>
-      <field>
-        <name>nascimento_data</name>
-      </field>
-      <field>
-        <name>habilitacao_cod</name>
-      </field>
-      <field>
-        <name>habilitacao_desc</name>
-      </field>
-      <field>
-        <name>veiculo_especie</name>
-      </field>
-      <field>
-        <name>pedestre</name>
-      </field>
-      <field>
-        <name>passageiro</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>env_sequencia</name>
-      </remove>
-      <remove>
-        <name>condutor</name>
-      </remove>
-      <remove>
-        <name>severidade_cod</name>
-      </remove>
-      <remove>
-        <name>severidade_desc</name>
-      </remove>
-      <remove>
-        <name>sexo</name>
-      </remove>
-      <remove>
-        <name>cinto_seguranca</name>
-      </remove>
-      <remove>
-        <name>embreagues</name>
-      </remove>
-      <remove>
-        <name>idade</name>
-      </remove>
-      <remove>
-        <name>nascimento_data</name>
-      </remove>
-      <remove>
-        <name>habilitacao_cod</name>
-      </remove>
-      <remove>
-        <name>habilitacao_desc</name>
-      </remove>
-      <remove>
-        <name>veiculo_especie</name>
-      </remove>
-      <remove>
-        <name>pedestre</name>
-      </remove>
-      <remove>
-        <name>passageiro</name>
-      </remove>
-      <meta>
-        <name>boletim_fk</name>
-        <rename>boletim_pk</rename>
-        <type>None</type>
-        <length>18</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -868,7 +666,7 @@
     </GUI>
   </step>
   <step>
-    <name>Boletins FK (Veículos)</name>
+    <name>Boletins FK (LOGR)</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -881,79 +679,41 @@
     <fields>
       <field>
         <name>boletim_fk</name>
-      </field>
-      <field>
-        <name>veiculo_seq</name>
-      </field>
-      <field>
-        <name>categoria_cod</name>
-      </field>
-      <field>
-        <name>categoria_desc</name>
-      </field>
-      <field>
-        <name>especie_cod</name>
-      </field>
-      <field>
-        <name>especie_desc</name>
-      </field>
-      <field>
-        <name>situacao_cod</name>
-      </field>
-      <field>
-        <name>situacao_desc</name>
-      </field>
-      <field>
-        <name>socorro_tipo</name>
-      </field>
-      <field>
-        <name>socorro_tipo_desc</name>
+        <rename>boletim_pk</rename>
       </field>
       <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>veiculo_seq</name>
-      </remove>
-      <remove>
-        <name>categoria_cod</name>
-      </remove>
-      <remove>
-        <name>categoria_desc</name>
-      </remove>
-      <remove>
-        <name>especie_cod</name>
-      </remove>
-      <remove>
-        <name>especie_desc</name>
-      </remove>
-      <remove>
-        <name>situacao_cod</name>
-      </remove>
-      <remove>
-        <name>situacao_desc</name>
-      </remove>
-      <remove>
-        <name>socorro_tipo</name>
-      </remove>
-      <remove>
-        <name>socorro_tipo_desc</name>
-      </remove>
-      <meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>672</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Boletins FK (VEIC)</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
         <name>boletim_fk</name>
         <rename>boletim_pk</rename>
-        <type>None</type>
-        <length>18</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
+      </field>
+      <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -970,7 +730,7 @@
     </GUI>
   </step>
   <step>
-    <name>Boletins PK</name>
+    <name>Boletins PK (BOL)</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -984,126 +744,7 @@
       <field>
         <name>boletim_pk</name>
       </field>
-      <field>
-        <name>boletim_data_hora</name>
-      </field>
-      <field>
-        <name>boletim_data_inclusao</name>
-      </field>
-      <field>
-        <name>acidente_tipo_cod</name>
-      </field>
-      <field>
-        <name>tempo_cod</name>
-      </field>
-      <field>
-        <name>pavimento_cod</name>
-      </field>
-      <field>
-        <name>regional_cod</name>
-      </field>
-      <field>
-        <name>boletim_origem</name>
-      </field>
-      <field>
-        <name>coordenada_x</name>
-      </field>
-      <field>
-        <name>coordenada_y</name>
-      </field>
-      <field>
-        <name>hora_informada</name>
-      </field>
-      <field>
-        <name>indicador_fatalidade</name>
-      </field>
-      <field>
-        <name>ups</name>
-      </field>
-      <field>
-        <name>pavimento_desc</name>
-      </field>
-      <field>
-        <name>regional_desc</name>
-      </field>
-      <field>
-        <name>ups_desc</name>
-      </field>
-      <field>
-        <name>tempo_desc</name>
-      </field>
-      <field>
-        <name>acidente_tipo_desc</name>
-      </field>
       <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>boletim_data_hora</name>
-      </remove>
-      <remove>
-        <name>boletim_data_inclusao</name>
-      </remove>
-      <remove>
-        <name>acidente_tipo_cod</name>
-      </remove>
-      <remove>
-        <name>tempo_cod</name>
-      </remove>
-      <remove>
-        <name>pavimento_cod</name>
-      </remove>
-      <remove>
-        <name>regional_cod</name>
-      </remove>
-      <remove>
-        <name>boletim_origem</name>
-      </remove>
-      <remove>
-        <name>coordenada_x</name>
-      </remove>
-      <remove>
-        <name>coordenada_y</name>
-      </remove>
-      <remove>
-        <name>hora_informada</name>
-      </remove>
-      <remove>
-        <name>indicador_fatalidade</name>
-      </remove>
-      <remove>
-        <name>ups</name>
-      </remove>
-      <remove>
-        <name>pavimento_desc</name>
-      </remove>
-      <remove>
-        <name>regional_desc</name>
-      </remove>
-      <remove>
-        <name>ups_desc</name>
-      </remove>
-      <remove>
-        <name>tempo_desc</name>
-      </remove>
-      <remove>
-        <name>acidente_tipo_desc</name>
-      </remove>
-      <meta>
-        <name>boletim_pk</name>
-        <rename>boletim_pk</rename>
-        <type>None</type>
-        <length>18</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1120,7 +761,7 @@
     </GUI>
   </step>
   <step>
-    <name>CSV file input (Boletins)</name>
+    <name>CSV file input (BOL)</name>
     <type>CsvInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1359,158 +1000,7 @@
     </GUI>
   </step>
   <step>
-    <name>CSV file input (Lograds.)</name>
-    <type>CsvInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <filename>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\cleaned_logradouros.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
-    <separator>;</separator>
-    <enclosure/>
-    <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <format>mixed</format>
-    <encoding>windows-1252</encoding>
-    <fields>
-      <field>
-        <name>boletim_fk</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>18</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>veiculo_seq</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>categoria_cod</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>categoria_desc</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>18</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>especie_cod</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>especie_desc</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>22</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>situacao_cod</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>situacao_desc</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>socorro_tipo</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>socorro_tipo_desc</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>21</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>672</xloc>
-      <yloc>64</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>CSV file input (Pessoas)</name>
+    <name>CSV file input (ENV)</name>
     <type>CsvInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1716,7 +1206,158 @@
     </GUI>
   </step>
   <step>
-    <name>CSV file input (Veículos)</name>
+    <name>CSV file input (LOGR)</name>
+    <type>CsvInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <filename>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\cleaned_logradouros.csv</filename>
+    <filename_field/>
+    <rownum_field/>
+    <include_filename>N</include_filename>
+    <separator>;</separator>
+    <enclosure/>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <format>mixed</format>
+    <encoding>windows-1252</encoding>
+    <fields>
+      <field>
+        <name>boletim_fk</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>18</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>veiculo_seq</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>categoria_cod</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>categoria_desc</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>18</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>especie_cod</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>especie_desc</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>22</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>situacao_cod</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>situacao_desc</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>13</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>socorro_tipo</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>socorro_tipo_desc</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>21</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>672</xloc>
+      <yloc>64</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>CSV file input (VEIC)</name>
     <type>CsvInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1884,8 +1525,8 @@
       <value>boletim_pk</value>
     </values>
     <flag_field>flagfield</flag_field>
-    <reference>Unique (Pessoas)</reference>
-    <compare>Unique (Boletins)</compare>
+    <reference>Unique (ENV)</reference>
+    <compare>Unique (BOL)</compare>
     <compare>
     </compare>
     <attributes/>
@@ -1920,7 +1561,7 @@
       <value>boletim_pk</value>
     </values>
     <flag_field>flagfield</flag_field>
-    <reference>Unique (Veículos)</reference>
+    <reference>Unique (VEIC)</reference>
     <compare>Unique</compare>
     <compare>
     </compare>
@@ -1956,7 +1597,7 @@
       <value>boletim_pk</value>
     </values>
     <flag_field>flagfield</flag_field>
-    <reference>Unique (Lograds.)</reference>
+    <reference>Unique (LOGR)</reference>
     <compare>Unique 2</compare>
     <compare>
     </compare>
@@ -2049,7 +1690,7 @@
     </GUI>
   </step>
   <step>
-    <name>Identical 3</name>
+    <name>Identical PKs</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -2063,13 +1704,7 @@
       <field>
         <name>boletim_pk</name>
       </field>
-      <field>
-        <name>flagfield</name>
-      </field>
       <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>flagfield</name>
-      </remove>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -2123,7 +1758,7 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>boletim_data_hora</name>
+        <name>boletim_datahora</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
@@ -2373,7 +2008,51 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>condutor</name>
+        <name>tipo</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>13</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>sexo</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>13</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>grupo_idade</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>10</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>cinto_seguranca</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>13</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>embreagues</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
@@ -2402,61 +2081,6 @@
         <decimal>.</decimal>
         <group>,</group>
         <length>14</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>sexo</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>cinto_seguranca</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>embreagues</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>idade</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>nascimento_data</name>
-        <type>Date</type>
-        <format>dd/MM/yyyy</format>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -2490,28 +2114,6 @@
         <decimal>.</decimal>
         <group>,</group>
         <length>22</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>pedestre</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>passageiro</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>13</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -2949,7 +2551,7 @@
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\filtered_ocorrencias</name>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\curated_ocorrencias</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>csv</extention>
@@ -3006,7 +2608,7 @@
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\filtered_pessoas_envolvidas</name>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\curated_pessoas_envolvidas</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>csv</extention>
@@ -3063,7 +2665,7 @@
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\filtered_logradouros</name>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\curated_logradouros</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>csv</extention>
@@ -3120,7 +2722,7 @@
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\filtered_veiculos_envolvidos</name>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\curated_veiculos_envolvidos</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>csv</extention>
@@ -3166,65 +2768,77 @@
     <fields>
       <field>
         <name>boletim_pk</name>
+        <rename/>
       </field>
       <field>
-        <name>boletim_data_hora</name>
+        <name>boletim_datahora</name>
+        <rename/>
       </field>
       <field>
         <name>boletim_data_inclusao</name>
+        <rename/>
       </field>
       <field>
         <name>acidente_tipo_cod</name>
+        <rename/>
       </field>
       <field>
         <name>tempo_cod</name>
+        <rename/>
       </field>
       <field>
         <name>pavimento_cod</name>
+        <rename/>
       </field>
       <field>
         <name>regional_cod</name>
+        <rename/>
       </field>
       <field>
         <name>boletim_origem</name>
+        <rename/>
       </field>
       <field>
         <name>coordenada_x</name>
+        <rename/>
       </field>
       <field>
         <name>coordenada_y</name>
+        <rename/>
       </field>
       <field>
         <name>hora_informada</name>
+        <rename/>
       </field>
       <field>
         <name>indicador_fatalidade</name>
+        <rename/>
       </field>
       <field>
         <name>ups</name>
+        <rename/>
       </field>
       <field>
         <name>pavimento_desc</name>
+        <rename/>
       </field>
       <field>
         <name>regional_desc</name>
+        <rename/>
       </field>
       <field>
         <name>ups_desc</name>
+        <rename/>
       </field>
       <field>
         <name>tempo_desc</name>
+        <rename/>
       </field>
       <field>
         <name>acidente_tipo_desc</name>
-      </field>
-      <field>
-        <name>boletim_pk_1</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>boletim_pk_1</name>
-      </remove>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -3259,16 +2873,13 @@
         <name>env_sequencia</name>
       </field>
       <field>
-        <name>condutor</name>
-      </field>
-      <field>
-        <name>severidade_cod</name>
-      </field>
-      <field>
-        <name>severidade_desc</name>
+        <name>tipo</name>
       </field>
       <field>
         <name>sexo</name>
+      </field>
+      <field>
+        <name>grupo_idade</name>
       </field>
       <field>
         <name>cinto_seguranca</name>
@@ -3277,10 +2888,10 @@
         <name>embreagues</name>
       </field>
       <field>
-        <name>idade</name>
+        <name>severidade_cod</name>
       </field>
       <field>
-        <name>nascimento_data</name>
+        <name>severidade_desc</name>
       </field>
       <field>
         <name>habilitacao_cod</name>
@@ -3290,12 +2901,6 @@
       </field>
       <field>
         <name>veiculo_especie</name>
-      </field>
-      <field>
-        <name>pedestre</name>
-      </field>
-      <field>
-        <name>passageiro</name>
       </field>
       <field>
         <name>boletim_pk</name>
@@ -3333,31 +2938,24 @@
     <fields>
       <field>
         <name>boletim_fk</name>
-        <rename/>
       </field>
       <field>
         <name>logradouro_tipo</name>
-        <rename/>
       </field>
       <field>
         <name>bairro_cod</name>
-        <rename/>
       </field>
       <field>
         <name>bairro_nome</name>
-        <rename/>
       </field>
       <field>
         <name>bairro_tipo_cod</name>
-        <rename/>
       </field>
       <field>
         <name>bairro_tipo_desc</name>
-        <rename/>
       </field>
       <field>
         <name>boletim_pk</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <remove>
@@ -3392,47 +2990,36 @@
     <fields>
       <field>
         <name>boletim_fk</name>
-        <rename/>
       </field>
       <field>
         <name>veiculo_seq</name>
-        <rename/>
       </field>
       <field>
         <name>categoria_cod</name>
-        <rename/>
       </field>
       <field>
         <name>categoria_desc</name>
-        <rename/>
       </field>
       <field>
         <name>especie_cod</name>
-        <rename/>
       </field>
       <field>
         <name>especie_desc</name>
-        <rename/>
       </field>
       <field>
         <name>situacao_cod</name>
-        <rename/>
       </field>
       <field>
         <name>situacao_desc</name>
-        <rename/>
       </field>
       <field>
         <name>socorro_tipo</name>
-        <rename/>
       </field>
       <field>
         <name>socorro_tipo_desc</name>
-        <rename/>
       </field>
       <field>
         <name>boletim_pk</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <remove>
@@ -3550,7 +3137,7 @@
     <cases>
       <case>
         <value>identical</value>
-        <target_step>Identical 3</target_step>
+        <target_step>Identical PKs</target_step>
       </case>
     </cases>
     <attributes/>
@@ -3610,7 +3197,7 @@
     </GUI>
   </step>
   <step>
-    <name>Unique (Boletins)</name>
+    <name>Unique (BOL)</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -3647,6 +3234,48 @@
     </remotesteps>
     <GUI>
       <xloc>80</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Unique (ENV)</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>Y</unique_rows>
+    <fields>
+      <field>
+        <name>boletim_pk</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3694,7 +3323,7 @@
     </GUI>
   </step>
   <step>
-    <name>Unique (Lograds.)</name>
+    <name>Unique (LOGR)</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -3736,49 +3365,7 @@
     </GUI>
   </step>
   <step>
-    <name>Unique (Pessoas)</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>Y</unique_rows>
-    <fields>
-      <field>
-        <name>boletim_pk</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>240</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Unique (Veículos)</name>
+    <name>Unique (VEIC)</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>

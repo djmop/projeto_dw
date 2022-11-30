@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>P03 - constroi dw</name>
+    <name>Build DW</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -430,16 +431,36 @@
     <created_date>2022/11/27 21:37:02.314</created_date>
     <modified_user>-</modified_user>
     <modified_date>2022/11/27 21:37:02.314</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <order>
+    <hop>
+      <from>INPUT (BOL)</from>
+      <to>Select (BOL)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>INPUT (ENV)</from>
+      <to>Select (ENV)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>INPUT (VEIC)</from>
+      <to>Select (VEIC)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>INPUT (LOGR)</from>
+      <to>Select (LOGR)</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>INPUT (BOL)</name>
-    <type>CsvInput</type>
+    <type>TextFileInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -448,20 +469,44 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\filtered_ocorrencias.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
     <separator>;</separator>
     <enclosure>"</enclosure>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
     <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <format>mixed</format>
-    <encoding>windows-1252</encoding>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>DOS</format>
+    <encoding/>
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\curated_ocorrencias.csv</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
     <fields>
       <field>
         <name>boletim_pk</name>
@@ -470,20 +515,28 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>18</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
-        <name>boletim_data_hora</name>
+        <name>boletim_datahora</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>16</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>boletim_data_inclusao</name>
@@ -492,9 +545,13 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>acidente_tipo_cod</name>
@@ -503,42 +560,58 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>6</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>tempo_cod</name>
         <type>Integer</type>
-        <format>#</format>
+        <format>0</format>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>pavimento_cod</name>
         <type>Integer</type>
-        <format>#</format>
+        <format>0</format>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>regional_cod</name>
         <type>Integer</type>
-        <format>#</format>
+        <format>0</format>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>boletim_origem</name>
@@ -547,31 +620,43 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>15</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>coordenada_x</name>
         <type>Number</type>
-        <format>#.#</format>
+        <format>0.#####</format>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>8</length>
-        <precision>1</precision>
-        <trim_type>none</trim_type>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>coordenada_y</name>
         <type>Number</type>
-        <format>#.#</format>
+        <format>0.#####</format>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>9</length>
-        <precision>1</precision>
-        <trim_type>none</trim_type>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>hora_informada</name>
@@ -580,9 +665,13 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>3</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>indicador_fatalidade</name>
@@ -591,20 +680,28 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>3</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>ups</name>
         <type>Integer</type>
-        <format>#</format>
+        <format>0</format>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>pavimento_desc</name>
@@ -613,9 +710,13 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>13</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>regional_desc</name>
@@ -624,9 +725,13 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>13</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>ups_desc</name>
@@ -635,9 +740,13 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>13</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>tempo_desc</name>
@@ -646,9 +755,13 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>13</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>acidente_tipo_desc</name>
@@ -657,11 +770,40 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>23</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
     </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>en_US</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -671,14 +813,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
-      <yloc>96</yloc>
+      <xloc>80</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>INPUT (ENV)</name>
-    <type>CsvInput</type>
+    <type>TextFileInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -687,20 +829,44 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\filtered_pessoas_envolvidas.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
     <separator>;</separator>
     <enclosure>"</enclosure>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
     <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <format>mixed</format>
-    <encoding>windows-1252</encoding>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>DOS</format>
+    <encoding/>
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\curated_pessoas_envolvidas.csv</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
     <fields>
       <field>
         <name>boletim_fk</name>
@@ -709,53 +875,43 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>18</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>env_sequencia</name>
         <type>Integer</type>
-        <format>#</format>
+        <format>0</format>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
-        <name>condutor</name>
+        <name>tipo</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>13</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>severidade_cod</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>severidade_desc</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>14</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>sexo</name>
@@ -764,9 +920,28 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>13</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>grupo_idade</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>cinto_seguranca</name>
@@ -775,9 +950,13 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>13</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>embreagues</name>
@@ -786,31 +965,43 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>idade</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>nascimento_data</name>
-        <type>Date</type>
-        <format>dd/MM/yyyy</format>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>severidade_cod</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>severidade_desc</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>habilitacao_cod</name>
@@ -819,9 +1010,13 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>2</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>habilitacao_desc</name>
@@ -830,9 +1025,13 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>59</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>veiculo_especie</name>
@@ -841,33 +1040,40 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>22</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>pedestre</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>passageiro</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
       </field>
     </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>en_US</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -877,14 +1083,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
-      <yloc>240</yloc>
+      <xloc>80</xloc>
+      <yloc>186</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>INPUT (VEIC)</name>
-    <type>CsvInput</type>
+    <name>INPUT (LOGR)</name>
+    <type>TextFileInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -893,20 +1099,44 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\filtered_veiculos_envolvidos.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
     <separator>;</separator>
     <enclosure>"</enclosure>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
     <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <format>mixed</format>
-    <encoding>windows-1252</encoding>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>DOS</format>
+    <encoding/>
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\curated_logradouros.csv</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
     <fields>
       <field>
         <name>boletim_fk</name>
@@ -915,110 +1145,115 @@
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>15</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>18</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
-        <name>veiculo_seq</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>categoria_cod</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>categoria_desc</name>
+        <name>logradouro_tipo</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>13</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
-        <name>especie_cod</name>
+        <name>bairro_cod</name>
         <type>Integer</type>
         <format>#</format>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
         <length>15</length>
         <precision>0</precision>
         <trim_type>none</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
-        <name>especie_desc</name>
+        <name>bairro_nome</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>13</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>51</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
-        <name>situacao_cod</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>situacao_desc</name>
+        <name>bairro_tipo_cod</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>13</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>2</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
-        <name>socorro_tipo</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>socorro_tipo_desc</name>
+        <name>bairro_tipo_desc</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>13</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>30</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
+        <repeat>N</repeat>
       </field>
     </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>en_US</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1028,14 +1263,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
-      <yloc>368</yloc>
+      <xloc>80</xloc>
+      <yloc>430</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>INPUT (LOGR)</name>
-    <type>CsvInput</type>
+    <name>INPUT (VEIC)</name>
+    <type>TextFileInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1044,32 +1279,325 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\filtered_logradouros.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
     <separator>;</separator>
     <enclosure>"</enclosure>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
     <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <format>mixed</format>
-    <encoding>windows-1252</encoding>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>DOS</format>
+    <encoding/>
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name/>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\curated_veiculos_envolvidos.csv</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
     <fields>
       <field>
-        <name>boletim_pk</name>
+        <name>boletim_fk</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>18</length>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
+        <repeat>N</repeat>
       </field>
+      <field>
+        <name>veiculo_seq</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>categoria_cod</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>categoria_desc</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>13</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>especie_cod</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>especie_desc</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>13</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>situacao_cod</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>situacao_desc</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>13</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>socorro_tipo</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>socorro_tipo_desc</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>13</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>en_US</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>308</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select (BOL)</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>boletim_pk</name>
+        <rename/>
+      </field>
+      <field>
+        <name>boletim_datahora</name>
+        <rename/>
+      </field>
+      <field>
+        <name>boletim_data_inclusao</name>
+        <rename/>
+      </field>
+      <field>
+        <name>acidente_tipo_cod</name>
+        <rename/>
+      </field>
+      <field>
+        <name>acidente_tipo_desc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tempo_cod</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tempo_desc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>pavimento_cod</name>
+        <rename/>
+      </field>
+      <field>
+        <name>pavimento_desc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>regional_cod</name>
+        <rename/>
+      </field>
+      <field>
+        <name>regional_desc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>boletim_origem</name>
+        <rename/>
+      </field>
+      <field>
+        <name>coordenada_x</name>
+        <rename/>
+      </field>
+      <field>
+        <name>coordenada_y</name>
+        <rename/>
+      </field>
+      <field>
+        <name>hora_informada</name>
+        <rename/>
+      </field>
+      <field>
+        <name>indicador_fatalidade</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ups</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ups_desc</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1080,8 +1608,176 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
-      <yloc>512</yloc>
+      <xloc>256</xloc>
+      <yloc>64</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select (ENV)</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>boletim_fk</name>
+      </field>
+      <field>
+        <name>env_sequencia</name>
+      </field>
+      <field>
+        <name>tipo</name>
+      </field>
+      <field>
+        <name>sexo</name>
+      </field>
+      <field>
+        <name>grupo_idade</name>
+      </field>
+      <field>
+        <name>cinto_seguranca</name>
+      </field>
+      <field>
+        <name>embreagues</name>
+      </field>
+      <field>
+        <name>severidade_cod</name>
+      </field>
+      <field>
+        <name>severidade_desc</name>
+      </field>
+      <field>
+        <name>habilitacao_cod</name>
+      </field>
+      <field>
+        <name>habilitacao_desc</name>
+      </field>
+      <field>
+        <name>veiculo_especie</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>256</xloc>
+      <yloc>186</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select (LOGR)</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>boletim_fk</name>
+      </field>
+      <field>
+        <name>logradouro_tipo</name>
+      </field>
+      <field>
+        <name>bairro_cod</name>
+      </field>
+      <field>
+        <name>bairro_nome</name>
+      </field>
+      <field>
+        <name>bairro_tipo_cod</name>
+      </field>
+      <field>
+        <name>bairro_tipo_desc</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>256</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select (VEIC)</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>boletim_fk</name>
+      </field>
+      <field>
+        <name>veiculo_seq</name>
+      </field>
+      <field>
+        <name>categoria_cod</name>
+      </field>
+      <field>
+        <name>categoria_desc</name>
+      </field>
+      <field>
+        <name>especie_cod</name>
+      </field>
+      <field>
+        <name>especie_desc</name>
+      </field>
+      <field>
+        <name>situacao_cod</name>
+      </field>
+      <field>
+        <name>situacao_desc</name>
+      </field>
+      <field>
+        <name>socorro_tipo</name>
+      </field>
+      <field>
+        <name>socorro_tipo_desc</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>256</xloc>
+      <yloc>308</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

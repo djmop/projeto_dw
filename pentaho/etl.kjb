@@ -310,7 +310,7 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Extract &amp; Clean (BOL)</name>
+      <name>Extract&amp;Clean (BOL)</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
@@ -349,7 +349,7 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Extract &amp; Clean (ENV)</name>
+      <name>Extract&amp;Clean (ENV)</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
@@ -388,7 +388,7 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Extract &amp; Clean (LOGR)</name>
+      <name>Extract&amp;Clean (LOGR)</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
@@ -427,7 +427,7 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Extract &amp; Clean (VEIC)</name>
+      <name>Extract&amp;Clean (VEIC)</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
@@ -466,7 +466,7 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Compare &amp; Filter</name>
+      <name>Curatorship</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
@@ -571,23 +571,23 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Check Filtered Files</name>
+      <name>Check Curated Files</name>
       <description/>
       <type>FILES_EXIST</type>
       <attributes/>
       <filename/>
       <fields>
         <field>
-          <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\filtered_logradouros.csv</name>
+          <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\curated_logradouros.csv</name>
         </field>
         <field>
-          <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\filtered_ocorrencias.csv</name>
+          <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\curated_ocorrencias.csv</name>
         </field>
         <field>
-          <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\filtered_pessoas_envolvidas.csv</name>
+          <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\curated_pessoas_envolvidas.csv</name>
         </field>
         <field>
-          <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\filtered_veiculos_envolvidos.csv</name>
+          <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\curated_veiculos_envolvidos.csv</name>
         </field>
       </fields>
       <parallel>N</parallel>
@@ -601,7 +601,7 @@
   <hops>
     <hop>
       <from>Start</from>
-      <to>Extract &amp; Clean (BOL)</to>
+      <to>Extract&amp;Clean (BOL)</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -609,8 +609,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Extract &amp; Clean (BOL)</from>
-      <to>Extract &amp; Clean (ENV)</to>
+      <from>Extract&amp;Clean (BOL)</from>
+      <to>Extract&amp;Clean (ENV)</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -618,8 +618,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Extract &amp; Clean (ENV)</from>
-      <to>Extract &amp; Clean (VEIC)</to>
+      <from>Extract&amp;Clean (ENV)</from>
+      <to>Extract&amp;Clean (VEIC)</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -627,8 +627,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Extract &amp; Clean (VEIC)</from>
-      <to>Extract &amp; Clean (LOGR)</to>
+      <from>Extract&amp;Clean (VEIC)</from>
+      <to>Extract&amp;Clean (LOGR)</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -636,7 +636,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Extract &amp; Clean (LOGR)</from>
+      <from>Extract&amp;Clean (LOGR)</from>
       <to>Check Cleaned Files</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -646,7 +646,7 @@
     </hop>
     <hop>
       <from>Check Cleaned Files</from>
-      <to>Compare &amp; Filter</to>
+      <to>Curatorship</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -654,8 +654,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Compare &amp; Filter</from>
-      <to>Check Filtered Files</to>
+      <from>Curatorship</from>
+      <to>Check Curated Files</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -663,7 +663,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Check Filtered Files</from>
+      <from>Check Curated Files</from>
       <to>Build DW</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
