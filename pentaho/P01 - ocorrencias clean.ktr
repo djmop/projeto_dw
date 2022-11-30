@@ -438,28 +438,8 @@
   </notepads>
   <order>
     <hop>
-      <from>Ups CHANGE CASE</from>
-      <to>Ups CLEAN</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Data Inclusão CUT</from>
-      <to>Boletim SELECT</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Acidente REPLACE</from>
-      <to>Acidente CLEAN</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Boletim EXTRACT</from>
       <to>Boletim UNIQUE</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Acidente CHANGE CASE</from>
-      <to>Acidente REPLACE</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -470,11 +450,6 @@
     <hop>
       <from>Boletim SELECT</from>
       <to>Acidente SELECT</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Tempo STRING OPS.</from>
-      <to>Tempo REPLACE</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -493,18 +468,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Pavimento STRING OPS.</from>
-      <to>Pavimento REPLACE</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Boletim SELECT</from>
       <to>Pavimento SELECT</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Regional STRING OPS.</from>
-      <to>Regional REPLACE</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -568,22 +533,12 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Pavimento REPLACE</from>
-      <to>Pavimento JOIN</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Pavimento JOIN</from>
       <to>Regional SORT</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Regional SORT</from>
-      <to>Regional JOIN</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Regional REPLACE</from>
       <to>Regional JOIN</to>
       <enabled>Y</enabled>
     </hop>
@@ -598,11 +553,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Ups CLEAN</from>
-      <to>Ups JOIN</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Ups JOIN</from>
       <to>Tempo SORT</to>
       <enabled>Y</enabled>
@@ -613,18 +563,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Tempo REPLACE</from>
-      <to>Tempo JOIN</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Tempo JOIN</from>
       <to>Acidente SORT</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Acidente CLEAN</from>
-      <to>Acidente JOIN</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -633,18 +573,98 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Acidente JOIN</from>
-      <to>Final select</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Boletim UNIQUE</from>
       <to>Data Inclusão CUT</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Acidente JOIN</from>
+      <to>Time of Day</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Regional STRING OPS.</from>
+      <to>Regional REPLACE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Regional REPLACE</from>
+      <to>Regional JOIN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Pavimento STRING OPS.</from>
+      <to>Pavimento REPLACE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Pavimento REPLACE</from>
+      <to>Pavimento JOIN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Tempo STRING OPS.</from>
+      <to>Tempo REPLACE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Tempo REPLACE</from>
+      <to>Tempo JOIN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Acidente CHANGE CASE</from>
+      <to>Acidente REPLACE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Ups CHANGE CASE</from>
+      <to>Ups CLEAN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Acidente REPLACE</from>
+      <to>Acidente CLEAN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Acidente CLEAN</from>
+      <to>Acidente JOIN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Ups CLEAN</from>
+      <to>Ups JOIN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Data Inclusão CUT</from>
+      <to>Indicadores</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Final select</from>
       <to>Text file output</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Origem REPLACE</from>
+      <to>Boletim SELECT</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Time of Day</from>
+      <to>Final select</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Indicadores</from>
+      <to>Conversão SIRGAS 2000 -> WGS84</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Conversão SIRGAS 2000 -> WGS84</from>
+      <to>Origem REPLACE</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -676,8 +696,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1008</xloc>
-      <yloc>160</yloc>
+      <xloc>688</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -699,30 +719,7 @@
       <field>
         <name>acidente_tipo_desc</name>
       </field>
-      <field>
-        <name>acidente_tipo_desc_temp</name>
-      </field>
       <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>acidente_tipo_desc</name>
-      </remove>
-      <meta>
-        <name>acidente_tipo_desc_temp</name>
-        <rename>acidente_tipo_desc</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -733,8 +730,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1648</xloc>
-      <yloc>160</yloc>
+      <xloc>1168</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -767,14 +764,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1808</xloc>
-      <yloc>320</yloc>
+      <xloc>1296</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Acidente REPLACE</name>
-    <type>ReplaceString</type>
+    <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -783,42 +780,29 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var acidente_tipo_desc = acidente_tipo_desc_temp
+	.replace(/\bvitima\b/, "vítima")
+	.replace(/\bveiculo\b/, "veículo")
+	.replace(/\bveiculos\b/, "veículos")
+	.replace(/\bmecanico\b/, "mecânico")</jsScript_script>
+      </jsScript>
+    </jsScripts>
     <fields>
       <field>
-        <in_stream_name>acidente_tipo_desc_temp</in_stream_name>
-        <out_stream_name/>
-        <use_regex>yes</use_regex>
-        <replace_string>\bvitima\b</replace_string>
-        <replace_by_string>vítima</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>acidente_tipo_desc_temp</in_stream_name>
-        <out_stream_name/>
-        <use_regex>yes</use_regex>
-        <replace_string>\bveiculo\b</replace_string>
-        <replace_by_string>veículo</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>acidente_tipo_desc_temp</in_stream_name>
-        <out_stream_name/>
-        <use_regex>yes</use_regex>
-        <replace_string>\bmecanico\b</replace_string>
-        <replace_by_string>mecânico</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <name>acidente_tipo_desc</name>
+        <rename>acidente_tipo_desc</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
       </field>
     </fields>
     <attributes/>
@@ -830,8 +814,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1328</xloc>
-      <yloc>160</yloc>
+      <xloc>960</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -864,8 +848,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
-      <yloc>160</yloc>
+      <xloc>448</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -906,8 +890,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1648</xloc>
-      <yloc>464</yloc>
+      <xloc>1168</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -948,8 +932,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>848</xloc>
-      <yloc>160</yloc>
+      <xloc>560</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1019,9 +1003,9 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>boletim_data_hora</name>
-        <type>String</type>
-        <format/>
+        <name>boletim_datahora</name>
+        <type>Timestamp</type>
+        <format>dd/MM/yyyy HH:mm</format>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1215,7 +1199,7 @@
       </field>
       <field>
         <name>coordenada_x</name>
-        <type>String</type>
+        <type>Number</type>
         <format/>
         <currency/>
         <decimal>.</decimal>
@@ -1224,13 +1208,13 @@
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
-        <precision>-1</precision>
+        <precision>2</precision>
         <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
         <name>coordenada_y</name>
-        <type>String</type>
+        <type>Number</type>
         <format/>
         <currency/>
         <decimal>.</decimal>
@@ -1239,7 +1223,7 @@
         <ifnull/>
         <position>-1</position>
         <length>-1</length>
-        <precision>-1</precision>
+        <precision>2</precision>
         <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
@@ -1383,8 +1367,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
-      <yloc>320</yloc>
+      <xloc>48</xloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1392,7 +1376,7 @@
     <name>Boletim SELECT</name>
     <type>SelectValues</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1402,109 +1386,80 @@
     <fields>
       <field>
         <name>boletim_pk</name>
+        <rename/>
       </field>
       <field>
-        <name>boletim_data_hora</name>
+        <name>boletim_datahora</name>
+        <rename/>
       </field>
       <field>
         <name>boletim_data_inclusao</name>
+        <rename/>
       </field>
       <field>
         <name>acidente_tipo_cod</name>
+        <rename/>
       </field>
       <field>
         <name>acidente_tipo_desc</name>
+        <rename/>
       </field>
       <field>
         <name>tempo_cod</name>
+        <rename/>
       </field>
       <field>
         <name>tempo_desc</name>
+        <rename/>
       </field>
       <field>
         <name>pavimento_cod</name>
+        <rename/>
       </field>
       <field>
         <name>pavimento_desc</name>
+        <rename/>
       </field>
       <field>
         <name>regional_cod</name>
+        <rename/>
       </field>
       <field>
         <name>regional_desc</name>
+        <rename/>
       </field>
       <field>
         <name>boletim_origem</name>
+        <rename/>
       </field>
       <field>
-        <name>local_sinalizado</name>
+        <name>latitude</name>
+        <rename/>
       </field>
       <field>
-        <name>velocidade_permitida</name>
-      </field>
-      <field>
-        <name>coordenada_x</name>
-      </field>
-      <field>
-        <name>coordenada_y</name>
+        <name>longitude</name>
+        <rename/>
       </field>
       <field>
         <name>hora_informada</name>
+        <rename/>
       </field>
       <field>
         <name>indicador_fatalidade</name>
+        <rename/>
       </field>
       <field>
         <name>ups</name>
+        <rename/>
       </field>
       <field>
         <name>ups_desc</name>
-      </field>
-      <field>
-        <name>data_alteracao_smsa</name>
-      </field>
-      <field>
-        <name>ups_antigo</name>
-      </field>
-      <field>
-        <name>ups_antigo_desc</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>data_alteracao_smsa</name>
-      </remove>
-      <remove>
-        <name>ups_antigo</name>
-      </remove>
-      <remove>
-        <name>ups_antigo_desc</name>
-      </remove>
-      <remove>
-        <name>local_sinalizado</name>
-      </remove>
-      <remove>
-        <name>velocidade_permitida</name>
-      </remove>
       <meta>
-        <name>boletim_pk</name>
-        <rename>boletim_pk</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>boletim_data_hora</name>
-        <rename>boletim_data_hora</rename>
+        <name>boletim_datahora</name>
+        <rename>boletim_datahora</rename>
         <type>Timestamp</type>
         <length>-2</length>
         <precision>-2</precision>
@@ -1536,261 +1491,6 @@
         <currency_symbol/>
         <storage_type/>
       </meta>
-      <meta>
-        <name>acidente_tipo_cod</name>
-        <rename>acidente_tipo_cod</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>acidente_tipo_desc</name>
-        <rename>acidente_tipo_desc</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>tempo_cod</name>
-        <rename>tempo_cod</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>tempo_desc</name>
-        <rename>tempo_desc</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>pavimento_cod</name>
-        <rename>pavimento_cod</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>pavimento_desc</name>
-        <rename>pavimento_desc</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>regional_cod</name>
-        <rename>regional_cod</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>regional_desc</name>
-        <rename>regional_desc</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>boletim_origem</name>
-        <rename>boletim_origem</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>coordenada_x</name>
-        <rename>coordenada_x</rename>
-        <type>Number</type>
-        <length>-2</length>
-        <precision>2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>coordenada_y</name>
-        <rename>coordenada_y</rename>
-        <type>Number</type>
-        <length>-2</length>
-        <precision>2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>hora_informada</name>
-        <rename>hora_informada</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>indicador_fatalidade</name>
-        <rename>indicador_fatalidade</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>ups</name>
-        <rename>ups</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>ups_desc</name>
-        <rename>ups_desc</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1801,8 +1501,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>544</yloc>
+      <xloc>288</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1843,8 +1543,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
-      <yloc>432</yloc>
+      <xloc>48</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1876,8 +1576,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
-      <yloc>544</yloc>
+      <xloc>160</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1895,395 +1595,77 @@
     <fields>
       <field>
         <name>boletim_pk</name>
+        <rename/>
       </field>
       <field>
-        <name>boletim_data_hora</name>
+        <name>boletim_datahora</name>
+        <rename/>
       </field>
       <field>
-        <name>boletim_data_inclusao</name>
+        <name>intervalo_horario</name>
+        <rename/>
       </field>
       <field>
         <name>acidente_tipo_cod</name>
-      </field>
-      <field>
-        <name>tempo_cod</name>
-      </field>
-      <field>
-        <name>pavimento_cod</name>
-      </field>
-      <field>
-        <name>regional_cod</name>
-      </field>
-      <field>
-        <name>boletim_origem</name>
-      </field>
-      <field>
-        <name>coordenada_x</name>
-      </field>
-      <field>
-        <name>coordenada_y</name>
-      </field>
-      <field>
-        <name>hora_informada</name>
-      </field>
-      <field>
-        <name>indicador_fatalidade</name>
-      </field>
-      <field>
-        <name>ups</name>
-      </field>
-      <field>
-        <name>pavimento_cod_1</name>
-      </field>
-      <field>
-        <name>pavimento_desc</name>
-      </field>
-      <field>
-        <name>regional_cod_1</name>
-      </field>
-      <field>
-        <name>regional_desc</name>
-      </field>
-      <field>
-        <name>ups_1</name>
-      </field>
-      <field>
-        <name>ups_desc</name>
-      </field>
-      <field>
-        <name>tempo_cod_1</name>
-      </field>
-      <field>
-        <name>tempo_desc</name>
-      </field>
-      <field>
-        <name>acidente_tipo_cod_1</name>
+        <rename/>
       </field>
       <field>
         <name>acidente_tipo_desc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ups</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ups_desc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>indicador_fatalidade</name>
+        <rename/>
+      </field>
+      <field>
+        <name>regional_cod</name>
+        <rename/>
+      </field>
+      <field>
+        <name>regional_desc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tempo_cod</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tempo_desc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>pavimento_cod</name>
+        <rename/>
+      </field>
+      <field>
+        <name>pavimento_desc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>latitude</name>
+        <rename/>
+      </field>
+      <field>
+        <name>longitude</name>
+        <rename/>
+      </field>
+      <field>
+        <name>hora_informada</name>
+        <rename/>
+      </field>
+      <field>
+        <name>boletim_origem</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>pavimento_cod_1</name>
-      </remove>
-      <remove>
-        <name>regional_cod_1</name>
-      </remove>
-      <remove>
-        <name>ups_1</name>
-      </remove>
-      <remove>
-        <name>tempo_cod_1</name>
-      </remove>
-      <remove>
-        <name>acidente_tipo_cod_1</name>
-      </remove>
-      <meta>
-        <name>boletim_pk</name>
-        <rename>boletim_pk</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>boletim_data_hora</name>
-        <rename>boletim_data_hora</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>hora_informada</name>
-        <rename>hora_informada</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>boletim_data_inclusao</name>
-        <rename>boletim_data_inclusao</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>boletim_origem</name>
-        <rename>boletim_origem</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>indicador_fatalidade</name>
-        <rename>indicador_fatalidade</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>acidente_tipo_cod</name>
-        <rename>acidente_tipo_cod</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>acidente_tipo_desc</name>
-        <rename>acidente_tipo_desc</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>tempo_cod</name>
-        <rename>tempo_cod</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>tempo_desc</name>
-        <rename>tempo_desc</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>pavimento_cod</name>
-        <rename>pavimento_cod</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>pavimento_desc</name>
-        <rename>pavimento_desc</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>regional_cod</name>
-        <rename>regional_cod</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>regional_desc</name>
-        <rename>regional_desc</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>ups</name>
-        <rename>ups</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>ups_desc</name>
-        <rename>ups_desc</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>coordenada_x</name>
-        <rename>coordenada_x</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>coordenada_y</name>
-        <rename>coordenada_y</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -2294,8 +1676,113 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1968</xloc>
-      <yloc>320</yloc>
+      <xloc>1488</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Indicadores</name>
+    <type>StringOperations</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>indicador_fatalidade</in_stream_name>
+        <out_stream_name/>
+        <trim_type/>
+        <lower_upper/>
+        <padding_type/>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>Y</init_cap>
+        <mask_xml/>
+        <digits/>
+        <remove_special_characters/>
+      </field>
+      <field>
+        <in_stream_name>hora_informada</in_stream_name>
+        <out_stream_name/>
+        <trim_type/>
+        <lower_upper/>
+        <padding_type/>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>Y</init_cap>
+        <mask_xml/>
+        <digits/>
+        <remove_special_characters/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>160</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Origem REPLACE</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var boletim_origem = boletim_origem
+	.replace(/\bCORPO DE BOMBEI\b/, "Corpo de Bombeiros")
+	.replace(/\bNI\b/, "Não informado")
+	.replace(/\bPMMG\b/, "Polícia Militar")
+	.replace(/\bPOLICIA MILITAR\b/, "Polícia Militar")
+	.replace(/\bPOLICIA CIVIL\b/, "Polícia Civil")
+	.replace(/\bPOLICIA RODOVIA\b/, "Polícia Rodoviária")</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>boletim_origem</name>
+        <rename>boletim_origem</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2328,14 +1815,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1008</xloc>
-      <yloc>464</yloc>
+      <xloc>688</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Pavimento REPLACE</name>
-    <type>ReplaceString</type>
+    <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2344,18 +1831,27 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var pavimento_desc = pavimento_desc
+	.replace(/Nao Informado/, "Não informado")
+	.replace(/Calcamento/, "Calçamento")</jsScript_script>
+      </jsScript>
+    </jsScripts>
     <fields>
       <field>
-        <in_stream_name>pavimento_desc</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Nao Informado</replace_string>
-        <replace_by_string>Não informado</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <name>pavimento_desc</name>
+        <rename>pavimento_desc</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
       </field>
     </fields>
     <attributes/>
@@ -2367,8 +1863,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1168</xloc>
-      <yloc>624</yloc>
+      <xloc>832</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2401,8 +1897,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
-      <yloc>624</yloc>
+      <xloc>448</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2443,8 +1939,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>848</xloc>
-      <yloc>464</yloc>
+      <xloc>560</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2483,8 +1979,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1008</xloc>
-      <yloc>624</yloc>
+      <xloc>688</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2525,8 +2021,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>848</xloc>
-      <yloc>624</yloc>
+      <xloc>560</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2559,14 +2055,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1328</xloc>
-      <yloc>624</yloc>
+      <xloc>960</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Regional REPLACE</name>
-    <type>ReplaceString</type>
+    <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2575,30 +2071,27 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var regional_desc = regional_desc
+	.replace(/^$/, "Não informado")
+	.replace(/Centro-Sul/, "Centro-sul")</jsScript_script>
+      </jsScript>
+    </jsScripts>
     <fields>
       <field>
-        <in_stream_name>regional_desc</in_stream_name>
-        <out_stream_name/>
-        <use_regex>yes</use_regex>
-        <replace_string>^$</replace_string>
-        <replace_by_string>Não informado</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>regional_desc</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Centro-Sul</replace_string>
-        <replace_by_string>Centro-sul</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <name>regional_desc</name>
+        <rename>regional_desc</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
       </field>
     </fields>
     <attributes/>
@@ -2610,8 +2103,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1168</xloc>
-      <yloc>784</yloc>
+      <xloc>832</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2644,8 +2137,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
-      <yloc>784</yloc>
+      <xloc>448</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2686,8 +2179,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1168</xloc>
-      <yloc>464</yloc>
+      <xloc>832</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2726,8 +2219,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1008</xloc>
-      <yloc>784</yloc>
+      <xloc>688</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2768,8 +2261,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>848</xloc>
-      <yloc>784</yloc>
+      <xloc>560</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2787,42 +2280,55 @@
     <fields>
       <field>
         <name>boletim_pk</name>
+        <rename/>
       </field>
       <field>
-        <name>boletim_data_hora</name>
+        <name>boletim_datahora</name>
+        <rename/>
       </field>
       <field>
         <name>boletim_data_inclusao</name>
+        <rename/>
       </field>
       <field>
         <name>acidente_tipo_cod</name>
+        <rename/>
       </field>
       <field>
         <name>tempo_cod</name>
+        <rename/>
       </field>
       <field>
         <name>pavimento_cod</name>
+        <rename/>
       </field>
       <field>
         <name>regional_cod</name>
+        <rename/>
       </field>
       <field>
         <name>boletim_origem</name>
+        <rename/>
       </field>
       <field>
-        <name>coordenada_x</name>
+        <name>latitude</name>
+        <rename/>
       </field>
       <field>
-        <name>coordenada_y</name>
+        <name>longitude</name>
+        <rename/>
       </field>
       <field>
         <name>hora_informada</name>
+        <rename/>
       </field>
       <field>
         <name>indicador_fatalidade</name>
+        <rename/>
       </field>
       <field>
         <name>ups</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -2835,8 +2341,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
-      <yloc>464</yloc>
+      <xloc>448</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2869,14 +2375,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1488</xloc>
-      <yloc>464</yloc>
+      <xloc>1056</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Tempo REPLACE</name>
-    <type>ReplaceString</type>
+    <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2885,18 +2391,26 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var tempo_desc = tempo_desc
+	.replace(/Nao Informado/, "Não informado")</jsScript_script>
+      </jsScript>
+    </jsScripts>
     <fields>
       <field>
-        <in_stream_name>tempo_desc</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Nao Informado</replace_string>
-        <replace_by_string>Não informado</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <name>tempo_desc</name>
+        <rename>tempo_desc</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
       </field>
     </fields>
     <attributes/>
@@ -2908,8 +2422,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1328</xloc>
-      <yloc>320</yloc>
+      <xloc>960</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2942,8 +2456,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
-      <yloc>320</yloc>
+      <xloc>448</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2984,8 +2498,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1648</xloc>
-      <yloc>624</yloc>
+      <xloc>1168</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3024,8 +2538,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1008</xloc>
-      <yloc>320</yloc>
+      <xloc>688</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3066,8 +2580,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>848</xloc>
-      <yloc>320</yloc>
+      <xloc>560</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3113,6 +2627,222 @@
       <splitevery/>
     </file>
     <fields>
+      <field>
+        <name>boletim_pk</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>boletim_datahora</name>
+        <type>Timestamp</type>
+        <format>dd/MM/yyyy HH:mm</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>boletim_data_inclusao</name>
+        <type>Timestamp</type>
+        <format>dd/MM/yyyy</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>acidente_tipo_cod</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>tempo_cod</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>pavimento_cod</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>regional_cod</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>boletim_origem</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>coordenada_x</name>
+        <type>Number</type>
+        <format>0.#####</format>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>coordenada_y</name>
+        <type>Number</type>
+        <format>0.#####</format>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>hora_informada</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>indicador_fatalidade</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>ups</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>pavimento_desc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>regional_desc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>ups_desc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>tempo_desc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>acidente_tipo_desc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -3123,8 +2853,91 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2096</xloc>
-      <yloc>320</yloc>
+      <xloc>1584</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Time of Day</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+function getTimeOfDay(t) {
+	if (t >=  0 &amp;&amp; t &lt;  1) return "00h à  01h";
+	if (t >=  1 &amp;&amp; t &lt;  2) return "01h às 02h";
+	if (t >=  2 &amp;&amp; t &lt;  3) return "02h às 03h";
+	if (t >=  3 &amp;&amp; t &lt;  4) return "03h às 04h";
+	if (t >=  4 &amp;&amp; t &lt;  5) return "04h às 05h";
+	if (t >=  5 &amp;&amp; t &lt;  6) return "05h às 06h";
+	if (t >=  6 &amp;&amp; t &lt;  7) return "06h às 07h";
+	if (t >=  7 &amp;&amp; t &lt;  8) return "07h às 08h";
+	if (t >=  8 &amp;&amp; t &lt;  9) return "08h às 09h";
+	if (t >=  9 &amp;&amp; t &lt; 10) return "09h às 10h";
+	if (t >= 10 &amp;&amp; t &lt; 11) return "10h às 11h";
+	if (t >= 11 &amp;&amp; t &lt; 12) return "11h às 12h";
+	if (t >= 12 &amp;&amp; t &lt; 13) return "12h às 13h";
+	if (t >= 13 &amp;&amp; t &lt; 14) return "13h às 14h";
+	if (t >= 14 &amp;&amp; t &lt; 15) return "14h às 15h";
+	if (t >= 15 &amp;&amp; t &lt; 16) return "15h às 16h";
+	if (t >= 16 &amp;&amp; t &lt; 17) return "16h às 17h";
+	if (t >= 17 &amp;&amp; t &lt; 18) return "17h às 18h";
+	if (t >= 18 &amp;&amp; t &lt; 19) return "18h às 19h";
+	if (t >= 19 &amp;&amp; t &lt; 20) return "19h às 20h";
+	if (t >= 20 &amp;&amp; t &lt; 21) return "20h às 21h";
+	if (t >= 21 &amp;&amp; t &lt; 22) return "21h às 22h";
+	if (t >= 22 &amp;&amp; t &lt; 23) return "22h às 23h";
+	if (t >= 23 &amp;&amp; t &lt; 24) return "23h às 24h";
+	else return null;
+}
+
+
+var hh = boletim_datahora.getHours();
+var mm = boletim_datahora.getMinutes();
+
+var t = hh + mm/60;
+
+var intervalo_horario = getTimeOfDay(t);
+
+
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>intervalo_horario</name>
+        <rename>intervalo_horario</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1392</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3156,8 +2969,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1008</xloc>
-      <yloc>944</yloc>
+      <xloc>688</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3177,49 +2990,10 @@
         <name>ups</name>
       </field>
       <field>
-        <name>ups_desc</name>
-      </field>
-      <field>
-        <name>ups_desc_temp</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>ups_desc</name>
-      </remove>
-      <meta>
-        <name>ups</name>
-        <rename>ups</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
         <name>ups_desc_temp</name>
         <rename>ups_desc</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
+      </field>
+      <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -3230,8 +3004,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1488</xloc>
-      <yloc>944</yloc>
+      <xloc>1056</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3264,8 +3038,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1648</xloc>
-      <yloc>784</yloc>
+      <xloc>1168</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3298,8 +3072,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
-      <yloc>944</yloc>
+      <xloc>448</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3340,8 +3114,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1488</xloc>
-      <yloc>624</yloc>
+      <xloc>1056</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3382,8 +3156,151 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>848</xloc>
-      <yloc>944</yloc>
+      <xloc>560</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Conversão SIRGAS 2000 -> WGS84</name>
+    <type>UserDefinedJavaClass</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <definitions>
+      <definition>
+        <class_type>TRANSFORM_CLASS</class_type>
+        <class_name>Processor</class_name>
+        <class_source>import org.geotools.referencing.CRS;
+import org.geotools.geometry.jts.JTS;
+import org.locationtech.jts.geom.Coordinate;
+import org.opengis.referencing.FactoryException;
+import org.opengis.referencing.crs.CoordinateReferenceSystem;
+import org.opengis.referencing.operation.MathTransform;
+import org.opengis.referencing.operation.TransformException;
+
+
+String coordXField;
+String coordYField;
+String latitudeField;
+String longitudeField;
+
+
+public boolean coordinateIsValid(Double coordinate) {
+	return coordinate != null &amp;&amp; coordinate != 0;
+}
+
+public boolean processRow(StepMetaInterface smi, StepDataInterface sdi) throws KettleException, FactoryException, TransformException {
+   	// First, get a row from the default input hop
+   	Object[] r = getRow();
+
+   	// If the row object is null, we are done processing.
+   	if (r == null) {
+		setOutputDone();
+		return false;
+   	}
+
+   	// Let's look up parameters only once for performance reason.
+   	if (first) {
+      coordXField = getParameter("COORDENADA_X");
+      coordYField = getParameter("COORDENADA_Y");
+      latitudeField  = getParameter("LATITUDE");
+      longitudeField = getParameter("LONGITUDE");
+      first=false;
+   	}
+
+   	// It is always safest to call createOutputRow() to ensure that your output row's Object[] is large
+   	// enough to handle any new fields you are creating in this step.
+   	Object[] outputRow = createOutputRow(r, data.outputRowMeta.size());
+
+   	// Getting field values
+   	Double x = get(Fields.In, coordXField).getNumber(r);
+   	Double y = get(Fields.In, coordYField).getNumber(r);
+
+	Double latitude  = null,
+           longitude = null;
+
+   	if ( coordinateIsValid(x) &amp;&amp; coordinateIsValid(y) ) {
+        // Converting
+		CoordinateReferenceSystem sourceCRS = CRS.decode("EPSG:31983");
+   		CoordinateReferenceSystem targetCRS = CRS.decode("EPSG:4326");
+
+   		MathTransform transform = CRS.findMathTransform(sourceCRS, targetCRS);
+
+   		Coordinate sourceCoord = new Coordinate(x, y);
+   		Coordinate targetCoord = JTS.transform(sourceCoord, sourceCoord, transform);
+
+		latitude  = targetCoord.getX();
+        longitude = targetCoord.getY();
+   	}
+
+   	get(Fields.Out, latitudeField).setValue(outputRow, latitude);
+   	get(Fields.Out, longitudeField).setValue(outputRow, longitude);
+
+   	// putRow will send the row on to the default output hop.
+   	putRow(data.outputRowMeta, outputRow);
+
+   	return true;
+}
+
+</class_source>
+      </definition>
+    </definitions>
+    <fields>
+      <field>
+        <field_name>latitude</field_name>
+        <field_type>Number</field_type>
+        <field_length>-1</field_length>
+        <field_precision>2</field_precision>
+      </field>
+      <field>
+        <field_name>longitude</field_name>
+        <field_type>Number</field_type>
+        <field_length>-1</field_length>
+        <field_precision>2</field_precision>
+      </field>
+    </fields>
+    <clear_result_fields>N</clear_result_fields>
+    <info_steps/>
+    <target_steps/>
+    <usage_parameters>
+      <usage_parameter>
+        <parameter_tag>COORDENADA_X</parameter_tag>
+        <parameter_value>coordenada_x</parameter_value>
+        <parameter_description>UTM - SIRGAS 2000 / Zona 23S (EPSG:31983)</parameter_description>
+      </usage_parameter>
+      <usage_parameter>
+        <parameter_tag>COORDENADA_Y</parameter_tag>
+        <parameter_value>coordenada_y</parameter_value>
+        <parameter_description>UTM - SIRGAS 2000 / Zona 23S (EPSG:31983)</parameter_description>
+      </usage_parameter>
+      <usage_parameter>
+        <parameter_tag>LATITUDE</parameter_tag>
+        <parameter_value>latitude</parameter_value>
+        <parameter_description>Graus decimais - WGS84 (EPSG:4326)</parameter_description>
+      </usage_parameter>
+      <usage_parameter>
+        <parameter_tag>LONGITUDE</parameter_tag>
+        <parameter_value>longitude</parameter_value>
+        <parameter_description>Graus decimais - WGS84 (EPSG:4326)</parameter_description>
+      </usage_parameter>
+    </usage_parameters>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>224</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
