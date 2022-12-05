@@ -1,0 +1,5314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>Base localidades EXTRACT</name>
+    <description/>
+    <extended_description/>
+    <trans_version/>
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>/</directory>
+    <parameters>
+    </parameters>
+    <log>
+      <trans-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject/>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject/>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
+    </log>
+    <maxdate>
+      <connection/>
+      <table/>
+      <field/>
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file/>
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+    <created_user>-</created_user>
+    <created_date>2022/11/30 23:45:07.371</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2022/11/30 23:45:07.371</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+  </notepads>
+  <order>
+    <hop>
+      <from>IBGE Censo BH (1970-2010)</from>
+      <to>Sequência ADD</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Cabeçalho REMOVE</from>
+      <to>Campos SPLIT</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Bairros SELECT</from>
+      <to>BHTRANS UNIQUE (BA)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Campos SPLIT</from>
+      <to>Códigos SELECT</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Códigos SELECT</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Regionais SELECT</from>
+      <to>BHTRANS UNIQUE (REG)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BHTRANS UNIQUE (BA)</from>
+      <to>BA JOIN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BHTRANS UNIQUE (REG)</from>
+      <to>REG JOIN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>IBGE UNIQUE (REG)</from>
+      <to>REG JOIN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>REG JOIN</from>
+      <to>REG SELECT</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>IBGE UNIQUE (BA)</from>
+      <to>BA JOIN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>REG SELECT</from>
+      <to>REG REPLACE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BA JOIN</from>
+      <to>BA COALESCE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BA COALESCE</from>
+      <to>BA SELECT</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BA SELECT</from>
+      <to>BA REPLACE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BA REPLACE</from>
+      <to>COD UNIQUE (BA)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>COD UNIQUE (BA)</from>
+      <to>BA SEQ ID</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SWITCH</from>
+      <to>BA</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SWITCH</from>
+      <to>REG</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BA SEQ ID</from>
+      <to>BA MJSV</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>REG REPLACE</from>
+      <to>REG MJSV</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>REG MJSV</from>
+      <to>REG2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BA</from>
+      <to>BA1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BA MJSV</from>
+      <to>BA2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>REG2</from>
+      <to>Regional JOIN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>REG1</from>
+      <to>Regional JOIN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BA1</from>
+      <to>Bairros JOIN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BA2</from>
+      <to>Bairros JOIN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>String REPLACE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>String REPLACE</from>
+      <to>PK MJSV</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>PK MJSV</from>
+      <to>SWITCH</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BHTRANS Boletins</from>
+      <to>BOL CONST</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BOL CONST</from>
+      <to>Regionais SELECT</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>IBGE BH Regionais</from>
+      <to>REG CONST</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>REG CONST</from>
+      <to>IBGE UNIQUE (REG)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sequência ADD</from>
+      <to>CENSO CONST</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>CENSO CONST</from>
+      <to>Cabeçalho REMOVE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BHTRANS Logradouros</from>
+      <to>LOGR CONST</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>LOGR CONST</from>
+      <to>Bairros SELECT</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>IBGE BH Bairros</from>
+      <to>BA CONST</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BA CONST</from>
+      <to>IBGE UNIQUE (BA)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Bairros JOIN</from>
+      <to>NOT NULL</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>NOT NULL</from>
+      <to>Bairros</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Regional</from>
+      <to>Text file output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>REG</from>
+      <to>REG1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Regional JOIN</from>
+      <to>String REPLACE 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>String REPLACE 2</from>
+      <to>Regional</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3</from>
+      <to>Unique rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select Bairros</from>
+      <to>Sort rows 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Bairros</from>
+      <to>Select Bairros</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Bairros</from>
+      <to>Bairro SORT</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select Bairros 2</from>
+      <to>Bairro SORT 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Bairro SORT</from>
+      <to>Merge join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Bairro SORT 2</from>
+      <to>Merge join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge join</from>
+      <to>Bairros 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Bairros 2</from>
+      <to>Bairro SORT 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Bairro SORT 3</from>
+      <to>Text file output 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows</from>
+      <to>Sort rows 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 4</from>
+      <to>Add sequence</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add sequence</from>
+      <to>Select Bairros 2</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <step>
+    <name>BA</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>cod</name>
+      </field>
+      <field>
+        <name>nome</name>
+      </field>
+      <field>
+        <name>pk1</name>
+      </field>
+      <field>
+        <name>origem_C</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BA COALESCE</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>Y</failIfNoFile>
+    <calculation>
+      <field_name>bairro_cod</field_name>
+      <calc_type>NVL</calc_type>
+      <field_a>bairro_cod_ibge</field_a>
+      <field_b>bairro_cod_bhtrans</field_b>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>bairro_desc</field_name>
+      <calc_type>NVL</calc_type>
+      <field_a>bairro_desc_ibge</field_a>
+      <field_b>bairro_desc_bhtrans</field_b>
+      <field_c/>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BA CONST</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>origem_E</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Shape</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>224</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BA JOIN</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>FULL OUTER</join_type>
+    <step1>BHTRANS UNIQUE (BA)</step1>
+    <step2>IBGE UNIQUE (BA)</step2>
+    <keys_1>
+      <key>bairro_cod_bhtrans</key>
+    </keys_1>
+    <keys_2>
+      <key>bairro_cod_ibge</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BA MJSV</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var pk2 = org.apache.commons.lang3.StringUtils.stripAccents(bairro_desc.toUpperCase());</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>pk2</name>
+        <rename>pk2</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BA REPLACE</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>0</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>StringReplacement</jsScript_name>
+        <jsScript_script>// String Replacement
+
+if (bairro_tipo_cod == null) {
+	var bairro_tipo_cod = "NI";
+}
+
+if (bairro_tipo_desc == null) {
+	var bairro_tipo_desc = "Não informado";
+
+} else if (bairro_tipo_desc.length > 0) {
+	var bairro_tipo_desc = bairro_tipo_desc.charAt(0) +
+								bairro_tipo_desc.slice(1).toLowerCase()
+
+	bairro_tipo_desc = bairro_tipo_desc
+		.replace(/\bArea\b/, "Área")
+		.replace(/\bChacara\b/, "Chácara")
+}
+
+if (bairro_desc != null) {
+	var bairro_desc = replaceAccents(bairro_desc);
+	bairro_desc = replaceBairroDesc(bairro_desc);
+}
+</jsScript_script>
+      </jsScript>
+      <jsScript>
+        <jsScript_type>1</jsScript_type>
+        <jsScript_name>StartScript</jsScript_name>
+        <jsScript_script>function titleCase(str) {
+	if (str != null) {
+		return str.toLowerCase().split(/ |-/).map(function(word) {
+      		return (word.charAt(0).toUpperCase() + word.slice(1));
+   		}).join(' ');
+	}
+	return str;
+}
+
+function replaceAccents(str) {
+   var modified = str;
+
+   if (modified == null) {
+      var modified = "Não informado";
+
+   } else if (/[A-ZÀ-Ý ]+/.test(modified)) {
+      var modified = titleCase(modified);
+      modified = modified
+         .replace(/cao\b/, "ção")
+         .replace(/([nrst])ao\b/, "$1ão")
+         .replace(/([nst])oes\b/, "$1ões")
+         .replace(/ario\b/, "ário")
+         .replace(/aquio\b/, "áquio")
+         .replace(/arios\b/, "ários")
+         .replace(/oria\b/, "ória")
+         .replace(/istico\b/, "ístico")
+         .replace(/aculo\b/, "áculo")
+         .replace(/nomico\b/, "nômico")
+         .replace(/erica\b/, "érica")
+         .replace(/antico\b/, "ântico")
+         .replace(/icia\b/, "ícia")
+         .replace(/deia\b/, "déia")
+         .replace(/landia\b/, "lândia")
+         .replace(/uissa\b/, "uíssa")
+         .replace(/aiso\b/, "aíso")
+         .replace(/cinio\b/, "cínio")
+         .replace(/opolis\b/, "ópolis")
+         .replace(/cilia\b/, "cília")
+         .replace(/ucia\b/, "úcia")
+         .replace(/onica\b/, "ônica")
+         .replace(/elite\b/, "élite")
+         .replace(/imoes\b/, "imões")
+         .replace(/astiao\b/, "astião")
+         .replace(/niao\b/, "nião")
+         .replace(/ornia\b/, "órnia")
+         .replace(/aubas\b/, "aúbas")
+         .replace(/encia\b/, "ência")
+         .replace(/logic([oa]s?)\b/, "lógic$1")
+         .replace(/logica\b/, "lógica")
+         .replace(/Sao\b/, "São")
+         .replace(/([Nn])ascenca\b/, "$1ascença")
+         .replace(/^Tres\b/, "Três")
+         .replace(/Aguas\b/, "Águas")
+         .replace(/Agua\b/, "Água")
+         .replace(/Da(gua|lva)\b/, "D'Á$1")
+         .replace(/Xodo\b/, "Xodó")
+         .replace(/Apolonia/, "Apolônia")
+         .replace(/Graca\b/, "Graça")
+         .replace(/Industria(?!l)/, "Indústria")
+         .replace(/Belem\b/, "Belém")
+         .replace(/Braunas/, "Braúnas")
+         .replace(/Caicara/, "Caiçara")
+         .replace(/\bPuc\b/, "PUC")
+         .replace(/Canada/, "Canadá")
+         .replace(/Candelaria/, "Candelária")
+         .replace(/Cdi\b/, "CDI")
+         .replace(/Imperio\b/, "Império")
+         .replace(/Ceu\b/, "Céu")
+         .replace(/Chacara/, "Chácara")
+         .replace(/Montanhes\b/, "Montanhês")
+         .replace(/Informado\b/, "informado")
+
+         .replace(/Concordia\b/, "Concórdia")
+         .replace(/Conego\b/, "Cônego")
+         .replace(/ Da\b/, "da")
+         .replace(/ Das\b/, "das")
+         .replace(/ Do\b/, "do")
+         .replace(/ Dos\b/, "dos")
+         .replace(/ De\b/, "de")
+         .replace(/Filadelfia/, "Filadélfia")
+         .replace(/Providencia/, "Providência")
+         .replace(/Silverio/, "Silvério")
+         .replace(/Esperanca/, "Esperança")
+         .replace(/Flavio/, "Flávio")
+         .replace(/Jose\b/, "José")
+         .replace(/Joao\b/, "João")
+         .replace(/Virginia/, "Virgínia")
+         .replace(/Nazare\b/, "Nazaré")
+         .replace(/Amelia\b/, "Amélia")
+         .replace(/Efigenia\b/, "Efigênia")
+         .replace(/Ines\b/, "Inês")
+         .replace(/Andre\b/, "André")
+         .replace(/Fatima\b/, "Fátima")
+         .replace(/\bAlipio\b/, "Alípio")
+         .replace(/Alvaro/, "Álvaro")
+         .replace(/Antonio/, "Antônio")
+         .replace(/Toma([sz])\b/, "Tomá$1")
+         .replace(/Betania/, "Betânia")
+         .replace(/Varzea/, "Várzea")
+
+         .replace(/Garcas/, "Garças")
+         .replace(/Guarata/, "Guaratá")
+         .replace(/Paqueta\b/, "Paquetá")
+         .replace(/Pompeia\b/, "Pompéia")
+         .replace(/Jatoba/, "Jatobá")
+         .replace(/Canaa/, "Canaã")
+         .replace(/Itapoã/, "Itapoã")
+         .replace(/Sumare\b/, "Sumaré")
+         .replace(/Xangri[ -]La\b/, "Xangri-Lá")
+         .replace(/Ibirite\b/, "Ibirité")
+         .replace(/Itatiaia\b/, "Itatiáia")
+         .replace(/Jaragua/, "Jaraguá")
+         .replace(/Havai\b/, "Havaí")
+         .replace(/Indaia/, "Indaiá")
+         .replace(/Ipe\b/, "Ipê")
+   }
+
+   return modified;
+}
+
+
+function replaceDE(str, patterns) {
+   for (var i=0; i &lt; patterns.length; i++) {
+      var pat = new RegExp("(" + patterns[i] + ")d([aeo]s?)\\b");
+      str = str.replace(pat, "$1 d$2");
+   }
+   return str;
+}
+
+
+function replaceBairroDesc(str) {
+   var modified = str;
+
+   modified = modified
+      .replace(/ +/, " ")
+      .replace(/(^ +| +$)/, "")
+      .replace(/ ?- ?/, " ");
+
+      var patterns = [
+            '[ÁA]tila', 'Al[íi]pio', 'Alipio', 'Alto', 'Bairro', 'Barreiro',
+            'Bispo', 'Cabana', 'Canto', 'Coração', 'Durval', 'Ernesto', 'Estrela',
+            'Flávio', 'Francisc[oa]', 'Granja', 'Homem', 'Industrial', 'Jardim',
+            'Lagoa', 'Mariano', 'Morro', 'Nov[ao]', 'Primeiro', 'Ribeiro', 'Rita',
+            'Santana', 'Senhor', 'Senhora', 'Serra', 'Solar', 'Tunel', 'Túnel', 'Um',
+            'Urbana', 'Vale', 'V[aá]rzea', 'Vila', 'Vista', 'Vitória'
+      ];
+   
+   modified = replaceDE(modified, patterns);
+
+   modified = modified
+      .replace(/ I\b/,             " 1ª Seção")
+      .replace(/ I[Ii]\b/,         " 2ª Seção")
+      .replace(/ I[Ii][Ii]\b/,     " 3ª Seção")
+      .replace(/ I[Vv]\b/,         " 4ª Seção")
+      .replace(/ V\b/,             " 5ª Seção")
+      .replace(/ V[Ii]\b/,         " 6ª Seção")
+      .replace(/ V[Ii][Ii]\b/,     " 7ª Seção")
+      .replace(/ V[Ii][Ii][Ii]\b/, " 8ª Seção")
+      .replace(/ I[Xx]\b/,         " 9ª Seção")
+      .replace(/ X\b/,             " 10ª Seção")
+
+      .replace(/ (Primeira [Ss]eção|Um)$/,    " 1ª Seção")
+      .replace(/ (Segunda [Ss]eção|Dois)$/,   " 2ª Seção")
+      .replace(/ (Terceira [Ss]eção|Tres)$/,  " 3ª Seção")
+      .replace(/ (Quarta [Ss]eção|Quatro)$/,  " 4ª Seção")
+      .replace(/ (Quinta [Ss]eção|Cinco)$/,   " 5ª Seção")
+      .replace(/ (Sexta [Ss]eção|Seis)$/,     " 6ª Seção")
+      .replace(/ (S[eé]tima [Ss]eção|Sete)$/, " 7ª Seção")
+      .replace(/ (Oitava [Ss]eção|Oito)$/,    " 8ª Seção")
+      .replace(/ (Nona [Ss]eção|Nove)$/,      " 9ª Seção")
+      .replace(/ (D[ée]cima [Ss]eção|Dez)$/,  " 10ª Seção")
+
+      .replace(/Ant[oô]nio (Ribeiro de Abreu).+/,  "Antônio $1")
+      .replace(/^Cabana$/,                         "Cabana do Pai Tomás")
+      .replace(/(Barreiro) de (Cima|Baixo)/,       "$1")
+      .replace(/Campus PUC (Coração Eucarístico)/, "$1")
+      .replace(/^[Dd]as (Indústrias|Mansões)/,     "Bairro das $1")
+      .replace(/(Ernesto) (Nascimento)/,           "$1 do $2")
+      .replace(/E(mbaúbas)$/,                      "I$1")
+      .replace(/Frei (Eustáquio)/,                 "Padre $1")
+      .replace(/^Leblon$/,                         "Jardim Leblon")
+      .replace(/Monica/,                           "Mônica")
+      .replace(/(Maria Tere)sa/,                   "$1za")
+      .replace(/^(Maria)$/,                        "Vila $1")
+      .replace(/Milion[aá]rio\b/,                  "Milionários")
+      .replace(/(Minas)c(aixa)/,                   "$1 C$2")
+      .replace(/^(Novo das Ind)[úu](strias)$/, "Bairro $1ú$2")
+      .replace(/Padro\b/,                          "Prado")
+      .replace(/^(Senhora) (Aparecida)/,           "$1 da $2")
+      .replace(/(Santa Cruz) Barreiro/,            "$1")
+      .replace(/(Senhora) (Aparecida)/,            "$1 da $2")
+      .replace(/(Serran)a/,                        "$1o")
+      .replace(/Su[íi]ssa\b/,                      "Suíça")
+      .replace(/^Ucca$/,                           "Céu Azul")
+      .replace(/^(Vila da) Área/,                  "$1 Ária")
+      .replace(/Xod[oó] Mari[zs]e/,                "Xodó Marize")
+      .replace(/Senhor (Bom Jesus)/,               "$1")
+      
+      // Agrupando Bairros
+      .replace(/^(Alta Tensão).+/,                     "$1")
+      .replace(/^(São Jorge).+/,                       "$1")
+      .replace(/^(Vila Santa Mônica).+/,               "$1")
+      .replace(/^(Vila São Paulo) Modelo/,             "$1")
+      .replace(/^Vila (Vera Cruz) [12]ª Seção/,        "$1")
+      .replace(/^Vila (Nossa Senhora da Aparecida)/,   "$1")
+      .replace(/^Vila (Madre Gertrudes) \dª Seção/,    "$1")
+      .replace(/^(Vila Nova Cachoeirinha) \dª Seção/,  "$1")
+      .replace(/^(Vila Independ[eê]ncia) \dª Seção/,   "$1")
+      .replace(/^Vila (Ouro Minas)/,                   "$1")
+      .replace(/^Zona Urbana de (Venda Nova)/,         "$1")
+      .replace(/^(Ventosa).+/,                         "$1")
+      
+      .replace(/^Vila (Sumaré)$/,          "$1")
+      .replace(/^Urucuia$/,                "Barreiro")
+      .replace(/^Washington Pires$/,       "Jatobá")
+      .replace(/^Sarandi$/,                "Serrano")
+      .replace(/^Vila Dias$/,              "Sumaré")
+      .replace(/^São Francisco de Assis$/, "Trevo")
+      .replace(/^Regina$/,                 "Lindéia")
+      .replace(/^Primavera$/,              "Glória")
+      .replace(/^Pedro 2ª Seção$/,         "Santo André")
+      .replace(/^Patrocínio$/,             "Cabana do Pai Tomás")
+      .replace(/^Nova Barroca$/,           "Havaí")
+      .replace(/^Morro das Pedras$/,       "São Jorge")
+      .replace(/^Morro do Papagaio$/,      "Vila Barragem Santa Lúcia")
+      .replace(/^(Marieta) 3ª (Seção)$/,   "$1 2ª $2")
+      .replace(/^Iraci$/,                  "Céu Azul")
+      .replace(/^Ipanema$/,                "Dom Bosco")
+      .replace(/^Instituto Agronômico$/,   "Horto Florestal")
+      .replace(/^(Bairro )?Industrial São Clemente$/, "Trevo")
+      .replace(/^Imperial$/,               "Madre Gertrudes")
+      .replace(/^Imbaúbas$/,               "Nova Gameleira")
+      .replace(/^Guanabara$/,              "Goiânia")
+      .replace(/^Governador Benedito Valadares$/, "Camargos")
+      .replace(/^Glalija$/,                "Olhos D'Água")
+      .replace(/^(Formosa)$/,              "Vila $1")
+      .replace(/^Filadélfia$/,             "Pindorama")
+      .replace(/^Ferretti$/,               "Serra Verde")
+      .replace(/^Ferreira Cardoso$/,       "Cardoso")
+      .replace(/^Estrela D[']Álva$/,       "Havaí")
+      .replace(/^Esplendor/,               "Jardim dos Comerciários")
+      .replace(/^Durval de Barros$/,       "Lindéia")
+      .replace(/^Conjunto Itacolomi$/,     "Serrano")
+      .replace(/^Conjunto Califórnia$/,    "Conjunto Califórnia 1ª Seção")
+      .replace(/^Cônego Pinheiro$/,        "Cônego Pinheiro 1ª Seção")
+      .replace(/^Cônego Pinheiro A$/,      "Cônego Pinheiro 2ª Seção")
+      .replace(/^Celeste Império$/,        "Padre Eustáquio")
+      .replace(/^Camponesa 3ª Seção$/,     "Camponesa 2ª Seção")
+      .replace(/^Cafezal$/,                "Santana do Cafezal")
+      .replace(/^Buraco Quente$/,          "Sumaré")
+      .replace(/^Bela Vista$/,             "São Gabriel")
+      .replace(/^Barão Homem de Melo 4ª Seção$/,  "Jardim América")
+      .replace(/^(Bairro das Indústrias)$/, "$1 1ª Seção")
+      .replace(/^(Bairro das Mansões)$/,    "Buritis")
+      .replace(/^Antenas$/,                 "Vila Antena")
+      .replace(/^Angelina$/,                "Guarani")
+      .replace(/^Alvorada$/,                "Jardim Alvorada")
+      .replace(/^Adalberto Pinheiro$/,      "Suzana");
+
+   return modified;
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>bairro_tipo_cod</name>
+        <rename>bairro_tipo_cod</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+      <field>
+        <name>bairro_tipo_desc</name>
+        <rename>bairro_tipo_desc</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+      <field>
+        <name>bairro_desc</name>
+        <rename>bairro_desc</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>720</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BA SELECT</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>bairro_cod</name>
+      </field>
+      <field>
+        <name>bairro_desc</name>
+      </field>
+      <field>
+        <name>bairro_tipo_cod</name>
+      </field>
+      <field>
+        <name>bairro_tipo_desc</name>
+      </field>
+      <field>
+        <name>area_km2</name>
+      </field>
+      <field>
+        <name>perimetro_m</name>
+      </field>
+      <field>
+        <name>origem_D</name>
+      </field>
+      <field>
+        <name>origem_E</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BA SEQ ID</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <valuename>bairro_id</valuename>
+    <use_database>N</use_database>
+    <connection/>
+    <schema/>
+    <seqname>SEQ_</seqname>
+    <use_counter>Y</use_counter>
+    <counter_name>bairro_id</counter_name>
+    <start_at>0</start_at>
+    <increment_by>1</increment_by>
+    <max_value>999999999</max_value>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BA1</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>pk1</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>976</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BA2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>pk2</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>976</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BHTRANS Boletins</name>
+    <type>TextFileInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
+    <separator>;</separator>
+    <enclosure/>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
+    <header>Y</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>DOS</format>
+    <encoding>windows-1252</encoding>
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\1_raw\bhtrans_boletins</name>
+      <filemask>^bol_\d{4}\.csv$</filemask>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
+    <fields>
+      <field>
+        <name>boletim_pk</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>boletim_datahora</name>
+        <type>Timestamp</type>
+        <format>dd/MM/yyyy HH:mm</format>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>boletim_data_inclusao</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>acidente_tipo_cod</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>acidente_tipo_desc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>tempo_cod</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>tempo_desc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>pavimento_cod</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>pavimento_desc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>regional_cod</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>regional_desc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>boletim_origem</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>local_sinalizado</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>velocidade_permitida</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>0</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>coordenada_x</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>0000000000.00</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>2</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>coordenada_y</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>0000000000.00</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>2</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>hora_informada</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>indicador_fatalidade</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>ups</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>ups_desc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>data_alteracao_smsa</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>00/00/0000</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>ups_antigo</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>0</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>ups_antigo_desc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>pt</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BHTRANS Logradouros</name>
+    <type>TextFileInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
+    <separator>;</separator>
+    <enclosure/>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
+    <header>Y</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>DOS</format>
+    <encoding>windows-1252</encoding>
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\1_raw\bhtrans_logradouros</name>
+      <filemask>^log_\d{4}\.csv$</filemask>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
+    <fields>
+      <field>
+        <name>numero_boletim</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>data_boletim</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>numero_municipio</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>nome_municipio</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>sequencia_logradouros</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>numero_logradouro</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>tipo_logradouro</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>nome_logradouro</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>tipo_logradouro_anterior</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>nome_logradoro_anterior</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Numero_bairro</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>nome_bairro</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>tipo_bairro</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>descricao_tipo_bairro</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>numero_imovel</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>numero_imovel_proximo</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>pt</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BHTRANS UNIQUE (BA)</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>Y</unique_rows>
+    <fields>
+      <field>
+        <name>bairro_cod_bhtrans</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BHTRANS UNIQUE (REG)</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>Y</unique_rows>
+    <fields>
+      <field>
+        <name>regional_cod</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BOL CONST</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>origem_A</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Bol</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>224</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Bairros</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>bairro_id</name>
+        <rename/>
+      </field>
+      <field>
+        <name>bairro_cod</name>
+        <rename>bairro_cod_old</rename>
+      </field>
+      <field>
+        <name>bairro_desc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>bairro_tipo_cod</name>
+        <rename/>
+      </field>
+      <field>
+        <name>bairro_tipo_desc</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>688</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Bairros JOIN</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>FULL OUTER</join_type>
+    <step1>BA1</step1>
+    <step2>BA2</step2>
+    <keys_1>
+      <key>pk1</key>
+    </keys_1>
+    <keys_2>
+      <key>pk2</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>688</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Bairros SELECT</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Numero_bairro</name>
+        <rename>bairro_cod_bhtrans</rename>
+      </field>
+      <field>
+        <name>nome_bairro</name>
+        <rename>bairro_desc_bhtrans</rename>
+      </field>
+      <field>
+        <name>tipo_bairro</name>
+        <rename>bairro_tipo_cod</rename>
+      </field>
+      <field>
+        <name>descricao_tipo_bairro</name>
+        <rename>bairro_tipo_desc</rename>
+      </field>
+      <field>
+        <name>origem_D</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>CENSO CONST</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>origem_C</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Censo</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>224</xloc>
+      <yloc>552</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>COD UNIQUE (BA)</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>Y</unique_rows>
+    <fields>
+      <field>
+        <name>bairro_cod</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>720</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Cabeçalho REMOVE</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Campos SPLIT</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>n</leftvalue>
+        <function>&gt;=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Integer</type>
+          <text>5</text>
+          <length>-1</length>
+          <precision>0</precision>
+          <isnull>N</isnull>
+          <mask>####0;-####0</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Campos SPLIT</name>
+    <type>FieldSplitter</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <splitfield>tabela</splitfield>
+    <delimiter>,</delimiter>
+    <enclosure/>
+    <fields>
+      <field>
+        <name>nivel_cod</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>nivel</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>cod</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>nome</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>total_1970</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>h_1970</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>m_1970</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>total_1980</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>h_1980</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>m_1980</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>total_1991</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>h_1991</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>m_1991</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>total_2000</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>h_2000</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>m_2000</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>total_2010</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>h_2010</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>m_2010</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Códigos SELECT</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>nivel_cod</name>
+      </field>
+      <field>
+        <name>nivel</name>
+      </field>
+      <field>
+        <name>cod</name>
+      </field>
+      <field>
+        <name>nome</name>
+      </field>
+      <field>
+        <name>origem_C</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>IBGE BH Bairros</name>
+    <type>TextFileInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
+    <separator>,</separator>
+    <enclosure/>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
+    <header>Y</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>DOS</format>
+    <encoding>UTF-8</encoding>
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\1_raw\ibge_shape-data\IBGE_Bairros_populares_BH.csv</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
+    <fields>
+      <field>
+        <name>bairro_id</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>bairro_cod_ibge</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>bairro_desc_ibge</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>area_km2</name>
+        <type>Number</type>
+        <format>0.#####</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>perimetro_m</name>
+        <type>Number</type>
+        <format>0.#####</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>pt_BR</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>IBGE BH Regionais</name>
+    <type>TextFileInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
+    <separator>,</separator>
+    <enclosure/>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
+    <header>Y</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>DOS</format>
+    <encoding>UTF-8</encoding>
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\1_raw\ibge_shape-data\IBGE_Regionais_BH.csv</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
+    <fields>
+      <field>
+        <name>regional_id</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>regional_cod</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>regional_sigla</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>regional_nome</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>area_km2</name>
+        <type>Number</type>
+        <format>0.#####</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>perimetro_m</name>
+        <type>Number</type>
+        <format>0.#####</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>pt_BR</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>IBGE Censo BH (1970-2010)</name>
+    <type>TextFileInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
+    <separator>$</separator>
+    <enclosure/>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
+    <header>N</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field>Censo 2017-2020</include_field>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>DOS</format>
+    <encoding>UTF-8</encoding>
+    <length>Characters</length>
+    <add_to_result_filenames>N</add_to_result_filenames>
+    <file>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\1_raw\ibge_censo-e-estimativas\SIDRA - tabela202 - Censo BH (1970-2010).csv</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
+    <fields>
+      <field>
+        <name>tabela</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>pt_BR</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>IBGE UNIQUE (BA)</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>Y</unique_rows>
+    <fields>
+      <field>
+        <name>bairro_cod_ibge</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>IBGE UNIQUE (REG)</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>Y</unique_rows>
+    <fields>
+      <field>
+        <name>regional_cod</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>LOGR CONST</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>origem_D</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Logr</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>224</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>NOT NULL</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Bairros</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>bairro_id</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1200</xloc>
+      <yloc>688</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>PK MJSV</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var pk1 = org.apache.commons.lang3.StringUtils.stripAccents(nome.toUpperCase());</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>pk1</name>
+        <rename>pk1</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>REG</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>cod</name>
+      </field>
+      <field>
+        <name>nome</name>
+      </field>
+      <field>
+        <name>pk1</name>
+      </field>
+      <field>
+        <name>origem_C</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>REG CONST</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>origem_B</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Shape</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>224</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>REG JOIN</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>FULL OUTER</join_type>
+    <step1>BHTRANS UNIQUE (REG)</step1>
+    <step2>IBGE UNIQUE (REG)</step2>
+    <keys_1>
+      <key>regional_cod</key>
+    </keys_1>
+    <keys_2>
+      <key>regional_cod</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>REG MJSV</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var pk2 = org.apache.commons.lang3.StringUtils.stripAccents(regional_desc.toUpperCase());</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>pk2</name>
+        <rename>pk2</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>REG REPLACE</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+if (regional_id == null)
+	var regional_id = 0;
+
+if (regional_sigla == null)
+	var regional_sigla = "NI";
+
+if (regional_desc == '')
+	var regional_desc = "Não informado";
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>regional_id</name>
+        <rename>regional_id</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+      <field>
+        <name>regional_sigla</name>
+        <rename>regional_sigla</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+      <field>
+        <name>regional_desc</name>
+        <rename>regional_desc</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>720</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>REG SELECT</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>regional_id</name>
+      </field>
+      <field>
+        <name>regional_cod</name>
+      </field>
+      <field>
+        <name>regional_desc</name>
+      </field>
+      <field>
+        <name>regional_sigla</name>
+      </field>
+      <field>
+        <name>area_km2</name>
+      </field>
+      <field>
+        <name>perimetro_m</name>
+      </field>
+      <field>
+        <name>origem_A</name>
+      </field>
+      <field>
+        <name>origem_B</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>REG1</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>pk1</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>976</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>REG2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>pk2</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>976</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Regionais SELECT</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>regional_cod</name>
+      </field>
+      <field>
+        <name>regional_desc</name>
+      </field>
+      <field>
+        <name>origem_A</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Regional</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>regional_id</name>
+      </field>
+      <field>
+        <name>regional_cod</name>
+      </field>
+      <field>
+        <name>cod</name>
+        <rename>regional_ibge_cod</rename>
+      </field>
+      <field>
+        <name>regional_desc</name>
+      </field>
+      <field>
+        <name>regional_sigla</name>
+      </field>
+      <field>
+        <name>area_km2</name>
+      </field>
+      <field>
+        <name>perimetro_m</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1328</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Regional JOIN</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>FULL OUTER</join_type>
+    <step1>REG1</step1>
+    <step2>REG2</step2>
+    <keys_1>
+      <key>pk1</key>
+    </keys_1>
+    <keys_2>
+      <key>pk2</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>SWITCH</name>
+    <type>SwitchCase</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fieldname>nivel_cod</fieldname>
+    <use_contains>N</use_contains>
+    <case_value_type>String</case_value_type>
+    <case_value_format/>
+    <case_value_decimal/>
+    <case_value_group/>
+    <default_target_step/>
+    <cases>
+      <case>
+        <value>SD</value>
+        <target_step>REG</target_step>
+      </case>
+      <case>
+        <value>BA</value>
+        <target_step>BA</target_step>
+      </case>
+    </cases>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>720</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sequência ADD</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <valuename>n</valuename>
+    <use_database>N</use_database>
+    <connection/>
+    <schema/>
+    <seqname>SEQ_</seqname>
+    <use_counter>Y</use_counter>
+    <counter_name>censo1970_2010</counter_name>
+    <start_at>1</start_at>
+    <increment_by>1</increment_by>
+    <max_value>999999999</max_value>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>Y</unique_rows>
+    <fields>
+      <field>
+        <name>cod</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>String REPLACE</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>0</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>StringReplacement</jsScript_name>
+        <jsScript_script>if (nome != null) {
+	var nome = replaceAccents(nome);
+	nome = replaceBairroDesc(nome);
+}
+
+</jsScript_script>
+      </jsScript>
+      <jsScript>
+        <jsScript_type>1</jsScript_type>
+        <jsScript_name>ReplaceBairroDesc</jsScript_name>
+        <jsScript_script>function titleCase(str) {
+	if (str != null) {
+		return str.toLowerCase().split(/ |-/).map(function(word) {
+      		return (word.charAt(0).toUpperCase() + word.slice(1));
+   		}).join(' ');
+	}
+	return str;
+}
+
+function replaceAccents(str) {
+   var modified = str;
+
+   if (modified == null) {
+      var modified = "Não informado";
+
+   } else if (/[A-ZÀ-Ý ]+/.test(modified)) {
+      var modified = titleCase(modified);
+      modified = modified
+         .replace(/cao\b/, "ção")
+         .replace(/([nrst])ao\b/, "$1ão")
+         .replace(/([nst])oes\b/, "$1ões")
+         .replace(/ario\b/, "ário")
+         .replace(/aquio\b/, "áquio")
+         .replace(/arios\b/, "ários")
+         .replace(/oria\b/, "ória")
+         .replace(/istico\b/, "ístico")
+         .replace(/aculo\b/, "áculo")
+         .replace(/nomico\b/, "nômico")
+         .replace(/erica\b/, "érica")
+         .replace(/antico\b/, "ântico")
+         .replace(/icia\b/, "ícia")
+         .replace(/deia\b/, "déia")
+         .replace(/landia\b/, "lândia")
+         .replace(/uissa\b/, "uíssa")
+         .replace(/aiso\b/, "aíso")
+         .replace(/cinio\b/, "cínio")
+         .replace(/opolis\b/, "ópolis")
+         .replace(/cilia\b/, "cília")
+         .replace(/ucia\b/, "úcia")
+         .replace(/onica\b/, "ônica")
+         .replace(/elite\b/, "élite")
+         .replace(/imoes\b/, "imões")
+         .replace(/astiao\b/, "astião")
+         .replace(/niao\b/, "nião")
+         .replace(/ornia\b/, "órnia")
+         .replace(/aubas\b/, "aúbas")
+         .replace(/encia\b/, "ência")
+         .replace(/logic([oa]s?)\b/, "lógic$1")
+         .replace(/logica\b/, "lógica")
+         .replace(/Sao\b/, "São")
+         .replace(/([Nn])ascenca\b/, "$1ascença")
+         .replace(/^Tres\b/, "Três")
+         .replace(/Aguas\b/, "Águas")
+         .replace(/Agua\b/, "Água")
+         .replace(/Da(gua|lva)\b/, "D'Á$1")
+         .replace(/Xodo\b/, "Xodó")
+         .replace(/Apolonia/, "Apolônia")
+         .replace(/Graca\b/, "Graça")
+         .replace(/Industria(?!l)/, "Indústria")
+         .replace(/Belem\b/, "Belém")
+         .replace(/Braunas/, "Braúnas")
+         .replace(/Caicara/, "Caiçara")
+         .replace(/\bPuc\b/, "PUC")
+         .replace(/Canada/, "Canadá")
+         .replace(/Candelaria/, "Candelária")
+         .replace(/Cdi\b/, "CDI")
+         .replace(/Imperio\b/, "Império")
+         .replace(/Ceu\b/, "Céu")
+         .replace(/Chacara/, "Chácara")
+         .replace(/Montanhes\b/, "Montanhês")
+         .replace(/Informado\b/, "informado")
+
+         .replace(/Concordia\b/, "Concórdia")
+         .replace(/Conego\b/, "Cônego")
+         .replace(/ Da\b/, "da")
+         .replace(/ Das\b/, "das")
+         .replace(/ Do\b/, "do")
+         .replace(/ Dos\b/, "dos")
+         .replace(/ De\b/, "de")
+         .replace(/Filadelfia/, "Filadélfia")
+         .replace(/Providencia/, "Providência")
+         .replace(/Silverio/, "Silvério")
+         .replace(/Esperanca/, "Esperança")
+         .replace(/Flavio/, "Flávio")
+         .replace(/Jose\b/, "José")
+         .replace(/Joao\b/, "João")
+         .replace(/Virginia/, "Virgínia")
+         .replace(/Nazare\b/, "Nazaré")
+         .replace(/Amelia\b/, "Amélia")
+         .replace(/Efigenia\b/, "Efigênia")
+         .replace(/Ines\b/, "Inês")
+         .replace(/Andre\b/, "André")
+         .replace(/Fatima\b/, "Fátima")
+         .replace(/\bAlipio\b/, "Alípio")
+         .replace(/Alvaro/, "Álvaro")
+         .replace(/Antonio/, "Antônio")
+         .replace(/Toma([sz])\b/, "Tomá$1")
+         .replace(/Betania/, "Betânia")
+         .replace(/Varzea/, "Várzea")
+
+         .replace(/Garcas/, "Garças")
+         .replace(/Guarata/, "Guaratá")
+         .replace(/Paqueta\b/, "Paquetá")
+         .replace(/Pompeia\b/, "Pompéia")
+         .replace(/Jatoba/, "Jatobá")
+         .replace(/Canaa/, "Canaã")
+         .replace(/Itapoã/, "Itapoã")
+         .replace(/Sumare\b/, "Sumaré")
+         .replace(/Xangri[ -]La\b/, "Xangri-Lá")
+         .replace(/Ibirite\b/, "Ibirité")
+         .replace(/Itatiaia\b/, "Itatiáia")
+         .replace(/Jaragua/, "Jaraguá")
+         .replace(/Havai\b/, "Havaí")
+         .replace(/Indaia/, "Indaiá")
+         .replace(/Ipe\b/, "Ipê");
+   }
+
+   return modified;
+}
+
+
+function replaceDE(str, patterns) {
+   for (var i=0; i &lt; patterns.length; i++) {
+      var pat = new RegExp("(" + patterns[i] + ")d([aeo]s?)\\b");
+      str = str.replace(pat, "$1 d$2");
+   }
+   return str;
+}
+
+
+function replaceBairroDesc(str) {
+   var modified = str;
+
+   modified = modified
+      .replace(/ +/, " ")
+      .replace(/(^ +| +$)/, "")
+      .replace(/ ?- ?/, " ");
+
+      var patterns = [
+            '[ÁA]tila', 'Al[íi]pio', 'Alipio', 'Alto', 'Bairro', 'Barreiro',
+            'Bispo', 'Cabana', 'Canto', 'Coração', 'Durval', 'Ernesto', 'Estrela',
+            'Flávio', 'Francisc[oa]', 'Granja', 'Homem', 'Industrial', 'Jardim',
+            'Lagoa', 'Mariano', 'Morro', 'Nov[ao]', 'Primeiro', 'Ribeiro', 'Rita',
+            'Santana', 'Senhor', 'Senhora', 'Serra', 'Solar', 'Tunel', 'Túnel', 'Um',
+            'Urbana', 'Vale', 'V[aá]rzea', 'Vila', 'Vista', 'Vitória'
+      ];
+   
+   modified = replaceDE(modified, patterns);
+
+   modified = modified
+      .replace(/ I\b/,             " 1ª Seção")
+      .replace(/ I[Ii]\b/,         " 2ª Seção")
+      .replace(/ I[Ii][Ii]\b/,     " 3ª Seção")
+      .replace(/ I[Vv]\b/,         " 4ª Seção")
+      .replace(/ V\b/,             " 5ª Seção")
+      .replace(/ V[Ii]\b/,         " 6ª Seção")
+      .replace(/ V[Ii][Ii]\b/,     " 7ª Seção")
+      .replace(/ V[Ii][Ii][Ii]\b/, " 8ª Seção")
+      .replace(/ I[Xx]\b/,         " 9ª Seção")
+      .replace(/ X\b/,             " 10ª Seção")
+
+      .replace(/ (Primeira [Ss]eção|Um)$/,    " 1ª Seção")
+      .replace(/ (Segunda [Ss]eção|Dois)$/,   " 2ª Seção")
+      .replace(/ (Terceira [Ss]eção|Tres)$/,  " 3ª Seção")
+      .replace(/ (Quarta [Ss]eção|Quatro)$/,  " 4ª Seção")
+      .replace(/ (Quinta [Ss]eção|Cinco)$/,   " 5ª Seção")
+      .replace(/ (Sexta [Ss]eção|Seis)$/,     " 6ª Seção")
+      .replace(/ (S[eé]tima [Ss]eção|Sete)$/, " 7ª Seção")
+      .replace(/ (Oitava [Ss]eção|Oito)$/,    " 8ª Seção")
+      .replace(/ (Nona [Ss]eção|Nove)$/,      " 9ª Seção")
+      .replace(/ (D[ée]cima [Ss]eção|Dez)$/,  " 10ª Seção")
+
+      .replace(/Ant[oô]nio (Ribeiro de Abreu).+/,  "Antônio $1")
+      .replace(/^Cabana$/,                         "Cabana do Pai Tomás")
+      .replace(/(Barreiro) de (Cima|Baixo)/,       "$1")
+      .replace(/Campus PUC (Coração Eucarístico)/, "$1")
+      .replace(/^[Dd]as (Indústrias|Mansões)/,     "Bairro das $1")
+      .replace(/(Ernesto) (Nascimento)/,           "$1 do $2")
+      .replace(/E(mbaúbas)$/,                      "I$1")
+      .replace(/Frei (Eustáquio)/,                 "Padre $1")
+      .replace(/^Leblon$/,                         "Jardim Leblon")
+      .replace(/Monica/,                           "Mônica")
+      .replace(/(Maria Tere)sa/,                   "$1za")
+      .replace(/^(Maria)$/,                        "Vila $1")
+      .replace(/Milion[aá]rio\b/,                  "Milionários")
+      .replace(/(Minas)c(aixa)/,                   "$1 C$2")
+      .replace(/^(Novo das Ind)[úu](strias)$/, "Bairro $1ú$2")
+      .replace(/Padro\b/,                          "Prado")
+      .replace(/^(Senhora) (Aparecida)/,           "$1 da $2")
+      .replace(/(Santa Cruz) Barreiro/,            "$1")
+      .replace(/(Senhora) (Aparecida)/,            "$1 da $2")
+      .replace(/(Serran)a/,                        "$1o")
+      .replace(/Su[íi]ssa\b/,                      "Suíça")
+      .replace(/^Ucca$/,                           "Céu Azul")
+      .replace(/^(Vila da) Área/,                  "$1 Ária")
+      .replace(/Xod[oó] Mari[zs]e/,                "Xodó Marize")
+      .replace(/Senhor (Bom Jesus)/,               "$1")
+      
+      // Agrupando Bairros
+      .replace(/^(Alta Tensão).+/,                     "$1")
+      .replace(/^(São Jorge).+/,                       "$1")
+      .replace(/^(Vila Santa Mônica).+/,               "$1")
+      .replace(/^(Vila São Paulo) Modelo/,             "$1")
+      .replace(/^Vila (Vera Cruz) [12]ª Seção/,        "$1")
+      .replace(/^Vila (Nossa Senhora da Aparecida)/,   "$1")
+      .replace(/^Vila (Madre Gertrudes) \dª Seção/,    "$1")
+      .replace(/^(Vila Nova Cachoeirinha) \dª Seção/,  "$1")
+      .replace(/^(Vila Independ[eê]ncia) \dª Seção/,   "$1")
+      .replace(/^Vila (Ouro Minas)/,                   "$1")
+      .replace(/^Zona Urbana de (Venda Nova)/,         "$1")
+      .replace(/^(Ventosa).+/,                         "$1")
+      
+      .replace(/^Vila (Sumaré)$/,          "$1")
+      .replace(/^Urucuia$/,                "Barreiro")
+      .replace(/^Washington Pires$/,       "Jatobá")
+      .replace(/^Sarandi$/,                "Serrano")
+      .replace(/^Vila Dias$/,              "Sumaré")
+      .replace(/^São Francisco de Assis$/, "Trevo")
+      .replace(/^Regina$/,                 "Lindéia")
+      .replace(/^Primavera$/,              "Glória")
+      .replace(/^Pedro 2ª Seção$/,         "Santo André")
+      .replace(/^Patrocínio$/,             "Cabana do Pai Tomás")
+      .replace(/^Nova Barroca$/,           "Havaí")
+      .replace(/^Morro das Pedras$/,       "São Jorge")
+      .replace(/^Morro do Papagaio$/,      "Vila Barragem Santa Lúcia")
+      .replace(/^(Marieta) 3ª (Seção)$/,   "$1 2ª $2")
+      .replace(/^Iraci$/,                  "Céu Azul")
+      .replace(/^Ipanema$/,                "Dom Bosco")
+      .replace(/^Instituto Agronômico$/,   "Horto Florestal")
+      .replace(/^(Bairro )?Industrial São Clemente$/, "Trevo")
+      .replace(/^Imperial$/,               "Madre Gertrudes")
+      .replace(/^Imbaúbas$/,               "Nova Gameleira")
+      .replace(/^Guanabara$/,              "Goiânia")
+      .replace(/^Governador Benedito Valadares$/, "Camargos")
+      .replace(/^Glalija$/,                "Olhos D'Água")
+      .replace(/^(Formosa)$/,              "Vila $1")
+      .replace(/^Filadélfia$/,             "Pindorama")
+      .replace(/^Ferretti$/,               "Serra Verde")
+      .replace(/^Ferreira Cardoso$/,       "Cardoso")
+      .replace(/^Estrela D[']Álva$/,       "Havaí")
+      .replace(/^Esplendor/,               "Jardim dos Comerciários")
+      .replace(/^Durval de Barros$/,       "Lindéia")
+      .replace(/^Conjunto Itacolomi$/,     "Serrano")
+      .replace(/^Conjunto Califórnia$/,    "Conjunto Califórnia 1ª Seção")
+      .replace(/^Cônego Pinheiro$/,        "Cônego Pinheiro 1ª Seção")
+      .replace(/^Cônego Pinheiro A$/,      "Cônego Pinheiro 2ª Seção")
+      .replace(/^Celeste Império$/,        "Padre Eustáquio")
+      .replace(/^Camponesa 3ª Seção$/,     "Camponesa 2ª Seção")
+      .replace(/^Cafezal$/,                "Santana do Cafezal")
+      .replace(/^Buraco Quente$/,          "Sumaré")
+      .replace(/^Bela Vista$/,             "São Gabriel")
+      .replace(/^Barão Homem de Melo 4ª Seção$/,  "Jardim América")
+      .replace(/^(Bairro das Indústrias)$/, "$1 1ª Seção")
+      .replace(/^(Bairro das Mansões)$/,    "Buritis")
+      .replace(/^Antenas$/,                 "Vila Antena")
+      .replace(/^Angelina$/,                "Guarani")
+      .replace(/^Alvorada$/,                "Jardim Alvorada")
+      .replace(/^Adalberto Pinheiro$/,      "Suzana")
+      .replace(/^Centro Sul$/,              "Centro-Sul");
+
+   return modified;
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>nome</name>
+        <rename>nome</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>String REPLACE 2</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>0</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>StringReplacement</jsScript_name>
+        <jsScript_script>if (regional_desc != null) {
+	regional_desc = titleCase(regional_desc);
+}
+
+</jsScript_script>
+      </jsScript>
+      <jsScript>
+        <jsScript_type>1</jsScript_type>
+        <jsScript_name>ReplaceBairroDesc</jsScript_name>
+        <jsScript_script>function titleCase(str) {
+	if (str != null) {
+		return str.toLowerCase().split(/ |-/).map(function(word) {
+      		return (word.charAt(0).toUpperCase() + word.slice(1));
+   		}).join(' ');
+	}
+	return str;
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>regional_desc</name>
+        <rename>regional_desc</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1232</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Text file output</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding>UTF-8</encoding>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\cleaned_dim_regionais</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>csv</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery/>
+    </file>
+    <fields>
+      <field>
+        <name>regional_id</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>regional_cod</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>regional_ibge_cod</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>regional_desc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>regional_sigla</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>area_km2</name>
+        <type>Number</type>
+        <format>0.#####</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>perimetro_m</name>
+        <type>Number</type>
+        <format>0.#####</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1440</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Unique rows</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>
+      <field>
+        <name>bairro_desc</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 3</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>bairro_desc</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>816</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select Bairros</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>bairro_desc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>bairro_cod_old</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>816</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Text file output 2</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding>UTF-8</encoding>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\2_cleaned\cleaned_dim_bairros</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>csv</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery/>
+    </file>
+    <fields>
+      <field>
+        <name>bairro_cod_new</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>bairro_cod_old</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>bairro_desc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>bairro_tipo_cod</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>bairro_tipo_desc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1808</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select Bairros 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>bairro_cod_new</name>
+        <rename/>
+      </field>
+      <field>
+        <name>bairro_desc</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1392</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>FULL OUTER</join_type>
+    <step1>Bairro SORT 2</step1>
+    <step2>Bairro SORT</step2>
+    <keys_1>
+      <key>bairro_desc</key>
+    </keys_1>
+    <keys_2>
+      <key>bairro_desc</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1504</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Bairro SORT</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>bairro_desc</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1392</xloc>
+      <yloc>688</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Bairro SORT 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>bairro_desc</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1392</xloc>
+      <yloc>816</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Bairros 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>bairro_cod_new</name>
+        <rename/>
+      </field>
+      <field>
+        <name>bairro_cod_old</name>
+        <rename/>
+      </field>
+      <field>
+        <name>bairro_desc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>bairro_tipo_cod</name>
+        <rename/>
+      </field>
+      <field>
+        <name>bairro_tipo_desc</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1584</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Bairro SORT 3</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>Y</unique_rows>
+    <fields>
+      <field>
+        <name>bairro_cod_new</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>bairro_cod_old</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1680</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add sequence</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <valuename>bairro_cod_new</valuename>
+    <use_database>N</use_database>
+    <connection/>
+    <schema/>
+    <seqname>SEQ_</seqname>
+    <use_counter>Y</use_counter>
+    <counter_name>bairro_cod</counter_name>
+    <start_at>0</start_at>
+    <increment_by>1</increment_by>
+    <max_value>999999999</max_value>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 4</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>bairro_cod_old</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1200</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step_error_handling>
+  </step_error_handling>
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+  <attributes/>
+</transformation>
