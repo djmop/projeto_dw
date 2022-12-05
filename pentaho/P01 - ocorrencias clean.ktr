@@ -645,7 +645,7 @@
     <hop>
       <from>Final select</from>
       <to>Text file output</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Origem REPLACE</from>
@@ -659,11 +659,16 @@
     </hop>
     <hop>
       <from>Indicadores</from>
-      <to>Conversão SIRGAS 2000 -> WGS84</to>
+      <to>Fix coords</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Conversão SIRGAS 2000 -> WGS84</from>
+      <from>Fix coords</from>
+      <to>SIRGAS2000 => WGS84</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SIRGAS2000 => WGS84</from>
       <to>Origem REPLACE</to>
       <enabled>Y</enabled>
     </hop>
@@ -976,7 +981,7 @@ var acidente_tipo_desc = acidente_tipo_desc_temp
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\1_raw\ocorrencias</name>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\1_raw\bhtrans_boletins</name>
       <filemask>^bol_\d{4}\.csv$</filemask>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1386,75 +1391,63 @@ var acidente_tipo_desc = acidente_tipo_desc_temp
     <fields>
       <field>
         <name>boletim_pk</name>
-        <rename/>
       </field>
       <field>
         <name>boletim_datahora</name>
-        <rename/>
       </field>
       <field>
         <name>boletim_data_inclusao</name>
-        <rename/>
       </field>
       <field>
         <name>acidente_tipo_cod</name>
-        <rename/>
       </field>
       <field>
         <name>acidente_tipo_desc</name>
-        <rename/>
       </field>
       <field>
         <name>tempo_cod</name>
-        <rename/>
       </field>
       <field>
         <name>tempo_desc</name>
-        <rename/>
       </field>
       <field>
         <name>pavimento_cod</name>
-        <rename/>
       </field>
       <field>
         <name>pavimento_desc</name>
-        <rename/>
       </field>
       <field>
         <name>regional_cod</name>
-        <rename/>
       </field>
       <field>
         <name>regional_desc</name>
-        <rename/>
       </field>
       <field>
         <name>boletim_origem</name>
-        <rename/>
+      </field>
+      <field>
+        <name>coordenada_y</name>
+      </field>
+      <field>
+        <name>coordenada_x</name>
       </field>
       <field>
         <name>latitude</name>
-        <rename/>
       </field>
       <field>
         <name>longitude</name>
-        <rename/>
       </field>
       <field>
         <name>hora_informada</name>
-        <rename/>
       </field>
       <field>
         <name>indicador_fatalidade</name>
-        <rename/>
       </field>
       <field>
         <name>ups</name>
-        <rename/>
       </field>
       <field>
         <name>ups_desc</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -1595,75 +1588,63 @@ var acidente_tipo_desc = acidente_tipo_desc_temp
     <fields>
       <field>
         <name>boletim_pk</name>
-        <rename/>
       </field>
       <field>
         <name>boletim_datahora</name>
-        <rename/>
       </field>
       <field>
         <name>intervalo_horario</name>
-        <rename/>
       </field>
       <field>
         <name>acidente_tipo_cod</name>
-        <rename/>
       </field>
       <field>
         <name>acidente_tipo_desc</name>
-        <rename/>
       </field>
       <field>
         <name>ups</name>
-        <rename/>
       </field>
       <field>
         <name>ups_desc</name>
-        <rename/>
       </field>
       <field>
         <name>indicador_fatalidade</name>
-        <rename/>
       </field>
       <field>
         <name>regional_cod</name>
-        <rename/>
       </field>
       <field>
         <name>regional_desc</name>
-        <rename/>
       </field>
       <field>
         <name>tempo_cod</name>
-        <rename/>
       </field>
       <field>
         <name>tempo_desc</name>
-        <rename/>
       </field>
       <field>
         <name>pavimento_cod</name>
-        <rename/>
       </field>
       <field>
         <name>pavimento_desc</name>
-        <rename/>
       </field>
       <field>
         <name>latitude</name>
-        <rename/>
       </field>
       <field>
         <name>longitude</name>
-        <rename/>
+      </field>
+      <field>
+        <name>coordenada_y</name>
+      </field>
+      <field>
+        <name>coordenada_x</name>
       </field>
       <field>
         <name>hora_informada</name>
-        <rename/>
       </field>
       <field>
         <name>boletim_origem</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1678,6 +1659,81 @@ var acidente_tipo_desc = acidente_tipo_desc_temp
     <GUI>
       <xloc>1488</xloc>
       <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Fix coords</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+function log10(x) {
+	return Math.log(x) / Math.LN10;
+}
+
+function coordinateMagnitudeFix(coordinate, validMagnitude) {
+	if (coordinate != null) {
+		var magnitude = log10(coordinate);
+		magnitude = Math.floor(magnitude);
+
+		var difference = magnitude - validMagnitude;
+
+		if (difference > 0)
+			return coordinate / Math.pow(10, difference);
+	}
+	return coordinate;
+}
+
+coordenada_y = coordinateMagnitudeFix(coordenada_y, 6);
+coordenada_x = coordinateMagnitudeFix(coordenada_x, 5);
+
+
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>coordenada_y</name>
+        <rename>coordenada_y</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+      <field>
+        <name>coordenada_x</name>
+        <rename>coordenada_x</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>160</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2280,55 +2336,48 @@ var regional_desc = regional_desc
     <fields>
       <field>
         <name>boletim_pk</name>
-        <rename/>
       </field>
       <field>
         <name>boletim_datahora</name>
-        <rename/>
       </field>
       <field>
         <name>boletim_data_inclusao</name>
-        <rename/>
       </field>
       <field>
         <name>acidente_tipo_cod</name>
-        <rename/>
       </field>
       <field>
         <name>tempo_cod</name>
-        <rename/>
       </field>
       <field>
         <name>pavimento_cod</name>
-        <rename/>
       </field>
       <field>
         <name>regional_cod</name>
-        <rename/>
       </field>
       <field>
         <name>boletim_origem</name>
-        <rename/>
+      </field>
+      <field>
+        <name>coordenada_y</name>
+      </field>
+      <field>
+        <name>coordenada_x</name>
       </field>
       <field>
         <name>latitude</name>
-        <rename/>
       </field>
       <field>
         <name>longitude</name>
-        <rename/>
       </field>
       <field>
         <name>hora_informada</name>
-        <rename/>
       </field>
       <field>
         <name>indicador_fatalidade</name>
-        <rename/>
       </field>
       <field>
         <name>ups</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -2343,6 +2392,148 @@ var regional_desc = regional_desc
     <GUI>
       <xloc>448</xloc>
       <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>SIRGAS2000 => WGS84</name>
+    <type>UserDefinedJavaClass</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <definitions>
+      <definition>
+        <class_type>TRANSFORM_CLASS</class_type>
+        <class_name>Processor</class_name>
+        <class_source>import org.geotools.referencing.CRS;
+import org.geotools.geometry.jts.JTS;
+import org.locationtech.jts.geom.Coordinate;
+import org.opengis.referencing.FactoryException;
+import org.opengis.referencing.crs.CoordinateReferenceSystem;
+import org.opengis.referencing.operation.MathTransform;
+import org.opengis.referencing.operation.TransformException;
+
+String coordXField;
+String coordYField;
+String latitudeField;
+String longitudeField;
+
+public boolean coordinateIsValid(Double coordinate) {
+  return coordinate != null &amp;&amp; coordinate != 0;
+}
+
+public boolean processRow(StepMetaInterface smi, StepDataInterface sdi)
+throws KettleException, FactoryException, TransformException
+{
+  // First, get a row from the default input hop
+  Object[] r = getRow();
+
+  // If the row object is null, we are done processing.
+  if (r == null) {
+     setOutputDone();
+     return false;
+  }
+
+  // Let's look up parameters only once for performance reason.
+  if (first) {
+     coordXField = getParameter("COORDENADA_X");
+     coordYField = getParameter("COORDENADA_Y");
+     latitudeField  = getParameter("LATITUDE");
+     longitudeField = getParameter("LONGITUDE");
+     first = false;
+  }
+
+  // It is always safest to call createOutputRow() to ensure that your output row's Object[] is large
+  // enough to handle any new fields you are creating in this step.
+  Object[] outputRow = createOutputRow(r, data.outputRowMeta.size());
+
+  // Getting field values
+  Double x = get(Fields.In, coordXField).getNumber(r);
+  Double y = get(Fields.In, coordYField).getNumber(r);
+
+  Double latitude  = null;
+  Double longitude = null;
+
+
+  // Converting Coordinates
+  if ( coordinateIsValid(x) &amp;&amp; coordinateIsValid(y) ) {
+	 CoordinateReferenceSystem sourceCRS = CRS.decode("EPSG:31983");
+     CoordinateReferenceSystem targetCRS = CRS.decode("EPSG:4326");
+
+     MathTransform transform = CRS.findMathTransform(sourceCRS, targetCRS);
+
+     Coordinate sourceCoord = new Coordinate(x, y);
+     Coordinate targetCoord = JTS.transform(sourceCoord, sourceCoord, transform);
+
+     latitude  = targetCoord.getX();
+     longitude = targetCoord.getY();
+  }
+
+  get(Fields.Out, latitudeField).setValue(outputRow, latitude);
+  get(Fields.Out, longitudeField).setValue(outputRow, longitude);
+
+  // putRow will send the row on to the default output hop.
+  putRow(data.outputRowMeta, outputRow);
+
+  return true;
+}</class_source>
+      </definition>
+    </definitions>
+    <fields>
+      <field>
+        <field_name>latitude</field_name>
+        <field_type>Number</field_type>
+        <field_length>-1</field_length>
+        <field_precision>-1</field_precision>
+      </field>
+      <field>
+        <field_name>longitude</field_name>
+        <field_type>Number</field_type>
+        <field_length>-1</field_length>
+        <field_precision>-1</field_precision>
+      </field>
+    </fields>
+    <clear_result_fields>N</clear_result_fields>
+    <info_steps/>
+    <target_steps/>
+    <usage_parameters>
+      <usage_parameter>
+        <parameter_tag>COORDENADA_Y</parameter_tag>
+        <parameter_value>coordenada_y</parameter_value>
+        <parameter_description/>
+      </usage_parameter>
+      <usage_parameter>
+        <parameter_tag>COORDENADA_X</parameter_tag>
+        <parameter_value>coordenada_x</parameter_value>
+        <parameter_description/>
+      </usage_parameter>
+      <usage_parameter>
+        <parameter_tag>LATITUDE</parameter_tag>
+        <parameter_value>latitude</parameter_value>
+        <parameter_description/>
+      </usage_parameter>
+      <usage_parameter>
+        <parameter_tag>LONGITUDE</parameter_tag>
+        <parameter_value>longitude</parameter_value>
+        <parameter_description/>
+      </usage_parameter>
+    </usage_parameters>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2652,14 +2843,14 @@ var tempo_desc = tempo_desc
         <precision>-1</precision>
       </field>
       <field>
-        <name>boletim_data_inclusao</name>
-        <type>Timestamp</type>
-        <format>dd/MM/yyyy</format>
+        <name>intervalo_horario</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
         <nullif/>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <length>-1</length>
         <precision>-1</precision>
       </field>
@@ -2676,43 +2867,7 @@ var tempo_desc = tempo_desc
         <precision>-1</precision>
       </field>
       <field>
-        <name>tempo_cod</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency/>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif/>
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>pavimento_cod</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency/>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif/>
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>regional_cod</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency/>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif/>
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>boletim_origem</name>
+        <name>acidente_tipo_desc</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -2724,31 +2879,7 @@ var tempo_desc = tempo_desc
         <precision>-1</precision>
       </field>
       <field>
-        <name>coordenada_x</name>
-        <type>Number</type>
-        <format>0.#####</format>
-        <currency/>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif/>
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>coordenada_y</name>
-        <type>Number</type>
-        <format>0.#####</format>
-        <currency/>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif/>
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>hora_informada</name>
+        <name>ups</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -2756,6 +2887,18 @@ var tempo_desc = tempo_desc
         <group/>
         <nullif/>
         <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>ups_desc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
         <length>-1</length>
         <precision>-1</precision>
       </field>
@@ -2772,19 +2915,7 @@ var tempo_desc = tempo_desc
         <precision>-1</precision>
       </field>
       <field>
-        <name>ups</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency/>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif/>
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>pavimento_desc</name>
+        <name>regional_cod</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -2808,7 +2939,7 @@ var tempo_desc = tempo_desc
         <precision>-1</precision>
       </field>
       <field>
-        <name>ups_desc</name>
+        <name>tempo_cod</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -2832,7 +2963,91 @@ var tempo_desc = tempo_desc
         <precision>-1</precision>
       </field>
       <field>
-        <name>acidente_tipo_desc</name>
+        <name>pavimento_cod</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>pavimento_desc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>latitude</name>
+        <type>Number</type>
+        <format>####0.0#########;-####0.0#########</format>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>longitude</name>
+        <type>Number</type>
+        <format>####0.0#########;-####0.0#########</format>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>coordenada_y</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>coordenada_x</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>hora_informada</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>boletim_origem</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -2853,7 +3068,7 @@ var tempo_desc = tempo_desc
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1584</xloc>
+      <xloc>1600</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3158,149 +3373,6 @@ var intervalo_horario = getTimeOfDay(t);
     <GUI>
       <xloc>560</xloc>
       <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Conversão SIRGAS 2000 -> WGS84</name>
-    <type>UserDefinedJavaClass</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <definitions>
-      <definition>
-        <class_type>TRANSFORM_CLASS</class_type>
-        <class_name>Processor</class_name>
-        <class_source>import org.geotools.referencing.CRS;
-import org.geotools.geometry.jts.JTS;
-import org.locationtech.jts.geom.Coordinate;
-import org.opengis.referencing.FactoryException;
-import org.opengis.referencing.crs.CoordinateReferenceSystem;
-import org.opengis.referencing.operation.MathTransform;
-import org.opengis.referencing.operation.TransformException;
-
-
-String coordXField;
-String coordYField;
-String latitudeField;
-String longitudeField;
-
-
-public boolean coordinateIsValid(Double coordinate) {
-	return coordinate != null &amp;&amp; coordinate != 0;
-}
-
-public boolean processRow(StepMetaInterface smi, StepDataInterface sdi) throws KettleException, FactoryException, TransformException {
-   	// First, get a row from the default input hop
-   	Object[] r = getRow();
-
-   	// If the row object is null, we are done processing.
-   	if (r == null) {
-		setOutputDone();
-		return false;
-   	}
-
-   	// Let's look up parameters only once for performance reason.
-   	if (first) {
-      coordXField = getParameter("COORDENADA_X");
-      coordYField = getParameter("COORDENADA_Y");
-      latitudeField  = getParameter("LATITUDE");
-      longitudeField = getParameter("LONGITUDE");
-      first=false;
-   	}
-
-   	// It is always safest to call createOutputRow() to ensure that your output row's Object[] is large
-   	// enough to handle any new fields you are creating in this step.
-   	Object[] outputRow = createOutputRow(r, data.outputRowMeta.size());
-
-   	// Getting field values
-   	Double x = get(Fields.In, coordXField).getNumber(r);
-   	Double y = get(Fields.In, coordYField).getNumber(r);
-
-	Double latitude  = null,
-           longitude = null;
-
-   	if ( coordinateIsValid(x) &amp;&amp; coordinateIsValid(y) ) {
-        // Converting
-		CoordinateReferenceSystem sourceCRS = CRS.decode("EPSG:31983");
-   		CoordinateReferenceSystem targetCRS = CRS.decode("EPSG:4326");
-
-   		MathTransform transform = CRS.findMathTransform(sourceCRS, targetCRS);
-
-   		Coordinate sourceCoord = new Coordinate(x, y);
-   		Coordinate targetCoord = JTS.transform(sourceCoord, sourceCoord, transform);
-
-		latitude  = targetCoord.getX();
-        longitude = targetCoord.getY();
-   	}
-
-   	get(Fields.Out, latitudeField).setValue(outputRow, latitude);
-   	get(Fields.Out, longitudeField).setValue(outputRow, longitude);
-
-   	// putRow will send the row on to the default output hop.
-   	putRow(data.outputRowMeta, outputRow);
-
-   	return true;
-}
-
-</class_source>
-      </definition>
-    </definitions>
-    <fields>
-      <field>
-        <field_name>latitude</field_name>
-        <field_type>Number</field_type>
-        <field_length>-1</field_length>
-        <field_precision>2</field_precision>
-      </field>
-      <field>
-        <field_name>longitude</field_name>
-        <field_type>Number</field_type>
-        <field_length>-1</field_length>
-        <field_precision>2</field_precision>
-      </field>
-    </fields>
-    <clear_result_fields>N</clear_result_fields>
-    <info_steps/>
-    <target_steps/>
-    <usage_parameters>
-      <usage_parameter>
-        <parameter_tag>COORDENADA_X</parameter_tag>
-        <parameter_value>coordenada_x</parameter_value>
-        <parameter_description>UTM - SIRGAS 2000 / Zona 23S (EPSG:31983)</parameter_description>
-      </usage_parameter>
-      <usage_parameter>
-        <parameter_tag>COORDENADA_Y</parameter_tag>
-        <parameter_value>coordenada_y</parameter_value>
-        <parameter_description>UTM - SIRGAS 2000 / Zona 23S (EPSG:31983)</parameter_description>
-      </usage_parameter>
-      <usage_parameter>
-        <parameter_tag>LATITUDE</parameter_tag>
-        <parameter_value>latitude</parameter_value>
-        <parameter_description>Graus decimais - WGS84 (EPSG:4326)</parameter_description>
-      </usage_parameter>
-      <usage_parameter>
-        <parameter_tag>LONGITUDE</parameter_tag>
-        <parameter_value>longitude</parameter_value>
-        <parameter_description>Graus decimais - WGS84 (EPSG:4326)</parameter_description>
-      </usage_parameter>
-    </usage_parameters>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>224</xloc>
-      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

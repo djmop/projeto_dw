@@ -608,7 +608,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\1_raw\pessoas_envolvidas</name>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\1_raw\bhtrans_pessoas-envolvidas</name>
       <filemask>^env_201[12345]\.csv$</filemask>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -988,7 +988,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\1_raw\pessoas_envolvidas</name>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\1_raw\bhtrans_pessoas-envolvidas</name>
       <filemask>^env_20(1[6-9]|[2-9][0-9])\.csv$</filemask>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1360,6 +1360,75 @@
     </GUI>
   </step>
   <step>
+    <name>Calculate Age Group</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>0</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+function getGrupoIdade() {
+	if (idade == null)
+		return null;
+
+	if (idade >= 0 &amp;&amp; idade &lt;= 11)
+		return "0-11 anos";
+
+	if (idade >= 12 &amp;&amp; idade &lt;= 17)
+		return "12-17 anos";
+
+	if (idade >= 18 &amp;&amp; idade &lt;= 24)
+		return "18-24 anos";
+
+	if (idade >= 25 &amp;&amp; idade &lt;= 34)
+		return "25-34 anos";
+
+	if (idade >= 35 &amp;&amp; idade &lt;= 64)
+		return "35-64 anos";
+
+	if (idade >= 65)
+		return "65+ anos";
+}
+
+var grupo_idade = getGrupoIdade();</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>grupo_idade</name>
+        <rename>grupo_idade</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Calculate Age in Days</name>
     <type>Calculator</type>
     <description/>
@@ -1549,6 +1618,300 @@ var idade = getIdade();</jsScript_script>
     <GUI>
       <xloc>592</xloc>
       <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge rows (diff)</name>
+    <type>MergeRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <keys>
+      <key>boletim_fk</key>
+      <key>env_sequencia</key>
+    </keys>
+    <values>
+      <value>boletim_fk</value>
+      <value>boletim_datahora</value>
+      <value>env_sequencia</value>
+      <value>idade</value>
+      <value>nascimento_data</value>
+    </values>
+    <flag_field>flagfield</flag_field>
+    <reference>(2011-5) Pessoa SORT</reference>
+    <compare>(2016+) Pessoa SORT</compare>
+    <compare>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Parse TYPES</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>boletim_fk</name>
+      </field>
+      <field>
+        <name>boletim_datahora</name>
+      </field>
+      <field>
+        <name>env_sequencia</name>
+      </field>
+      <field>
+        <name>condutor</name>
+      </field>
+      <field>
+        <name>severidade_cod</name>
+      </field>
+      <field>
+        <name>severidade_desc</name>
+      </field>
+      <field>
+        <name>sexo</name>
+      </field>
+      <field>
+        <name>cinto_seguranca</name>
+      </field>
+      <field>
+        <name>embreagues</name>
+      </field>
+      <field>
+        <name>idade</name>
+      </field>
+      <field>
+        <name>nascimento_data</name>
+      </field>
+      <field>
+        <name>habilitacao_cod</name>
+      </field>
+      <field>
+        <name>habilitacao_desc</name>
+      </field>
+      <field>
+        <name>obito_declaracao</name>
+      </field>
+      <field>
+        <name>severidade_antiga_cod</name>
+      </field>
+      <field>
+        <name>veiculo_especie</name>
+      </field>
+      <field>
+        <name>pedestre</name>
+      </field>
+      <field>
+        <name>passageiro</name>
+      </field>
+      <field>
+        <name>flagfield</name>
+      </field>
+      <field>
+        <name>tipo</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>boletim_datahora</name>
+        <rename>boletim_datahora</rename>
+        <type>Timestamp</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>dd/MM/yyyy HH:mm</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>nascimento_data</name>
+        <rename>nascimento_data</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>dd/MM/yyyy</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>idade</name>
+        <rename>idade</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remove unused</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>boletim_fk</name>
+      </field>
+      <field>
+        <name>env_sequencia</name>
+      </field>
+      <field>
+        <name>tipo</name>
+      </field>
+      <field>
+        <name>sexo</name>
+      </field>
+      <field>
+        <name>grupo_idade</name>
+      </field>
+      <field>
+        <name>cinto_seguranca</name>
+      </field>
+      <field>
+        <name>embreagues</name>
+      </field>
+      <field>
+        <name>severidade_cod</name>
+      </field>
+      <field>
+        <name>severidade_desc</name>
+      </field>
+      <field>
+        <name>habilitacao_cod</name>
+      </field>
+      <field>
+        <name>habilitacao_desc</name>
+      </field>
+      <field>
+        <name>veiculo_especie</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort unique</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>Y</unique_rows>
+    <fields>
+      <field>
+        <name>boletim_fk</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>env_sequencia</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1840,332 +2203,6 @@ if (isValid(passageiro)) {
     </GUI>
   </step>
   <step>
-    <name>Merge rows (diff)</name>
-    <type>MergeRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <keys>
-      <key>boletim_fk</key>
-      <key>env_sequencia</key>
-    </keys>
-    <values>
-      <value>boletim_fk</value>
-      <value>boletim_datahora</value>
-      <value>env_sequencia</value>
-      <value>idade</value>
-      <value>nascimento_data</value>
-    </values>
-    <flag_field>flagfield</flag_field>
-    <reference>(2011-5) Pessoa SORT</reference>
-    <compare>(2016+) Pessoa SORT</compare>
-    <compare>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>464</xloc>
-      <yloc>272</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Parse TYPES</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>boletim_fk</name>
-        <rename/>
-      </field>
-      <field>
-        <name>boletim_datahora</name>
-        <rename/>
-      </field>
-      <field>
-        <name>env_sequencia</name>
-        <rename/>
-      </field>
-      <field>
-        <name>condutor</name>
-        <rename/>
-      </field>
-      <field>
-        <name>severidade_cod</name>
-        <rename/>
-      </field>
-      <field>
-        <name>severidade_desc</name>
-        <rename/>
-      </field>
-      <field>
-        <name>sexo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>cinto_seguranca</name>
-        <rename/>
-      </field>
-      <field>
-        <name>embreagues</name>
-        <rename/>
-      </field>
-      <field>
-        <name>idade</name>
-        <rename/>
-      </field>
-      <field>
-        <name>nascimento_data</name>
-        <rename/>
-      </field>
-      <field>
-        <name>habilitacao_cod</name>
-        <rename/>
-      </field>
-      <field>
-        <name>habilitacao_desc</name>
-        <rename/>
-      </field>
-      <field>
-        <name>obito_declaracao</name>
-        <rename/>
-      </field>
-      <field>
-        <name>severidade_antiga_cod</name>
-        <rename/>
-      </field>
-      <field>
-        <name>veiculo_especie</name>
-        <rename/>
-      </field>
-      <field>
-        <name>pedestre</name>
-        <rename/>
-      </field>
-      <field>
-        <name>passageiro</name>
-        <rename/>
-      </field>
-      <field>
-        <name>flagfield</name>
-        <rename/>
-      </field>
-      <field>
-        <name>tipo</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>boletim_datahora</name>
-        <rename>boletim_datahora</rename>
-        <type>Timestamp</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>dd/MM/yyyy HH:mm</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>nascimento_data</name>
-        <rename>nascimento_data</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>dd/MM/yyyy</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>idade</name>
-        <rename>idade</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>832</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Remove unused</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>boletim_fk</name>
-        <rename/>
-      </field>
-      <field>
-        <name>env_sequencia</name>
-        <rename/>
-      </field>
-      <field>
-        <name>tipo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>sexo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>grupo_idade</name>
-        <rename/>
-      </field>
-      <field>
-        <name>cinto_seguranca</name>
-        <rename/>
-      </field>
-      <field>
-        <name>embreagues</name>
-        <rename/>
-      </field>
-      <field>
-        <name>severidade_cod</name>
-        <rename/>
-      </field>
-      <field>
-        <name>severidade_desc</name>
-        <rename/>
-      </field>
-      <field>
-        <name>habilitacao_cod</name>
-        <rename/>
-      </field>
-      <field>
-        <name>habilitacao_desc</name>
-        <rename/>
-      </field>
-      <field>
-        <name>veiculo_especie</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1088</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort unique</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>Y</unique_rows>
-    <fields>
-      <field>
-        <name>boletim_fk</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>env_sequencia</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>592</xloc>
-      <yloc>272</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Text file output</name>
     <type>TextFileOutput</type>
     <description/>
@@ -2273,75 +2310,6 @@ if (condutor == "Sim") {
     </remotesteps>
     <GUI>
       <xloc>832</xloc>
-      <yloc>272</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Calculate Age Group</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>0</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-function getGrupoIdade() {
-	if (idade == null)
-		return null;
-
-	if (idade >= 0 &amp;&amp; idade &lt;= 11)
-		return "0-11 anos";
-
-	if (idade >= 12 &amp;&amp; idade &lt;= 17)
-		return "12-17 anos";
-
-	if (idade >= 18 &amp;&amp; idade &lt;= 24)
-		return "18-24 anos";
-
-	if (idade >= 25 &amp;&amp; idade &lt;= 34)
-		return "25-34 anos";
-
-	if (idade >= 35 &amp;&amp; idade &lt;= 64)
-		return "35-64 anos";
-
-	if (idade >= 65)
-		return "65+ anos";
-}
-
-var grupo_idade = getGrupoIdade();</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>grupo_idade</name>
-        <rename>grupo_idade</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1088</xloc>
       <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>

@@ -497,7 +497,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\1_raw\veiculos_envolvidos</name>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\1_raw\bhtrans_veiculos-envolvidos</name>
       <filemask>^veic_\d{4}\.csv$</filemask>
       <exclude_filemask/>
       <file_required>N</file_required>
