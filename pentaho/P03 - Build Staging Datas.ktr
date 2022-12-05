@@ -495,12 +495,12 @@
     <hop>
       <from>DIM DataTempo</from>
       <to>DIM DataTempo output</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Unique Datas</from>
       <to>Staging Datas</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Select Datas</from>
@@ -541,6 +541,21 @@
       <from>Sort Bairros</from>
       <to>Staging Bairros</to>
       <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select Horário</from>
+      <to>Build Horário DIM</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Data</from>
+      <to>Select Horário</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Build Horário DIM</from>
+      <to>DIM Horário output</to>
+      <enabled>N</enabled>
     </hop>
   </order>
   <step>
@@ -750,8 +765,82 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>64</yloc>
+      <xloc>576</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Build Horário DIM</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>
+if (data != null) {
+	var boletimHora = data.getHours();
+	var boletimMinutes = data.getHours();
+	
+	var hora = boletimHora + boletimMinutes / 60;
+}</jsScript_script>
+      </jsScript>
+      <jsScript>
+        <jsScript_type>-1</jsScript_type>
+        <jsScript_name>getDayNumber_Sample</jsScript_name>
+        <jsScript_script>// Returns the number of a date, inside the
+// given type.
+//
+// Usage:
+// getDayNumber(var,var);
+// 1: Date - The Variable with the Date.
+// 2: String - The Type:
+// y - Day in Year
+// m - Day in Month
+// w - Day in Week
+// wm - Day of Week in Month 
+//
+// 2006-11-15
+//
+var d1 = new Date();
+Alert(getDayNumber(d1, "y"));
+Alert(getDayNumber(d1, "m"));
+Alert(getDayNumber(d1, "w"));
+Alert(getDayNumber(d1, "wm"));
+      </jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>hora</name>
+        <rename>hora</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -769,35 +858,27 @@ Alert(getDayNumber(d1, "wm"));
     <fields>
       <field>
         <name>datatempo_pk</name>
-        <rename/>
       </field>
       <field>
         <name>ano</name>
-        <rename/>
       </field>
       <field>
         <name>mes</name>
-        <rename/>
       </field>
       <field>
         <name>mes_desc</name>
-        <rename/>
       </field>
       <field>
         <name>dia</name>
-        <rename/>
       </field>
       <field>
         <name>intervalo_horario</name>
-        <rename/>
       </field>
       <field>
         <name>dia_semana</name>
-        <rename/>
       </field>
       <field>
         <name>dia_semana_desc</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -810,8 +891,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
-      <yloc>64</yloc>
+      <xloc>816</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -963,7 +1044,88 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
+      <xloc>944</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DIM Horário output</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>;</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding>UTF-8</encoding>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>E:\My drive\puc_minas\6o_semestre\BUSINESS_INTEL\projeto.dw\data\4_dw\dim_horario</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>csv</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery/>
+    </file>
+    <fields>
+      <field>
+        <name>boletim_pk</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>15</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>hora</name>
+        <type>Number</type>
+        <format>####0.0#########;-####0.0#########</format>
+        <currency/>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
       <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
@@ -972,7 +1134,7 @@ Alert(getDayNumber(d1, "wm"));
     <name>Data</name>
     <type>ScriptValueMod</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1034,8 +1196,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>336</xloc>
-      <yloc>304</yloc>
+      <xloc>352</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1068,8 +1230,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
-      <yloc>176</yloc>
+      <xloc>688</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1458,8 +1620,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>384</yloc>
+      <xloc>128</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1638,8 +1800,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>592</yloc>
+      <xloc>128</xloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1672,8 +1834,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
-      <yloc>304</yloc>
+      <xloc>688</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1713,8 +1875,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>224</xloc>
-      <yloc>384</yloc>
+      <xloc>240</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1753,8 +1915,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>224</xloc>
-      <yloc>592</yloc>
+      <xloc>240</xloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1787,8 +1949,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
-      <yloc>176</yloc>
+      <xloc>464</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1822,7 +1984,41 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
+      <xloc>816</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select Horário</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>boletim_pk</name>
+      </field>
+      <field>
+        <name>data</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
       <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1857,8 +2053,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>336</xloc>
-      <yloc>480</yloc>
+      <xloc>352</xloc>
+      <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1923,8 +2119,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>336</xloc>
-      <yloc>592</yloc>
+      <xloc>352</xloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1973,8 +2169,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
-      <yloc>304</yloc>
+      <xloc>944</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2023,8 +2219,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
-      <yloc>304</yloc>
+      <xloc>464</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2073,8 +2269,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
-      <yloc>480</yloc>
+      <xloc>464</xloc>
+      <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2178,8 +2374,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
-      <yloc>592</yloc>
+      <xloc>464</xloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2259,8 +2455,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1184</xloc>
-      <yloc>304</yloc>
+      <xloc>1200</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2340,8 +2536,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>480</yloc>
+      <xloc>576</xloc>
+      <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2375,8 +2571,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
-      <yloc>64</yloc>
+      <xloc>688</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2414,8 +2610,8 @@ Alert(getDayNumber(d1, "wm"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1056</xloc>
-      <yloc>304</yloc>
+      <xloc>1072</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
