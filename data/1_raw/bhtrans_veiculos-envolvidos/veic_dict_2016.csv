@@ -1,0 +1,15 @@
+Nome_do_arquivo;si_veic-aaaa;
+Descricao_do_arquivo;Acidentes de transito com vitima dados gerais dos veiculos envolvidos em acidente de um determinado ano (aaaa);
+Data_da_criacao;10/jan;
+Nome_do_campo;Layout_do_campo;descricao_do_campo
+Nº_boletim;NUMBER(18);Numero do Boletim de Ocorrência. Exemplo: 206099 ou 2016-000009920-001. Durante 2016 houve uma mudança na lógica de numeração dos boletins em virtude da alteração da forma de recebimento dos dados dos boletins.
+data_hora_boletim;DATE;Data e hora do acidente registrada no Boletim de ocorrência. Exemplo: 24/4/1999 18:10:00
+seq_veic;NUMBER(2);Numero sequencial de veículo relacionado a um Boletim de Ocorrencia. Identifica a quantidade de veiculos envolvidos em um acidente.
+cod_categ;NUMBER(2);Codigo da categoria do veiculo. Exemplos:  0 - nao informado, 1 - oficial, 2 - missao diplomatica, 3 - particular, 4 - aluguel, 5 - aprendizagem.
+descricao_categoria;VARCHAR2(30);Descricao do codigo da categoria do veiculo. Exemplos:  0 - nao informado, 1 - oficial, 2 - missao diplomatica, 3 - particular, 4 - aluguel, 5 - aprendizagem.
+cod_especie;NUMBER(2);Codigo da especie do veiculo. Exemplos: 1 - bicicleta, 2 - ciclomotor, 3 - motoneta, 4 - motocicleta, 5 - triciclo, 6 - automovel.
+descricao_especie;VARCHAR2(12);"Calculado a partir do valor de ""cod_especie""		tam 12"
+cod_situacao;NUMBER(1);Codigo da situacao do veiculo. Exemplos: 0 - nao informado, 1 - em movimento, 2 - parado.
+desc_situacao;VARCHAR2(14);"Calculado a partir do valor de ""cod_situacao"" 		tam 14"
+tipo_socorro;NUMBER(1);Codigo do tipo do socorro prestado para o acidente. Exemplo: 0 - nao informado, 1 - veiculo envolvido, 2 - viatura PMMG, 3 - ambulancia, 4 - terceiros.
+desc_tipo_socorro;VARCHAR2(18);"Calculado a partir do valor de ""tipo_socorro""		tam 18"

@@ -1,0 +1,27 @@
+Nome_do_arquivo;si-bol-aaaa;
+Descricao_do_arquivo;Acidentes de transito com vitima dados gerais do boletim de acidente de acidente de um determinado ano (aaaa);
+Data_da_criacao;10/jan;
+Nome_do_campo;Layout_do_campo;descricao_do_campo
+ NUMERO_BOLETIM;NUMBER(18);Numero do Boletim de Ocorrência. Exemplo: 206099 ou 2016-000009920-001. Durante 2016 houve uma mudança na lógica de numeração dos boletins em virtude da alteração da forma de recebimento dos dados dos boletins.
+ DATA HORA_BOLETIM;DATE;Data e hora do acidente registrada no Boletim de ocorrência. Exemplo: 24/4/1999 18:10:00
+ DATA_INCLUSAO;DATE;Data do registro do boletim de ocorrência.
+ TIPO_ACIDENTE;VARCHAR2(7);codigo do tipo de acidente. Exemplo: H01001 - abalroamento sem vitima,  H01002 - abalroamento com vitima.
+ DESC_TIPO_ACIDENTE;VARCHAR2(50);Descricao do tipo de acidente.
+ COD_TEMPO;NUMBER(1);Codigo da condicao climatica no momento do acidente. Exemplo: 0 - Não informado, 1 - bom, 2 - chuva, 3 - neblina, 4 - nublado.
+ DESC_TEMPO;VARCHAR2(15);Calculado a partir de COD_TEMPO
+ COD_PAVIMENTO;NUMBER(1);codigo do pavimento do logradouro. Exemplo: 0 - nao informado, 1 - asfalto, 2 - concreto, 3 - terra, 4 - calcamento.
+ PAVIMENTO;VARCHAR2(15);Calculado a partir de COD_PAVIMENTO
+ COD_REGIONAL;NUMBER(2);Numero da administracao regional. Ex.: 18 (Barreiro), 19 (Centro-Sul).
+ DESC_REGIONAL;VARCHAR2(30);Calculado a partir de COD_REGIONAL
+ ORIGEM_BOLETIM;VARCHAR2(30);Nome do Batalhão da PM onde foi registrado o Boletim de Ocorrência.
+ LOCAL_SINALIZADO;CHAR(1);Indica se o local do acidente e sinalizado.
+ VELOCIDADE_PERMITIDA;NUMBER(3);Velocidade máxima permitida para o local do acidente. Exemplo: 40, 60 Km.
+ COORDENADA_X;NUMBER(12,2);Coordenada x do endereco referenciado no Boletim de Ocorrencia (UTM - Sirgas 2000 fuso 23S).
+ COORDENADA_Y;NUMBER(12,2);Coordenada y do endereco referenciado no Boletim de Ocorrencia  (UTM - Sirgas 2000 fuso 23S).
+ HORA_INFORMADA;VARCHAR2(1);Indicador de hora informada.
+ INDICADOR_FATALIDADE;VARCHAR2(1);Indicada se no acidente houve vitima fatal.
+ VALOR_UPS;NUMBER(2);Valor de unidade padrão de severidade. Valores possíveis: 1 - sem vítima, 5 - com vítima (não fatal) - 13 - com vítima fatal.
+ DESCRIÇÃO_UPS;VARCHAR2(23);"Calculado a partir de ""VALOR_UPS"" Valor de unidade padrão de severidade. Valores possíveis: 1 - sem vítima, 5 - com vítima (não fatal) - 13 - com vítima fatal."
+ DATA_ALTERACAO_SMSA;DATE;Data de alteracao similar
+ VALOR_UPS_ANTIGA;NUMBER(2);Valor de unidade padrão de severidade antigo. Valores possíveis: 1 - sem vítima, 5 - com vítima (não fatal) - 13 - com vítima fatal.
+ DESCRIÇÃO_UPS_ANTIGA;VARCHAR2(23);"Calculado a partir de ""VALOR_UPS"" Valor de unidade padrão de severidade. Valores possíveis: 1 - sem vítima, 5 - com vítima (não fatal) - 13 - com vítima fatal."

@@ -1,0 +1,27 @@
+especie_pk;especie_desc
+0;Não informado
+1;Bicicleta    
+2;Ciclomotor   
+3;Motoneta     
+4;Motocicleta  
+5;Triciclo     
+6;Automóvel    
+7;Microônibus  
+8;Ônibus       
+9;Trem         
+10;Reboque e sem
+11;Charrete     
+12;Camioneta    
+13;Caminhão     
+14;Carroça      
+15;Carro de mão 
+16;Misto        
+18;Tração       
+19;Caminhão-trat
+20;Trator de rod
+21;Trator de est
+22;Trator misto 
+23;Especial     
+25;Kombi        
+26;Caminhonete  
+27;Patinete     

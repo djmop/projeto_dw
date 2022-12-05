@@ -2,7 +2,12 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=r
 
 ### FOLDERS ###
-data/
+data/1_raw/ibge_shape-data
+data/2_cleaned/
+data/3_staging_area/
+data/5_shapes_raw/
+data/6_shapes_data/
+
 
 ### FILES ###
 *.log
@@ -63,3 +68,4 @@ rsconnect/
 /*_files/
 
 # End of https://www.toptal.com/developers/gitignore/api/r
+data/dicionario de dados.xlsx

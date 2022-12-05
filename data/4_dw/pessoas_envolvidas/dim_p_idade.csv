@@ -1,0 +1,8 @@
+grupo_idade;grupo_idade_fk
+0-11 anos;1
+12-17 anos;2
+18-24 anos;3
+25-34 anos;4
+35-64 anos;5
+65+ anos;6
+Não informado;0

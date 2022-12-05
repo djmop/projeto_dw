@@ -1,0 +1,5 @@
+severidade_pk;severidade_desc
+0;Não informado 
+1;Não fatal     
+2;Fatal         
+3;Sem ferimentos
