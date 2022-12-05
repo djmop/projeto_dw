@@ -1,0 +1,512 @@
+bairro_pk;bairro_tipo_pk;bairro_desc;bairro_tipo_desc
+0;NI;Não informado                 ;Não informado        
+1;B ;Aarão Reis                    ;Bairro               
+2;B ;Camargos                      ;Bairro               
+3;B ;Alípio de Melo                ;Bairro               
+4;B ;Alto Caiçaras                 ;Bairro               
+5;B ;Alto dos Pinheiros            ;Bairro               
+6;B ;Álvaro Camargos               ;Bairro               
+7;B ;Jardim Alvorada               ;Bairro               
+8;B ;Anchieta                      ;Bairro               
+9;B ;Aparecida                     ;Bairro               
+10;B ;Graça                         ;Bairro               
+11;B ;Bairro das Indústrias 1ª Seção;Bairro               
+12;B ;Buritis                       ;Bairro               
+13;B ;Baleia                        ;Bairro               
+14;B ;Barreiro                      ;Bairro               
+15;B ;Frei Leopoldo                 ;Bairro               
+16;B ;Barroca                       ;Bairro               
+17;B ;Barro Preto                   ;Bairro               
+18;B ;Belvedere                     ;Bairro               
+19;B ;Betânia                       ;Bairro               
+19;CH;Betânia                       ;Conjunto habitacional
+20;B ;Boa Vista                     ;Bairro               
+21;B ;Bom Jesus                     ;Bairro               
+21;V ;Bom Jesus                     ;Vila                 
+22;B ;Bonfim                        ;Bairro               
+23;B ;Cabana do Pai Tomás           ;Bairro               
+24;B ;Cachoeirinha                  ;Bairro               
+25;B ;Caetano Furquim               ;Bairro               
+26;B ;Caiçara Adelaide              ;Bairro               
+27;B ;Caiçaras                      ;Bairro               
+28;B ;Calafate                      ;Bairro               
+29;B ;Califórnia                    ;Bairro               
+30;B ;Campo Alegre                  ;Bairro               
+31;A ;Campus Ufmg                   ;Área                 
+32;B ;Canaã                         ;Bairro               
+33;B ;Cardoso                       ;Bairro               
+34;B ;Carlos Prates                 ;Bairro               
+35;B ;Carmo                         ;Bairro               
+36;B ;Casa Branca                   ;Bairro               
+37;B ;Castelo                       ;Bairro               
+38;B ;São José                      ;Bairro               
+38;F ;São José                      ;Fazenda              
+39;B ;São Luíz                      ;Bairro               
+40;B ;Centro                        ;Bairro               
+41;B ;Céu Azul                      ;Bairro               
+41;V ;Céu Azul                      ;Vila                 
+42;B ;Cidade Jardim                 ;Bairro               
+43;B ;Cidade Nova                   ;Bairro               
+44;B ;Colégio Batista               ;Bairro               
+45;B ;Concórdia                     ;Bairro               
+46;B ;Conjunto Califórnia 1ª Seção  ;Bairro               
+47;B ;Conjunto Califórnia 2ª Seção  ;Bairro               
+48;B ;Conjunto Celso Machado        ;Bairro               
+49;B ;Serrano                       ;Bairro               
+50;B ;Braúnas                       ;Bairro               
+51;B ;Jardim Atlântico              ;Bairro               
+52;B ;Coqueiros                     ;Bairro               
+53;B ;Coração de Jesus              ;Bairro               
+54;A ;Coração Eucarístico           ;Área                 
+54;B ;Coração Eucarístico           ;Bairro               
+55;B ;Cruzeiro                      ;Bairro               
+56;B ;Dom Bosco                     ;Bairro               
+57;B ;Dom Cabral                    ;Bairro               
+58;B ;Dom Joaquim                   ;Bairro               
+59;B ;Dom Silvério                  ;Bairro               
+60;B ;Dona Clara                    ;Bairro               
+61;B ;Lindéia                       ;Bairro               
+62;B ;Engenho Nogueira              ;Bairro               
+63;B ;Ermelinda                     ;Bairro               
+64;B ;Esplanada                     ;Bairro               
+65;B ;Estoril                       ;Bairro               
+66;B ;Havaí                         ;Bairro               
+67;B ;Etelvina Carneiro             ;Bairro               
+68;B ;Europa                        ;Bairro               
+69;B ;Eymard                        ;Bairro               
+70;B ;São Jorge                     ;Bairro               
+70;V ;São Jorge                     ;Vila                 
+71;V ;Vila Cemig                    ;Vila                 
+72;B ;Sumaré                        ;Bairro               
+72;V ;Sumaré                        ;Vila                 
+73;B ;Xodó Marize                   ;Bairro               
+74;B ;Pindorama                     ;Bairro               
+75;B ;Flávio Marques Lisboa         ;Bairro               
+76;B ;Floramar                      ;Bairro               
+77;B ;Floresta                      ;Bairro               
+78;B ;Padre Eustáquio               ;Bairro               
+79;B ;Funcionários                  ;Bairro               
+80;B ;Gameleira                     ;Bairro               
+81;B ;Olhos D'Água                  ;Bairro               
+81;V ;Olhos D'Água                  ;Vila                 
+82;B ;Glória                        ;Bairro               
+83;B ;Grajaú                        ;Bairro               
+84;B ;Guarani                       ;Bairro               
+84;V ;Guarani                       ;Vila                 
+85;B ;Juliana                       ;Bairro               
+86;B ;Gutierrez                     ;Bairro               
+87;B ;Heliópolis                    ;Bairro               
+88;B ;Horto                         ;Bairro               
+89;B ;Inconfidência                 ;Bairro               
+90;B ;Independência                 ;Bairro               
+91;B ;Monte Azul                    ;Bairro               
+92;B ;Horto Florestal               ;Bairro               
+93;B ;Ipiranga                      ;Bairro               
+94;B ;Itapoã                        ;Bairro               
+95;B ;Jaqueline                     ;Bairro               
+96;B ;Jaraguá                       ;Bairro               
+97;B ;Jardim América                ;Bairro               
+98;B ;Jardim dos Comerciários       ;Bairro               
+99;B ;Jardim Montanhês              ;Bairro               
+100;B ;Jardinópolis                  ;Bairro               
+101;B ;Jatobá                        ;Bairro               
+101;V ;Jatobá                        ;Vila                 
+102;B ;João Pinheiro                 ;Bairro               
+103;B ;Lagoa                         ;Bairro               
+104;B ;Lagoinha Leblon               ;Bairro               
+105;B ;Lagoinha                      ;Bairro               
+105;V ;Lagoinha                      ;Vila                 
+106;B ;Jardim Leblon                 ;Bairro               
+107;B ;Letícia                       ;Bairro               
+108;B ;Liberdade                     ;Bairro               
+108;CH;Liberdade                     ;Conjunto habitacional
+109;B ;Lourdes                       ;Bairro               
+110;B ;Luxemburgo                    ;Bairro               
+111;B ;Madre Gertrudes               ;Bairro               
+111;V ;Madre Gertrudes               ;Vila                 
+112;B ;Mangabeiras                   ;Bairro               
+113;B ;Mantiqueira                   ;Bairro               
+114;B ;Marajó                        ;Bairro               
+115;B ;Maria Helena                  ;Bairro               
+116;B ;Milionários                   ;Bairro               
+117;B ;Minas Brasil                  ;Bairro               
+118;B ;Minas Caixa                   ;Bairro               
+119;B ;Minaslândia                   ;Bairro               
+120;B ;Monsenhor Messias             ;Bairro               
+121;B ;Nova Cintra                   ;Bairro               
+122;B ;Nova Esperança                ;Bairro               
+123;B ;Nova Floresta                 ;Bairro               
+124;B ;Nova Gameleira                ;Bairro               
+125;B ;Nova Granada                  ;Bairro               
+126;B ;Nova Pampulha                 ;Bairro               
+127;B ;Nova Suíça                    ;Bairro               
+128;B ;Nova Vista                    ;Bairro               
+129;B ;Novo São Lucas                ;Bairro               
+130;B ;Ouro Preto                    ;Bairro               
+131;B ;Palmares                      ;Bairro               
+132;B ;Palmeiras                     ;Bairro               
+133;B ;Bandeirantes                  ;Bairro               
+134;B ;Paquetá                       ;Bairro               
+135;B ;Paraíso                       ;Bairro               
+136;B ;Pedreira Prado Lopes          ;Bairro               
+136;V ;Pedreira Prado Lopes          ;Vila                 
+137;B ;Santo André                   ;Bairro               
+137;V ;Santo André                   ;Vila                 
+138;B ;Pirajá                        ;Bairro               
+139;B ;Planalto                      ;Bairro               
+140;B ;Pompéia                       ;Bairro               
+141;B ;Prado                         ;Bairro               
+142;B ;Primeiro de Maio              ;Bairro               
+143;B ;Providência                   ;Bairro               
+144;B ;Renascença                    ;Bairro               
+145;B ;Ribeiro de Abreu              ;Bairro               
+146;B ;Sagrada Família               ;Bairro               
+147;B ;Salgado Filho                 ;Bairro               
+148;B ;Santa Amélia                  ;Bairro               
+148;J ;Santa Amélia                  ;Jardim               
+149;B ;Santa Cruz                    ;Bairro               
+150;B ;Santa Efigênia                ;Bairro               
+151;B ;Santa Helena                  ;Bairro               
+152;B ;Santa Inês                    ;Bairro               
+153;B ;Santa Lúcia                   ;Bairro               
+154;B ;Conjunto Santa Maria          ;Bairro               
+155;B ;Santa Maria                   ;Bairro               
+156;B ;Maria Goretti                 ;Bairro               
+157;B ;Santa Mônica                  ;Bairro               
+158;B ;Santa Rosa                    ;Bairro               
+159;B ;Santa Tereza                  ;Bairro               
+160;B ;Santa Terezinha               ;Bairro               
+161;B ;Santo Agostinho               ;Bairro               
+162;B ;Santo Antônio                 ;Bairro               
+163;B ;São Bento                     ;Bairro               
+164;B ;São Bernardo                  ;Bairro               
+165;B ;São Cristóvão                 ;Bairro               
+166;V ;São Francisco                 ;Vila                 
+167;B ;São Gabriel                   ;Bairro               
+167;V ;São Gabriel                   ;Vila                 
+168;B ;São Geraldo                   ;Bairro               
+168;V ;São Geraldo                   ;Vila                 
+169;B ;São João Batista              ;Bairro               
+169;V ;São João Batista              ;Vila                 
+170;B ;Vila São João Batista         ;Bairro               
+170;V ;Vila São João Batista         ;Vila                 
+171;B ;Jardim São José               ;Bairro               
+172;B ;São Lucas                     ;Bairro               
+173;B ;São Marcos                    ;Bairro               
+174;B ;Piratininga                   ;Bairro               
+175;B ;São Paulo                     ;Bairro               
+176;B ;São Pedro                     ;Bairro               
+177;B ;São Salvador                  ;Bairro               
+178;B ;São Tomáz                     ;Bairro               
+179;B ;Saudade                       ;Bairro               
+180;B ;Serra                         ;Bairro               
+181;B ;Serra Verde                   ;Bairro               
+182;B ;Vila Sesc                     ;Bairro               
+183;B ;Sion                          ;Bairro               
+184;B ;Solimões                      ;Bairro               
+185;B ;Taquaril                      ;Bairro               
+186;CH;Teixeira Dias                 ;Conjunto habitacional
+187;B ;Tirol                         ;Bairro               
+188;B ;Tupi A                        ;Bairro               
+189;B ;Garças                        ;Bairro               
+190;B ;União                         ;Bairro               
+191;B ;Universitário                 ;Bairro               
+192;A ;Venda Nova                    ;Área                 
+192;B ;Venda Nova                    ;Bairro               
+193;B ;Vera Cruz                     ;Bairro               
+193;NI;Vera Cruz                     ;Não informado        
+193;P ;Vera Cruz                     ;Parque               
+194;B ;Goiânia                       ;Bairro               
+194;NI;Goiânia                       ;Não informado        
+195;V ;Vila Clóris                   ;Vila                 
+196;V ;Vila Oeste                    ;Vila                 
+197;V ;Vila Paris                    ;Vila                 
+198;V ;Maria Virgínia                ;Vila                 
+199;V ;Virgínia                      ;Vila                 
+200;B ;Rio Branco                    ;Bairro               
+201;B ;Vista Alegre                  ;Bairro               
+201;V ;Vista Alegre                  ;Vila                 
+202;B ;Xangri Lá                     ;Bairro               
+203;B ;Aparecida 7ª Seção            ;Bairro               
+204;B ;Alto Barroca                  ;Bairro               
+205;B ;Pongelupe                     ;Bairro               
+205;CH;Pongelupe                     ;Conjunto habitacional
+206;B ;Nova Cachoeirinha             ;Bairro               
+207;B ;Vila Barragem Santa Lúcia     ;Bairro               
+207;V ;Vila Barragem Santa Lúcia     ;Vila                 
+208;B ;Santana do Cafezal            ;Bairro               
+208;V ;Santana do Cafezal            ;Vila                 
+209;B ;Trevo                         ;Bairro               
+209;P ;Trevo                         ;Parque               
+209;V ;Trevo                         ;Vila                 
+210;B ;Copacabana                    ;Bairro               
+211;B ;Santa Branca                  ;Bairro               
+212;B ;Aeroporto                     ;Bairro               
+213;B ;Jardim Vitória                ;Bairro               
+214;B ;Vale do Jatobá                ;Bairro               
+215;B ;Olaria                        ;Bairro               
+216;B ;Jardim Felicidade             ;Bairro               
+217;B ;Confisco                      ;Bairro               
+218;V ;Vila Maria                    ;Vila                 
+219;B ;Nossa Senhora da Aparecida    ;Bairro               
+219;V ;Nossa Senhora da Aparecida    ;Vila                 
+220;B ;Paulo 6ª Seção                ;Bairro               
+221;B ;Capitão Eduardo               ;Bairro               
+221;F ;Capitão Eduardo               ;Fazenda              
+222;B ;Suzana                        ;Bairro               
+222;V ;Suzana                        ;Vila                 
+223;V ;Assunção                      ;Vila                 
+224;B ;Silveira                      ;Bairro               
+225;B ;Fernão Dias                   ;Bairro               
+226;V ;Alice                         ;Vila                 
+227;V ;Vila Formosa                  ;Vila                 
+228;CA;São Vicente                   ;Chácara              
+228;NI;São Vicente                   ;Não informado        
+229;B ;Nova América                  ;Bairro               
+230;B ;Comiteco                      ;Bairro               
+230;P ;Comiteco                      ;Parque               
+231;NI;Monte São José                ;Não informado        
+232;B ;Ipê                           ;Bairro               
+233;B ;Jardim Guanabara              ;Bairro               
+234;B ;Savassi                       ;Bairro               
+235;B ;Bairro Novo das Indústrias    ;Bairro               
+236;B ;Conjunto Bonsucesso           ;Bairro               
+237;B ;Bonsucesso                    ;Bairro               
+238;B ;Araguaia                      ;Bairro               
+239;P ;Parque São José               ;Parque               
+240;CH;Flávio de Oliveira            ;Conjunto habitacional
+241;V ;Santa Margarida               ;Vila                 
+242;CH;Átila de Paiva                ;Conjunto habitacional
+243;CH;João Paulo 2ª Seção           ;Conjunto habitacional
+244;B ;Ademar Maldonado              ;Bairro               
+245;B ;Diamante                      ;Bairro               
+246;B ;Miramar                       ;Bairro               
+247;B ;Brasil Industrial             ;Bairro               
+248;V ;Vila Pinho                    ;Vila                 
+249;V ;Castanheira                   ;Vila                 
+250;CH;Túnel de Ibirité              ;Conjunto habitacional
+251;B ;Boa Viagem                    ;Bairro               
+252;B ;Itaipu                        ;Bairro               
+253;V ;Marilândia                    ;Vila                 
+254;B ;Santa Cecília                 ;Bairro               
+255;B ;Conjunto Jatobá               ;Bairro               
+256;B ;Cinqüentenário                ;Bairro               
+257;CH;Ernesto do Nascimento         ;Conjunto habitacional
+258;V ;Santa Rita                    ;Vila                 
+259;B ;Mangueiras                    ;Bairro               
+260;B ;Petrópolis                    ;Bairro               
+261;B ;Mineirão                      ;Bairro               
+262;B ;Solar do Barreiro             ;Bairro               
+263;B ;Pilar                         ;Bairro               
+264;CH;Novo Aarão Reis               ;Conjunto habitacional
+265;B ;Distrito Industrial do Jatobá ;Bairro               
+266;B ;Pousada Santo Antônio         ;Bairro               
+267;A ;Granja Werneck                ;Área                 
+268;V ;Vista do Sol                  ;Vila                 
+269;B ;Ouro Minas                    ;Bairro               
+269;NI;Ouro Minas                    ;Não informado        
+270;B ;Belmonte                      ;Bairro               
+271;B ;Nazaré                        ;Bairro               
+272;B ;Beija Flor                    ;Bairro               
+273;G ;Granja de Freitas             ;Granja               
+274;B ;Alto Vera Cruz                ;Bairro               
+275;B ;Tupi B                        ;Bairro               
+276;V ;Vila Ecológica                ;Vila                 
+277;V ;Vitória da Conquista          ;Vila                 
+278;V ;Corumbiara                    ;Vila                 
+279;B ;Jonas Veiga                   ;Bairro               
+280;V ;Indaiá                        ;Vila                 
+281;B ;Acaiaca                       ;Bairro               
+282;B ;Águas Claras                  ;Bairro               
+283;B ;Alpes                         ;Bairro               
+284;B ;Alta Tensão                   ;Bairro               
+284;NI;Alta Tensão                   ;Não informado        
+285;B ;Vila Antena                   ;Bairro               
+285;V ;Vila Antena                   ;Vila                 
+286;NI;Ápia                          ;Não informado        
+287;B ;Apolônia                      ;Bairro               
+288;NI;Bacurau                       ;Não informado        
+289;B ;Bairro das Indústrias 2ª Seção;Bairro               
+290;NI;Barão Homem de Melo 3ª Seção  ;Não informado        
+291;B ;Barão Homem de Melo 1ª Seção  ;Bairro               
+292;B ;Vila Batik                    ;Bairro               
+293;B ;Beira Linha                   ;Bairro               
+294;B ;Bela Vitória                  ;Bairro               
+295;B ;Belém                         ;Bairro               
+296;B ;Bernadete                     ;Bairro               
+297;B ;Biquinhas                     ;Bairro               
+298;B ;Bispo de Maura                ;Bairro               
+299;B ;Boa União 2ª Seção            ;Bairro               
+300;B ;Boa União 1ª Seção            ;Bairro               
+301;B ;Camponesa 1ª Seção            ;Bairro               
+302;B ;Camponesa 2ª Seção            ;Bairro               
+303;B ;Canadá                        ;Bairro               
+304;B ;Candelária                    ;Bairro               
+305;B ;Cenáculo                      ;Bairro               
+306;B ;Chácara Leonina               ;Bairro               
+307;B ;Cônego Pinheiro 1ª Seção      ;Bairro               
+308;NI;Cônego Pinheiro 2ª Seção      ;Não informado        
+309;B ;Conjunto Floramar             ;Bairro               
+310;B ;Conjunto Jardim Filadélfia    ;Bairro               
+311;B ;Conjunto Lagoa                ;Bairro               
+312;B ;Conjunto Minas Caixa          ;Bairro               
+313;B ;Conjunto Paulo 6ª Seção       ;Bairro               
+314;B ;Conjunto Providência          ;Bairro               
+315;NI;Conjunto São Francisco de Assi;Não informado        
+316;B ;Conjunto Serra Verde          ;Bairro               
+317;B ;Conjunto Taquaril             ;Bairro               
+318;B ;Custodinha                    ;Bairro               
+319;B ;Delta                         ;Bairro               
+320;B ;Esperança                     ;Bairro               
+321;B ;Vila Esplanada                ;Bairro               
+322;B ;Estrela                       ;Bairro               
+323;B ;Estrela do Oriente            ;Bairro               
+324;B ;Fazendinha                    ;Bairro               
+325;B ;Flamengo                      ;Bairro               
+326;NI;Grota                         ;Não informado        
+327;B ;Grotinha                      ;Bairro               
+328;B ;Guaratã                       ;Bairro               
+329;B ;Itatiáia                      ;Bairro               
+330;B ;Jardim do Vale                ;Bairro               
+331;NI;João Alfredo                  ;Não informado        
+332;B ;Lajedo                        ;Bairro               
+333;NI;Laranjeiras                   ;Não informado        
+334;B ;Leonina                       ;Bairro               
+335;B ;Lorena                        ;Bairro               
+336;B ;Madri                         ;Bairro               
+337;NI;Mala E Cuia                   ;Não informado        
+338;B ;Manacás                       ;Bairro               
+339;NI;Maravilha                     ;Não informado        
+340;B ;Marçola                       ;Bairro               
+341;B ;Maria Tereza                  ;Bairro               
+342;B ;Mariano de Abreu              ;Bairro               
+343;B ;Marieta 1ª Seção              ;Bairro               
+344;B ;Mariquinhas                   ;Bairro               
+345;B ;Marmiteiros                   ;Bairro               
+346;NI;Mirante                       ;Não informado        
+347;NI;Mirtes                        ;Não informado        
+348;B ;Morro dos Macacos             ;Bairro               
+349;B ;Nossa Senhora da Conceição    ;Bairro               
+350;B ;Nossa Senhora de Fátima       ;Bairro               
+351;B ;Nossa Senhora do Rosário      ;Bairro               
+352;B ;Conjunto Novo Dom Bosco       ;Bairro               
+353;NI;Novo Ouro Preto               ;Não informado        
+354;B ;Novo Santa Cecília            ;Bairro               
+355;B ;Novo Tupi                     ;Bairro               
+356;B ;Oeste                         ;Bairro               
+357;B ;Pantanal                      ;Bairro               
+358;B ;Parque São Pedro              ;Bairro               
+359;B ;Penha                         ;Bairro               
+360;B ;São Francisco das Chagas      ;Bairro               
+361;NI;Pindura Saia                  ;Não informado        
+362;B ;Vila Piratininga Venda Nova   ;Bairro               
+363;B ;Pirineus                      ;Bairro               
+364;B ;Santa Isabel                  ;Bairro               
+365;B ;Santa Rita de Cássia          ;Bairro               
+366;B ;Santa Sofia                   ;Bairro               
+367;B ;São Benedito                  ;Bairro               
+368;B ;São Damião                    ;Bairro               
+369;B ;São Gonçalo                   ;Bairro               
+370;B ;São João                      ;Bairro               
+371;B ;Satélite                      ;Bairro               
+372;B ;Senhor dos Passos             ;Bairro               
+373;B ;Sport Club                    ;Bairro               
+374;B ;Tiradentes                    ;Bairro               
+375;B ;Três Marias                   ;Bairro               
+376;NI;Unidas                        ;Não informado        
+377;B ;Universo                      ;Bairro               
+378;B ;Urca                          ;Bairro               
+379;B ;Várzea da Palma               ;Bairro               
+380;B ;Ventosa                       ;Bairro               
+381;V ;Vila Aeroporto                ;Vila                 
+382;V ;Vila Aeroporto Jaraguá        ;Vila                 
+383;B ;Vila Jardim Alvorada          ;Bairro               
+384;V ;Vila Antena Montanhês         ;Vila                 
+385;V ;Vila Átila de Paiva           ;Vila                 
+386;V ;Vila Bandeirantes             ;Vila                 
+387;V ;Vila Boa Vista                ;Vila                 
+388;B ;Vila Calafate                 ;Bairro               
+389;V ;Vila Califórnia               ;Vila                 
+390;V ;Vila Copacabana               ;Vila                 
+391;V ;Vila Copasa                   ;Vila                 
+392;V ;Vila Coqueiral                ;Vila                 
+393;NI;Vila da Ária                  ;Não informado        
+394;V ;Vila da Paz                   ;Vila                 
+395;V ;Vila das Oliveiras            ;Vila                 
+396;V ;Vila de Sá                    ;Vila                 
+397;NI;Vila do Pombal                ;Não informado        
+398;V ;Vila dos Anjos                ;Vila                 
+399;NI;Vila Engenho Nogueira         ;Não informado        
+400;NI;Vila Fumec                    ;Não informado        
+401;NI;Vila Havaí                    ;Não informado        
+402;B ;Vila Independência            ;Bairro               
+403;V ;Vila Inestan                  ;Vila                 
+404;NI;Vila Ipiranga                 ;Não informado        
+405;V ;Vila Jardim Leblon            ;Vila                 
+406;V ;Vila Jardim Montanhês         ;Vila                 
+407;V ;Vila Jardim São José          ;Vila                 
+408;V ;Vila Maloca                   ;Vila                 
+409;V ;Vila Mantiqueira              ;Vila                 
+410;V ;Vila Minaslândia              ;Vila                 
+411;V ;Vila Nossa Senhora do Rosário ;Vila                 
+412;NI;Vila Nova                     ;Não informado        
+413;B ;Vila Nova Cachoeirinha        ;Bairro               
+413;NI;Vila Nova Cachoeirinha        ;Não informado        
+413;V ;Vila Nova Cachoeirinha        ;Vila                 
+414;V ;Vila Nova dos Milionários     ;Vila                 
+415;NI;Vila Nova Gameleira 1ª Seção  ;Não informado        
+416;B ;Vila Nova Gameleira 2ª Seção  ;Bairro               
+417;B ;Vila Nova Gameleira 3ª Seção  ;Bairro               
+418;B ;Vila Nova Paraíso             ;Bairro               
+419;V ;Vila Novo São Lucas           ;Vila                 
+420;V ;Vila Olhos D'água             ;Vila                 
+421;V ;Vila Paquetá                  ;Vila                 
+422;V ;Vila Paraíso                  ;Vila                 
+423;V ;Vila Petrópolis               ;Vila                 
+424;V ;Vila Pilar                    ;Vila                 
+425;V ;Vila Piratininga              ;Vila                 
+426;V ;Vila Primeiro de Maio         ;Vila                 
+427;NI;Vila PUC                      ;Não informado        
+428;B ;Vila Real 1ª Seção            ;Bairro               
+429;B ;Vila Real 2ª Seção            ;Bairro               
+430;V ;Vila Rica                     ;Vila                 
+431;V ;Vila Santa Rosa               ;Vila                 
+432;V ;Vila Santo Antônio            ;Vila                 
+433;V ;Vila Santo Antônio Barroquinha;Vila                 
+434;NI;Vila São Francisco            ;Não informado        
+435;B ;Vila São Gabriel Jacuí        ;Bairro               
+436;V ;Vila São Geraldo              ;Vila                 
+437;V ;Vila São Paulo                ;Vila                 
+438;V ;Vila São Rafael               ;Vila                 
+439;V ;Vila Satélite                 ;Vila                 
+440;B ;Vila Suzana 1ª Seção          ;Bairro               
+441;NI;Vila Suzana 2ª Seção          ;Não informado        
+442;V ;Vila Tirol                    ;Vila                 
+443;V ;Vila Trinta E Um de Março     ;Vila                 
+444;V ;Vila União                    ;Vila                 
+445;B ;São Sebastião                 ;Bairro               
+446;V ;Vila Vista Alegre             ;Vila                 
+447;V ;Vitória                       ;Vila                 
+448;V ;Zilah Spósito                 ;Vila                 
+449;B ;Acaba Mundo                   ;Bairro               
+450;B ;Novo Glória                   ;Bairro               
+451;B ;CDI Jatobá                    ;Bairro               
+452;B ;Vila São Dimas                ;Bairro               
+453;B ;Cidade Jardim Taquaril        ;Bairro               
+454;B ;Serra do Curral               ;Bairro               
+455;B ;Conjunto Capitão Eduardo      ;Bairro               
+456;B ;Belém 1ª Seção                ;Bairro               
+457;B ;Andiroba                      ;Bairro               
+458;NI;Boa Esperança                 ;Não informado        
+459;B ;Vila da Luz                   ;Bairro               
+460;B ;Vila São Gabriel              ;Bairro               
+461;B ;Vila Canto do Sabiá           ;Bairro               
+462;NI;Alto das Antenas              ;Não informado        
+463;B ;Ambrosina                     ;Bairro               
+464;B ;Vila Betânia                  ;Bairro               
+465;B ;Vila da Amizade               ;Bairro               
+466;B ;Vila Mangueiras               ;Bairro               
+467;B ;Lagoa da Pampulha             ;Bairro               
+468;NI;Marieta 2ª Seção              ;Não informado        
+469;B ;Vila Santa Mônica             ;Bairro               
+470;B ;Antônio Ribeiro de Abreu      ;Bairro               

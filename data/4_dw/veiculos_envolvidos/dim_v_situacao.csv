@@ -1,0 +1,5 @@
+situacao_pk;situacao_desc
+0;Não informado
+1;Em movimento 
+2;Parado       
+3;Estacionado  

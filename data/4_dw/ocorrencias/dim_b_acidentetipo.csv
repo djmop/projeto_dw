@@ -1,0 +1,13 @@
+acidente_tipo_pk;acidente_tipo_desc
+H01002;Abalroamento com vítima                           
+H02001;Capotamento/tombamento sem vítima                 
+H02002;Capotamento/tombamento com vítima                 
+H03002;Queda de veículo com vítima                       
+H04000;Queda de pessoa de veículo                        
+H05002;Queda e/ou vazamento de carga de veículo c/ vítima
+H06001;Atropelamento de pessoa com vítima fatal          
+H06002;Atropelamento de pessoa sem vítima fatal          
+H07002;Atropelamento de animal com vítima                
+H08002;Choque mecânico com vítima                        
+H09002;Colisao de veículos com vítima                    
+H99002;Outros com vítima                                 

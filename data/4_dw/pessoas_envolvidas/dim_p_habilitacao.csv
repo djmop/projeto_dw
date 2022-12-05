@@ -1,0 +1,14 @@
+habilitacao_pk;habilitacao_desc
+A ;Veículo motoriz. de 2 ou 3 rodas, c/ ou s/ carro lateral   
+AB;Habilitado nas categorias a  e b                           
+AC;Habilitado nas categorias a e c                            
+AD;Habilitado nas categorias a e d                            
+AE;Habilitado nas categorias a e e                            
+AP;Aprendizagem                                               
+B ;Veículos motor. com ate 8 passageiros, peso máximo 3500 kg 
+C ;Veíc. motor. p/ transp. de carga, c/ peso máx. aut. 3500 kg
+D ;Veíc. motor. p/ transp. de passag, c/ mais de 8 passageiros
+E ;Conj. veículos acoplados,que não se inclue nas categ. b,c,d
+IN;Inabilitado                                                
+NA;Não se aplica                                              
+NI;Não informado                                              

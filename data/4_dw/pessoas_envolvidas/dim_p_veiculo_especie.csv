@@ -1,0 +1,28 @@
+veiculo_especie;veiculo_especie_fk
+Automóvel             ;1
+Bicicleta             ;2
+Bonde                 ;3
+Caminhonete           ;4
+Caminhão              ;5
+Caminhão-trator       ;6
+Camioneta             ;7
+Carro de mão          ;8
+Carroça               ;9
+Charrete              ;10
+Ciclomotor            ;11
+Especial              ;12
+Kombi                 ;13
+Microônibus           ;14
+Misto                 ;15
+Motocicleta           ;16
+Motoneta              ;17
+Não informado         ;0
+Patinete              ;19
+Reboque e semi-reboque;20
+Trator de esteiras    ;21
+Trator de rodas       ;22
+Trator misto          ;23
+Tração                ;24
+Trem                  ;25
+Triciclo              ;26
+Ônibus                ;27
